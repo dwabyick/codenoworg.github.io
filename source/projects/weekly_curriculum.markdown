@@ -7,6 +7,8 @@
 
 ### Week Two
 
+* [Encryptor]({% page_url projects/encryptor %}) - Create a program to encrypt and decrypt strings of text.
+
 
 ### Week Three
 * [TwitterBot]({% page_url projects/twitter_bot %}) - Write a TwitterBot that will allow you to tweet from the command prompt! Learn how to make the bot send private messages and also spam your followers!
