@@ -1,0 +1,1350 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Encryptor - CodeNow Curriculum</title>
+  <meta name="author" content="CodeNowOrg">
+
+  
+  <meta name="description" content="Encryptor In this project, students will begin by building a procedural version of an encryption engine and then advance to modularizing their code &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://CodeNowOrg.github.io/projects/encryptor.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="CodeNow Curriculum" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">CodeNow Curriculum</a></h1>
+  
+    <h2>A guide to teaching a CodeNow class.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:CodeNowOrg.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+
+<ul class="main-navigation">
+  <li><a href="/">Curriculum Index</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+  <article role="article">
+    
+    <header>
+      
+      <h1 class="entry-title">Encryptor</h1>
+      
+    </header>
+    
+    <p>In this project, students will begin by building a procedural version of an encryption engine and then advance to modularizing their code with the introduction of methods.</p>
+
+<p>Learning Goals:</p>
+
+<ul>
+<li>Practice the fundamentals of Ruby including setting variables, getting user input, printing messages</li>
+<li>Exposure to more advance Ruby fundamentals: hashes and arrays</li>
+<li>Introduction to methods</li>
+<li>Introduction to iteration (.each)</li>
+</ul>
+
+
+<div class="note">
+<p>The design decisions in the following code are intentional to help absolute beginners quickly learn the basics without overwhelming them with intermediate concepts.</p>
+</div>
+
+
+
+
+<div class="note">
+<p>This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please <a href="https://github.com/CodeNowOrg/codenoworg.github.io">submit them to the project on Github</a>.</p>
+</div>
+
+
+<h2>Iteration 0: Up &amp; running</h2>
+
+<p>Have the students create a new file called <code>encryptor.rb</code> in a codenow directory.</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>touch encryptor.rb</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>To open the file inside SublimeText, we can simply type the filename into the command prompt. If it has not already been set as the default text editor for ruby files, make sure you set it.</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>encryptor.rb</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<h2>Iteration 1: Creating the base encryptor</h2>
+
+<h3>Step 1 &ndash; Understanding the task</h3>
+
+<p>Tell the students they will be building an encryption engine where they will be able to pass a string of plain text into their program and the output will be an encrypted string.  After successfully encrypting, students will be able to decrypt the masked word and reveal its original value.</p>
+
+<p>As always, we will be starting with the simplest thing that could work and then begin to refactor.  Keep in mind that a major goal of this exercise is to show the need / usefulness of methods.</p>
+
+<h3>Step 2 &ndash; Creating a plan with pseudocode</h3>
+
+<p>We&rsquo;ll be starting with just the encryption part first.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create an encryption algorithm (steps to mask a word)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#ask the user for a word</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#break the word up into a collection of its letters and save it to an array</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#create a new array called secret_word as a placeholder to store each encrypted letter</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#iterate thru each letter in word</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#lookup the letters encrypted value</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#store the encrypted value in secret_word array</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#join the secret_word array into one word and print to screen</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Explain that the word algorithm is nothing to be intimidated by &ndash; it&rsquo;s just a list of steps a program takes to achieve a task.  Writing a how-to for making PB&amp;J is an algorithm.</p>
+
+<h3>Step 3 &ndash; Introduction to hashes</h3>
+
+<p>Speak to the fact that we will need some way to map one value to another value in order for us to create an encryption algorithm.  Start by showing how we could use an array of arrays.</p>
+
+<p>Then speak to the fact that although it is feasible, it is not ideal for keeping track of the values.
+Below is an example that could be used</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">phone_contacts</span> <span class="o">=</span> <span class="o">[[</span><span class="s2">&quot;tim&quot;</span><span class="p">,</span> <span class="s2">&quot;443-797-3443&quot;</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&quot;kyle&quot;</span><span class="p">,</span> <span class="s2">&quot;819-867-8888&quot;</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s2">&quot;carl&quot;</span><span class="p">,</span> <span class="s2">&quot;456-786-9898&quot;</span><span class="o">]]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you needed to call kyle, you would have to know that he was the second value in the array and that phone numbers are the second value in the nested array.  To retrieve you would have to do something like:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">phone_contacts</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="c1">#=&gt; pretty unintuitive</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>There is a better way! Show them how hashes will make their lives better. Points to cover</p>
+
+<ol>
+<li>explain key / value store</li>
+<li>get/set values from a hash</li>
+<li>stick with only showing strings as keys</li>
+<li>show that it&rsquo;s possible to store an array or another hash as a value</li>
+</ol>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">phone_contacts</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;tim&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;443-797-3663&quot;</span><span class="p">,</span> <span class="s2">&quot;kyle&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;819-867-9786&quot;</span><span class="p">,</span> <span class="s2">&quot;carl&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;687-978-5768&quot;</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">phone_contacts</span><span class="o">[</span><span class="s2">&quot;kyle&quot;</span><span class="o">]</span> <span class="c1">#=&gt; &quot;819-867-9786&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 4 &ndash; Creating a basic encryption</h3>
+
+<p>For our encryption algorithm, we will using a ROT design. Where we simply rotate each letter in the alphabet by a set number of times.</p>
+
+<p>ROT-2</p>
+
+<ul>
+<li>A &ndash; C (A is now C)</li>
+<li>B &ndash; D (B is now D)</li>
+<li>C &ndash; E (C is now E)</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;f&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;j&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;l&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;k&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;q&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;p&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;q&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
+</span><span class='line'><span class="s2">&quot;u&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;b&quot;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 5 &ndash; Asking for input</h3>
+
+<p>The students should already know how to do this.  Remind them that they can open their rps.rb and hilo.rb files to see how they did it in the past if they cannot remember.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="n">plain_word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 6 &ndash; Writing the encrypting logic</h3>
+
+<p>Show students how they can encrypt a single letter using the encryption hash.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">encryption</span><span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="s2">&quot;c&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But, a word is made up of many letters.  We need a way to break a word into its individual letters so that we can encrypt each one.  Show the students split method in irb.</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>"dog".split("")</span><span class='line output'>#=> ["d", "o", "g"]</span><span class='line output'>"d-o-g".split("-")</span><span class='line output'>#=> ["d", "o", "g"]</span><span class='line output'>"d$o$g".split("$")</span><span class='line output'>#=> ["d", "o", "g"]</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>Now, that students have an array of letters, they need an introduction to iteration.  Be brief here.  Just enough to get them by.  We don&rsquo;t want to overwhelm them.  A good example is show a countdown.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">number</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="nb">sleep</span> <span class="mi">1</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'> <span class="c1"># more verbose example</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">numbers</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="o">]</span>
+</span><span class='line'><span class="n">numbers</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;at the top of the loop&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;currently on number: </span><span class="si">#{</span><span class="n">number</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">number</span><span class="si">}</span><span class="s2">&quot;</span> <span class="n">multiplied</span> <span class="n">by</span> <span class="mi">2</span> <span class="n">is</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">number</span> <span class="o">*</span> <span class="mi">2</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;- - - -&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;&quot;</span>
+</span><span class='line'>  <span class="nb">sleep</span> <span class="mi">1</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, apply same concept to iterating thru the letters array.</p>
+
+<h3>Step 7 &ndash; Saving the encrypted value and outputting it</h3>
+
+<p>The students need a way to store their newly encrypted values.  The ultimate goal is to have each encrypted value added to a new array which will be joined as a string to output.</p>
+
+<p>Show them a very similar example</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">names</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;tim&quot;</span><span class="p">,</span> <span class="s2">&quot;kim&quot;</span><span class="p">,</span> <span class="s2">&quot;beverly&quot;</span><span class="o">]</span>
+</span><span class='line'><span class="n">names_capitalized</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">names</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">names_capitalized</span> <span class="o">&lt;&lt;</span> <span class="nb">name</span><span class="o">.</span><span class="n">capitalized</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="n">names_capitalized</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let the students work on their own to create an array of encrypted letters.</p>
+
+<p>After 10 minutes is given to solve, show them the joins method and note how it is opposite of split.</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>["d", "o", "g"].join("")</span><span class='line output'>#=> "dog"</span><span class='line output'>["d", "o", "g"].join("-")</span><span class='line output'>#=> "d-o-g"</span><span class='line output'>["d", "o", "g"].join("$")</span><span class='line output'>#=> "d$o$g"</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>Student&rsquo;s file should look similar to below&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create an encryption algorithm (steps to mask a word)</span>
+</span><span class='line'>  <span class="n">encryption</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;f&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;j&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;l&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;k&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;q&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;p&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;q&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;u&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;b&quot;</span><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#ask the user for a word</span>
+</span><span class='line'>  <span class="n">plain_word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#break the word up into a collection of its letters and save it to an array</span>
+</span><span class='line'>  <span class="n">letters</span> <span class="o">=</span> <span class="n">plain_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#create a new array called secret_word as a placeholder to store each encrypted letter</span>
+</span><span class='line'>  <span class="n">secret_word</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#iterate thru each letter in word</span>
+</span><span class='line'>  <span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>    <span class="c1">#lookup the letters encrypted value</span>
+</span><span class='line'>    <span class="n">encrypted_letter</span> <span class="o">=</span> <span class="n">encryption</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#store the encrypted value in secret_word array</span>
+</span><span class='line'>    <span class="n">secret_word</span> <span class="o">&lt;&lt;</span> <span class="n">encrypted_letter</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#join the secret_word array into one word and print to screen</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">secret_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Iteration 2: Creating the base decryptor</h2>
+
+<h3>Step 1 &ndash; Decrypting</h3>
+
+<p>Now that we have successfully encrypted, we need to solve the other half of the problem &ndash; decryption.  Let the student&rsquo;s know that a lot of the logic to solve decryption can be copied from what they have already done with encrypting.</p>
+
+<p>The biggest hurdle is flip flopping the keys and values of the encryption hash.  Have the students realize that if you do any ROT other than 13, decryption will fail because the new letter value doesn&rsquo;t map back to its original value.  Luckily, much time doesn&rsquo;t need to be spent solving it as we will be using ruby&rsquo;s invert method.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="s2">&quot;a&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span> <span class="o">=&gt;</span> <span class="s2">&quot;e&quot;</span><span class="p">}</span><span class="o">.</span><span class="n">invert</span>
+</span><span class='line'> <span class="c1">#=&gt; {&quot;c&quot; =&gt; &quot;a&quot;, &quot;d&quot; =&gt; &quot;b&quot;, &quot;e&quot; =&gt; &quot;c&quot;}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Create the following pseudocode with the students and then set them free to solve the decryption</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create a decryption hash</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#break the secret_word up into its letters</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#create a new array called decoded_word as a placeholder to store each decrypted letter</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#iterate thru each letter</span>
+</span><span class='line'>    <span class="c1">#find the letter&#39;s decrypted value</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#store the decrypted value in decoded_word array</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#join the decoded_word array into a string and store its value</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#show final output</span>
+</span><span class='line'>    <span class="c1">#compare decoded_word to original word</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#print string that says the word and its encrypted value</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Give the students a full pomodoro to solve</p>
+
+<h3>Step 2 &ndash; Complete basic implementation</h3>
+
+<p>The final program file should look like the following&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create an encryption algorithm (steps to mask a word)</span>
+</span><span class='line'>  <span class="n">encryption</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;f&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;j&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;l&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;k&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;q&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;p&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;q&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
+</span><span class='line'>                <span class="s2">&quot;u&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;b&quot;</span><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#ask the user for a word</span>
+</span><span class='line'>  <span class="n">plain_word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#break the word up into a collection of its letters and save it to an array</span>
+</span><span class='line'>  <span class="n">letters</span> <span class="o">=</span> <span class="n">plain_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#create a new array called secret_word as a placeholder to store each encrypted letter</span>
+</span><span class='line'>  <span class="n">secret_word</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#iterate thru each letter in word</span>
+</span><span class='line'>  <span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>    <span class="c1">#lookup the letters encrypted value</span>
+</span><span class='line'>    <span class="n">encrypted_letter</span> <span class="o">=</span> <span class="n">encryption</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#store the encrypted value in secret_word array</span>
+</span><span class='line'>    <span class="n">secret_word</span> <span class="o">&lt;&lt;</span> <span class="n">encrypted_letter</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#join the secret_word array into one word and print to screen</span>
+</span><span class='line'>  <span class="c1">#no need to print word here for final program output</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#create a decryption hash</span>
+</span><span class='line'>  <span class="n">decryption</span> <span class="o">=</span> <span class="n">encryption</span><span class="o">.</span><span class="n">invert</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#break the secret_word up into its letters</span>
+</span><span class='line'>  <span class="n">letters</span> <span class="o">=</span> <span class="n">secret_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#create a new array called decoded_word as a placeholder to store each decrypted letter</span>
+</span><span class='line'>  <span class="n">decoded_word</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#iterate thru each letter</span>
+</span><span class='line'>  <span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>    <span class="c1">#find the letter&#39;s decrypted value</span>
+</span><span class='line'>    <span class="n">decrypted_letter</span> <span class="o">=</span> <span class="n">decryption</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#store the decrypted value in decoded_word array</span>
+</span><span class='line'>    <span class="n">decoded_word</span> <span class="o">&lt;&lt;</span> <span class="n">decrypted_letter</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#join the decoded_word array into a string and store its value</span>
+</span><span class='line'>  <span class="n">decoded_word</span> <span class="o">=</span> <span class="n">decoded_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#show final output</span>
+</span><span class='line'>    <span class="c1">#print string that says the word and its encrypted value</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;The encrypted version of </span><span class="si">#{</span><span class="n">plain_word</span><span class="si">}</span><span class="s2"> is </span><span class="si">#{</span><span class="n">secret_word</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#compare decoded_word to original word</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">decoded_word</span> <span class="o">==</span> <span class="n">plain_word</span>
+</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;Decryption was a success&quot;</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;Decryption was a failure&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Iteration 3: Making the encryption dynamic</h2>
+
+<h3>Step 1: Understanding the problem</h3>
+
+<p>Currently, our encryption algorithm is fixed at a ROT-2 sequence.  To improve the security of our encryptor, we should be able to easily change the ROT sequence to whatever we please.  We need to be able to build to encryption hash dynamically.</p>
+
+<p>Outline the pseudocode</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create an array of the alphabet called characters</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#create another array which rotates the alphabet array some value (under 23) called rotated_characters</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 2: Introduction to rotate method</h3>
+
+<p>Ruby has method called rotate which can be called on an array.  It takes a number as an argument, which tells the array how many positions to rotate each element. Hop in irb to demo.</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>["a", "-", "-"].rotate(1)</span><span class='line output'>#=> ["-", "-", "a"]</span><span class='line output'>["a", "-", "-"].rotate(2)</span><span class='line output'>#=> ["-", "a", "-"]</span><span class='line output'>["a", "-", "-"].rotate(3)</span><span class='line output'>#=> ["a", "-", "-"]</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<h3>Step 3: Introduction to Ruby ranges</h3>
+
+<p>We are showing ranges simply as a convenient way to generate an array of the alphabet.  Don&rsquo;t spend too much time explaining their nuances.  Just enough to get by.</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>("a".."z")</span><span class='line output'>#=> "a".."z"</span><span class='line output'>("a".."z").class</span><span class='line output'>#=> Range</span><span class='line output'>("a".."z").member?("a")</span><span class='line output'>#=> true</span><span class='line output'>("a".."z").member?("c")</span><span class='line output'>#=> true</span><span class='line output'>("a".."z").member?(5)</span><span class='line output'>#=> false</span><span class='line output'>("a".."z").to_a</span><span class='line output'>#=> ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n",</span><span class='line output'>"o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<h3>Step 4: Zipping it all up</h3>
+
+<p>The zip method on a array is a pretty complex method. You may have to do some hand waving here.  The goal is not for them to fully understand the zip method, but rather have a dynamically created encryption hash.</p>
+
+<p>Explain the zip method does exactly like its name implies.  It takes two values and merges them together just like a zipper on a jacket.</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>names = ["tim", "kim", "jim"]</span><span class='line output'>area_codes = ["443", "813", "975"]</span><span class='line output'></span><span class='line output'>zipped_values = names.zip(area_codes)</span><span class='line output'>#=> [["tim", "443"], ["kim", "813"], ["jim", "975"]]</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>Hash has a class method <code>[]</code> that takes an array of arrays</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>zipped_values = [["tim", "443"], ["kim", "813"], ["jim", "975"]]</span><span class='line output'></span><span class='line output'>Hash[zipped_values]</span><span class='line output'>#=> {"tim"=>"443", "kim"=>"813", "jim"=>"975"}</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>The students should now be able to complete the pseudocode.  Give them a full pomodoro.  Final code should look similar&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create an array of the alphabet called characters</span>
+</span><span class='line'>  <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#create another array which rotates the alphabet array some value (under 23) called rotated_characters</span>
+</span><span class='line'>  <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values</span>
+</span><span class='line'>  <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">encryption</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 5: Updating the base encryptor</h3>
+
+<p>Students will need to pass in the rotation value in the beginning of their program.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#ask the user for the rotation value</span>
+</span><span class='line'>  <span class="n">rotation</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#create an encryption algorithm (steps to mask a word)</span>
+</span><span class='line'>    <span class="c1">#create an array of the alphabet called characters</span>
+</span><span class='line'>    <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#create another array which rotates the alphabet array some value (under 23) called rotated_characters</span>
+</span><span class='line'>    <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values</span>
+</span><span class='line'>    <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">encryption</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#ask the user for a word</span>
+</span><span class='line'>  <span class="n">plain_word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#break the word up into a collection of its letters and save it to an array</span>
+</span><span class='line'>  <span class="n">letters</span> <span class="o">=</span> <span class="n">plain_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#etc... (rest of file omitted)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Iteration 4: Refactor to use methods</h2>
+
+<h3>Step 1: Understanding the problem</h3>
+
+<p>Goal here is to illuminate why using methods to organize our code is a win. Let the students know that
+as it stands now, our code works but is not very flexible.  What would happen if we needed to encrypt an entire a file of words?  Or, if our program grew longer and we needed to doing encryption later in our program &ndash; we would have to repeat our same steps.  Our programs would grow huge and be hard to follow.  We need a better way to organize our code so that we can give names to the logic that we are writing as well be able to reuse it.</p>
+
+<h3>Step 2: Introduction to methods</h3>
+
+<p>Methods are a tough concept to learn.  The biggest blockers we have seen are the passing in of arguments and understanding return values.  As always, the goal here is to teach them enough to get by.
+Talking points for covering methods</p>
+
+<ol>
+<li>breakdown the syntax (def, name, args, body, end)</li>
+<li>show the concept of return values by explicitly using the ruby keyword &lsquo;return&rsquo;</li>
+<li>show how args get passed and are like local variables</li>
+</ol>
+
+
+<p>I find the below example to be helpful, use your own if you would like. The drawback is it uses <code>puts</code> which confuses the issue of using explicit <code>return</code>.</p>
+
+<p>Ask the kids to give you the steps for making pie</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="c1">#here is our pie creating logic</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;how to make apple pie&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;first: mix sugar with the apples&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;second: pour mixture into a crust&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;third: bake at 350 degrees for 40 minutes&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;fourth: let cool, then enjoy&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now if we wanted to make our pie logic dynamic so that we could make any type of fruit pie would use variables.  Our new variables would be fruit, oven_temp, and cook_time</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="c1">#our my dynamic pie logic</span>
+</span><span class='line'><span class="n">fruit</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
+</span><span class='line'><span class="n">oven_temp</span> <span class="o">=</span> <span class="mi">350</span>
+</span><span class='line'><span class="n">cook_time</span> <span class="o">=</span> <span class="mi">40</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;how to make </span><span class="si">#{</span><span class="n">fruit</span><span class="si">}</span><span class="s2"> pie&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;first: mix sugar with the </span><span class="si">#{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">s&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;second: pour mixture into a crust&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;third: bake at </span><span class="si">#{</span><span class="n">oven_temp</span><span class="si">}</span><span class="s2"> degrees for </span><span class="si">#{</span><span class="n">cook_time</span><span class="si">}</span><span class="s2"> minutes&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;fourth: let cool, then enjoy&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, to wrap our pie making into a method</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">make_pie</span><span class="p">(</span><span class="n">fruit</span><span class="p">,</span> <span class="n">oven_temp</span><span class="p">,</span> <span class="n">cook_time</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;how to make </span><span class="si">#{</span><span class="n">fruit</span><span class="si">}</span><span class="s2"> pie&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;first: mix sugar with the </span><span class="si">#{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">s&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;second: pour mixture into a crust&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;third: bake at </span><span class="si">#{</span><span class="n">oven_temp</span><span class="si">}</span><span class="s2"> degrees for </span><span class="si">#{</span><span class="n">cook_time</span><span class="si">}</span><span class="s2"> minutes&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;fourth: let cool, then enjoy&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'> <span class="c1">#now we can call our method whenever we want to make pie</span>
+</span><span class='line'>
+</span><span class='line'> <span class="n">make_pie</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+</span><span class='line'> <span class="n">make_pie</span><span class="p">(</span><span class="s2">&quot;pear&quot;</span><span class="p">,</span> <span class="mi">375</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</span><span class='line'> <span class="n">make_pie</span><span class="p">(</span><span class="s2">&quot;blueberry&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The students will most likely need to see more than one example.  Here is an example to show explicit returns.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="c1">#wrapping the split logic up</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">make_into_letters</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">make_into_letters</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span> <span class="c1">#=&gt; [&quot;d&quot;, &quot;o&quot;, &quot;g&quot;]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 3: Wrap the encryptor logic up into methods</h3>
+
+<p>Our current logic for the encryption hash</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create an encryption algorithm (steps to mask a word)</span>
+</span><span class='line'>    <span class="c1">#create an array of the alphabet called characters</span>
+</span><span class='line'>    <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#create another array which rotates the alphabet array some value (under 23) called rotated_characters</span>
+</span><span class='line'>    <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values</span>
+</span><span class='line'>    <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">encryption</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As a method&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">encryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'>  <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">return</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Copy and past into irb to demo</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>encryption(3)</span><span class='line output'>#=> {"a"=>"d", "b"=>"e", "c"=>"f", "d"=>"g", "e"=>"h", "f"=>"i",</span><span class='line output'>"g"=>"j", "h"=>"k", "i"=>"l", "j"=>"m", "k"=>"n", "l"=>"o", "m"=>"p",</span><span class='line output'>"n"=>"q", "o"=>"r", "p"=>"s", "q"=>"t", "r"=>"u", "s"=>"v", "t"=>"w",</span><span class='line output'>"u"=>"x", "v"=>"y", "w"=>"z", "x"=>"a", "y"=>"b", "z"=>"c"}</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>Work thru the encrypt and decrypt logic with the kids. Outline the goals with pseudocode</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#wrap the encryption hash in a method called encryption that takes a rotation as an argument</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#wrap the decryption hash in a method called decryption that takes a rotation as an argument</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#wrap the encrypting logic in method called encrypt that takes word as an argument</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#wrap the decryption logic in method called decrypt that takes a secret_word as an argument</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#wrap the comparison logic for a decryption being successful in a method called decryption_successful? that takes the original word and decrypted word as arguments</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Allow the kids a full pomodoro to work thru these steps.  Their code should look similar to the following&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#wrap the encryption hash in a method called encryption that takes a rotation as an argument</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">encryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'>    <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">return</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#wrap the decryption hash in a method called decryption that takes a rotation as an argument</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">decryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'>    <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">rotated_characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">return</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#wrap the encrypting logic in method called encrypt that takes word as an argument</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">letters</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">secret_word</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">encrypted_letter</span> <span class="o">=</span> <span class="n">encryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
+</span><span class='line'>      <span class="n">secret_word</span> <span class="o">&lt;&lt;</span> <span class="n">encrypted_letter</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="n">secret_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#wrap the decryption logic in method called decrypt that takes a secret_word as an argument</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">secret_word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">letters</span> <span class="o">=</span> <span class="n">secret_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">decoded_word</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">decrypted_letter</span> <span class="o">=</span> <span class="n">decryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
+</span><span class='line'>      <span class="n">decoded_word</span> <span class="o">&lt;&lt;</span> <span class="n">decrypted_letter</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="n">decoded_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#wrap the comparison logic for a decryption being successful in a method called decryption_successful? that takes the original word and decrypted word as arguments</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">decryption_successful?</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">decoded_word</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="n">decoded_word</span>
+</span><span class='line'>      <span class="k">return</span> <span class="kp">true</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="k">return</span> <span class="kp">false</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now to run the program now&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;what word would you like to encrypt?&quot;</span>
+</span><span class='line'><span class="n">word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;what is your desired rotation?&quot;</span>
+</span><span class='line'><span class="n">rotation</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">encrypted_word</span> <span class="o">=</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;The encrypted version of </span><span class="si">#{</span><span class="n">word</span><span class="si">}</span><span class="s2"> is </span><span class="si">#{</span><span class="n">encrypted_word</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;running it thru the decryptor now...&quot;</span>
+</span><span class='line'><span class="nb">sleep</span> <span class="mi">2</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">decrypted_word</span> <span class="o">=</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">encrypted_word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Your original word was </span><span class="si">#{</span><span class="n">word</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">if</span> <span class="n">decryption_successful?</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">decrypted_word</span><span class="p">)</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Success: The decrypted version is </span><span class="si">#{</span><span class="n">decrypted_word</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Failure: The decrypted version is </span><span class="si">#{</span><span class="n">decrypted_word</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Iteration 5: Extra Credit &ndash; The Decryption Engine</h2>
+
+<h3>Step 1: Understanding the task</h3>
+
+<p>Have the students partner with someone else.  Each partner should alternate who generates the secret word.  The partner generating the secret word should not tell the other student the rotation that he/she used.  They should only tell the other partner what the encrypted version of the word is.</p>
+
+<p>The other partner should then run the encrypted word thru their decryption engine and then be able to tell the other partner what the decrypted word is and the rotation that the other student used.</p>
+
+<p>Have the students first solve it procedurally then refactor to use a method</p>
+
+<h3>Step 2: Outlining the pseudocode</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#save the value of the sting given to you as secret_word</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#create a range of numbers from 0 to 22 and store as an array</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#iterate thru each number</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#decrypt the word and save it as decrypted_word</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#print the current rotation and the decrypted_word</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Their code should look similar to&hellip;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#save the value of the sting given to you as secret_word</span>
+</span><span class='line'>  <span class="n">secret_word</span> <span class="o">=</span> <span class="s2">&quot;sgpvdc&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#create a range of numbers from 0 to 22 and store as an array</span>
+</span><span class='line'>  <span class="n">rotations</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">22</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1">#iterate thru each number</span>
+</span><span class='line'>  <span class="n">rotations</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">rotation</span><span class="o">|</span>
+</span><span class='line'>    <span class="c1">#decrypt the word and save it as decrypted_word</span>
+</span><span class='line'>    <span class="n">decrypted_word</span> <span class="o">=</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">secret_word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#print the current rotation and the decrypted_word</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;rotation: </span><span class="si">#{</span><span class="n">rotation</span><span class="si">}</span><span class="s2"> | decrypted word: </span><span class="si">#{</span><span class="n">decrypted_word</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 3: Refactor to use the decryption_engine method</h3>
+
+<p>Now, have them wrap up this decryptin logic into a new method</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">decryption_engine</span><span class="p">(</span><span class="n">secret_word</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">rotations</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">22</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'>  <span class="n">rotations</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">rotation</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">decrypted_word</span> <span class="o">=</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">secret_word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;rotation: </span><span class="si">#{</span><span class="n">rotation</span><span class="si">}</span><span class="s2"> | decrypted word: </span><span class="si">#{</span><span class="n">decrypted_word</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Final game output</p>
+
+<p>Student 1 (goes into irb and runs their encrypt method)</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>encrypt("dragon" 15)</span><span class='line output'>#=> "sgpvdc"</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>Student 2 (runs encrypted method thru their decryption engine)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">decryption_engine</span><span class="p">(</span><span class="s2">&quot;sgpvdc&quot;</span><span class="p">)</span>
+</span><span class='line'> <span class="c1">#=&gt;rotation: 0 | decrypted word: sgpvdc</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">rfoucb</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">qentba</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">pdmsaz</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">oclrzy</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">5</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">nbkqyx</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">6</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">majpxw</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">7</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">lziowv</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">8</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">kyhnvu</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">9</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">jxgmut</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">10</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">iwflts</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">11</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">hveksr</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">12</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">gudjrq</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">13</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">ftciqp</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">14</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">esbhpo</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">15</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">dragon</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">16</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">cqzfnm</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">17</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">bpyeml</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">18</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">aoxdlk</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">19</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">znwckj</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">20</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">ymvbji</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">21</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">xluaih</span>
+</span><span class='line'>    <span class="ss">rotation</span><span class="p">:</span> <span class="mi">22</span> <span class="o">|</span> <span class="n">decrypted</span> <span class="ss">word</span><span class="p">:</span> <span class="n">wktzhg</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The student can now look the only word that is readable.</p>
+
+    
+      <footer>
+        
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://CodeNowOrg.github.io/projects/encryptor.html" data-via="" data-counturl="http://CodeNowOrg.github.io/projects/encryptor.html" >Tweet</a>
+  
+  
+  
+</div>
+
+        
+      </footer>
+    
+  </article>
+
+
+</div>
+
+
+  <span class="toggle-sidebar"></span>
+
+<aside class="sidebar">
+  <div> </div>
+</aside>
+
+<script src="/javascripts/sidebar.js" type="text/javascript"> </script>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - CodeNowOrg -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
