@@ -85,7 +85,7 @@ Ask the students how to run this program. Ask them what happens if you run the p
 
 ### Step 2 - Setting computer moves
 
-Review concept of setting variables. Explain that the right hand side is evaluated before it is saved into the variable. You might use the following example to prove that evaluation happens before variable assignment:
+Review the concept of setting variables. Explain that the right hand side is evaluated before it is saved into the variable. You might use the following example to prove that evaluation happens before variable assignment:
 
 {% irb %}
 $ y = 10
