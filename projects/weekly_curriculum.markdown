@@ -7,6 +7,7 @@
 
 ### Week Two
 
+* [Brain Refresh]({% page_url projects/week_two_brain_refresh %}) - Review of major topics covered from Week 1
 * [Encryptor]({% page_url projects/encryptor %}) - Create a program to encrypt and decrypt strings of text.
 
 
