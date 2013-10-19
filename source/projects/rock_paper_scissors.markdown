@@ -20,7 +20,7 @@ Learning Goals:
 <p>This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please <a href="https://github.com/CodeNowOrg/codenoworg.github.io">submit them to the project on Github</a>.</p>
 </div>
 
-## Iteration 0: Up & Running
+## Iteration 0: Up & running
 
 Have the students create a new file called `rps.rb` in a codenow directory.
 
@@ -168,7 +168,7 @@ Reiterate that because we used gets, the value stored inside guess is a string. 
 
 Have the students run their program to confirm this works and test all 9 cases. In order to do this, they will have to change the computer_move variable.
 
-## Iteration 1: Adding Randomness
+## Iteration 1: Adding randomness
 
 We are going to use the `sample` method on the `Array` class in order to add randomness to the computer_move variable. First, we'll need to cover the concept of an array. The main concepts that you'll want to mention:
 

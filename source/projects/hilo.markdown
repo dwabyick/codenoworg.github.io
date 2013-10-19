@@ -181,7 +181,7 @@ guess = guess.to_i
 
 Have the students run their program to confirm this works and test all three cases. Ask them how we should make the game more fun. The typical response is that the secret number should not be fixed.
 
-## Iteration 1: Adding Randomness
+## Iteration 1: Adding randomness
 
 We are going to use the `rand` method in order to add randomness to the secret_number variable. Have students open up IRB and have them experiment with rand(n). Explain that rand(10) won't generate numbers in the range that we want (rand generates between 0 and n-1, whereas we want to make numbers between 1 and n). Challenge them to think of a solution.
 
