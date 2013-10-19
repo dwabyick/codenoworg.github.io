@@ -4,7 +4,7 @@ title: TwitterBot
 sidebar: true
 ---
 
-In this multi-phase project, you will build a client that interacts with the Twitter messaging service. Your client will both mimic functionality found through the twitter.com web interface as well as perform many new tasks.
+In this multi-phase project, students will build a client that interacts with the Twitter messaging service. The client will both mimic functionality found through the twitter.com web interface as well as perform other more complicated tasks.
 
 Learning Goals:
 
@@ -38,7 +38,7 @@ Click on `new` to create a new system environment variable. Set the variable nam
 
 Click `OK` on the windows and open the command prompt.
 
-Install the `jumpstart_auth` gem by running `gem install jumpstart_auth` from your command prompt:
+Install the `jumpstart_auth` gem by running `gem install jumpstart_auth` from the command prompt:
 
 {% terminal %}
 $ gem install jumpstart_auth
