@@ -8,8 +8,9 @@
 ### Week Two
 
 * [Brain Refresh]({% page_url projects/week_two_brain_refresh %}) - Review of major topics covered from Week 1
-* [Encryptor]({% page_url projects/encryptor %}) - Create a program to encrypt and decrypt strings of text.
+* [Encryptor]({% page_url projects/encryptor %}) - Write a program that enables you to encrypt and decrypt secret messages.
 
 
 ### Week Three
 * [TwitterBot]({% page_url projects/twitter_bot %}) - Write a TwitterBot that will allow you to tweet from the command prompt! Learn how to make the bot send private messages and also spam your followers!
+* [Arduino]({% page_url projects/arduino %}) - Do some hardware hacking with an Arduino, and learn to control LEDs from a Ruby script.
