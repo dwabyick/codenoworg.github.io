@@ -22,7 +22,7 @@ Learning Goals:
 
 ## Iteration 0: Up & running
 
-For Windows machines, we will have to install a valid SSL certificate. Have the students visit the following link: http://bit.ly/twitterbot-ssl. The code in the gist downloads an SSL certificate onto the laptop. Copy the code, go into IRB, right click the window and select `paste`. If everything worked correctly, a `cacert.pem` file will have downloaded into the `C:\RailsInstaller` folder.
+For Windows machines, we will have to install a valid SSL certificate. Have the students visit the following link: [http://bit.ly/twitterbot-ssl](http://bit.ly/twitterbot-ssl). The code in the gist downloads an SSL certificate onto the laptop. Copy the code, go into IRB, right click the window and select `paste`. If everything worked correctly, a `cacert.pem` file will have downloaded into the `C:\RailsInstaller` folder.
 
 Next, we'll have to set up an environment variable to reference the downloaded certificate. Students can edit the system environment variables by hitting the windows key and typing "edit the system environment variables."
 
