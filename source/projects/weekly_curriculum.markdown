@@ -14,3 +14,6 @@
 ### Week Three
 * [TwitterBot]({% page_url projects/twitter_bot %}) - Write a TwitterBot that will allow you to tweet from the command prompt! Learn how to make the bot send private messages and also spam your followers!
 * [Arduino]({% page_url projects/arduino %}) - Do some hardware hacking with an Arduino, and learn to control LEDs from a Ruby script.
+
+### Week Four
+* [Messengr]({% page_url projects/messengr %}) - Master interacting with the web via Ruby by building your own chat room!
