@@ -4,7 +4,7 @@
   <title><![CDATA[CodeNow Curriculum]]></title>
   <link href="http://CodeNowOrg.github.io/atom.xml" rel="self"/>
   <link href="http://CodeNowOrg.github.io/"/>
-  <updated>2013-10-25T19:11:29-04:00</updated>
+  <updated>2014-02-08T14:24:46-05:00</updated>
   <id>http://CodeNowOrg.github.io/</id>
   <author>
     <name><![CDATA[CodeNowOrg]]></name>
@@ -12,14 +12,5 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[test]]></title>
-    <link href="http://CodeNowOrg.github.io/blog/2013/09/28/test/"/>
-    <updated>2013-09-28T19:55:00-04:00</updated>
-    <id>http://CodeNowOrg.github.io/blog/2013/09/28/test</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
   
 </feed>
