@@ -17,3 +17,8 @@
 
 ### Week Four
 * [Messengr]({% page_url projects/messengr %}) - Master interacting with the web via Ruby by building your own chat room!
+
+##Standalone Projects
+
+###Beginner Projects
+* [Calculator]({% page_url projects/calculator %}) - Writing a basic calculator in Ruby
