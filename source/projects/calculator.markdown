@@ -13,6 +13,8 @@ Learning Goals:
 * Practice basic Ruby methods and concepts (gets, puts, string interpolation, variables, etc.)
 * Basic conditionals
 
+{% img center /images/projects/calculator/calculator.png %}
+
 ##Iteration 0 : Setup
 
 Let's create a calculator.rb file.
