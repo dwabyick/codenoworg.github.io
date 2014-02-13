@@ -22,3 +22,6 @@
 
 ###Beginner Projects
 * [Calculator]({% page_url projects/calculator %}) - Writing a basic calculator in Ruby
+
+###Intermediate Projects
+* [Hangman]({% page_url projects/hangman %}) - Writing a hangman game
