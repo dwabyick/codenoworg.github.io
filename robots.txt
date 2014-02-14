@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://CodeNowOrg.github.io/sitemap.xml 
