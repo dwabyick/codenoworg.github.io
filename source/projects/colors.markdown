@@ -263,7 +263,7 @@ begin
 end while 1==1
 ```
 
-Almost there! The last thing we want is to clear the screen between each color. On Windows, we do this with `system("clear")` (on OSX/Linux, we'd use `system("clear")`).
+Almost there! The last thing we want is to clear the screen between each color. On Windows, we do this with `system("cls")` (on OSX/Linux, we'd use `system("clear")`).
 
 ```ruby
 begin
