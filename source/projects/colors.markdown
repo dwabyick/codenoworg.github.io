@@ -45,7 +45,7 @@ Let's now add the following:
 puts "CodeNow".colorize(:blue)
 ```
 
-And now let's run it! It should be evident what this does. colorize added a "colorize" method to strings, which makes them appeared colored in the terminal.
+And now let's run it! It should be evident what this does. colorize added a `colorize` method to strings, which makes them appeared colored in the terminal.
 
 Ask the students if they recognize what `:blue` is. They've never seen it before, so a little explanation is required: they're called symbols, and are a bit like strings- except they're immutable. This means they can't be changed.
 
