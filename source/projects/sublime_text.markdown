@@ -70,7 +70,7 @@ Click on "Settings - User" which should bring you to a blank file. Paste in the 
   "color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
   "draw_white_space": "all",
   "folder_exclude_patterns": [".git"],
-  "font_face": "Monaco",
+  "font_face": "Courier New",
   "font_size": 14.0,
   "ignored_packages":
   [
