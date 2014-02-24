@@ -11,10 +11,10 @@ Projects intended for students who are still beginning with Ruby.
 
 * [Hi-Lo Game]({% page_url projects/hilo %}) - Your first exposure to Ruby, focusing on the most important concepts and syntax elements.
 * [Rock, Paper, Scissors]({% page_url projects/rock_paper_scissors %}) - Try your hand at building a more complex game that builds off of the concepts learned in Hi-Lo.
-* [Brain Refresh]({% page_url projects/week_two_brain_refresh %}) - Review of major topics covered from Week 1
 
 ### Extra projects
 
+* [Brain Refresh]({% page_url projects/week_two_brain_refresh %}) - Review of major topics covered by the beginner projects. 
 * [Calculator]({% page_url projects/calculator %}) - Writing a basic calculator in Ruby
 * [Colors!]({% page_url projects/colors %}) - Fun with colors in the terminal
 
