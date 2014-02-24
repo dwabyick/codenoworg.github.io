@@ -152,21 +152,21 @@
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create an encryption algorithm (steps to mask a word)</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#create an encryption algorithm (steps to mask a word)</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#ask the user for a word</span>
+</span><span class='line'><span class="c1">#ask the user for a word</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#break the word up into a collection of its letters and save it to an array</span>
+</span><span class='line'><span class="c1">#break the word up into a collection of its letters and save it to an array</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#create a new array called secret_word as a placeholder to store each encrypted letter</span>
+</span><span class='line'><span class="c1">#create a new array called secret_word as a placeholder to store each encrypted letter</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#iterate thru each letter in word</span>
+</span><span class='line'><span class="c1">#iterate through each letter in word</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#lookup the letters encrypted value</span>
+</span><span class='line'><span class="c1">#lookup the letters encrypted value</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#store the encrypted value in secret_word array</span>
+</span><span class='line'><span class="c1">#store the encrypted value in secret_word array</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#join the secret_word array into one word and print to screen</span>
+</span><span class='line'><span class="c1">#join the secret_word array into one word and print to screen</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -187,7 +187,7 @@ Below is an example that could be used</p>
 <p>If you needed to call kyle, you would have to know that he was the second value in the array and that phone numbers are the second value in the nested array.  To retrieve you would have to do something like:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">phone_contacts</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="c1">#=&gt; pretty unintuitive</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">phone_contacts</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="c1">#=&gt; pretty unintuitive</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -241,7 +241,7 @@ Below is an example that could be used</p>
 <p>The students should already know how to do this.  Remind them that they can open their rps.rb and hilo.rb files to see how they did it in the past if they cannot remember.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="n">plain_word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">plain_word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -296,7 +296,7 @@ Below is an example that could be used</p>
 </span><span class='line'>  <span class="nb">sleep</span> <span class="mi">1</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'> <span class="c1"># more verbose example</span>
+</span><span class='line'><span class="c1"># more verbose example</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">numbers</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="o">]</span>
 </span><span class='line'><span class="n">numbers</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span>
@@ -310,7 +310,7 @@ Below is an example that could be used</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Now, apply same concept to iterating thru the letters array.</p>
+<p>Now, apply same concept to iterating through the letters array.</p>
 
 <h3>Step 7 &ndash; Saving the encrypted value and outputting it</h3>
 
@@ -387,33 +387,33 @@ Below is an example that could be used</p>
 <span class='line-number'>25</span>
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create an encryption algorithm (steps to mask a word)</span>
-</span><span class='line'>  <span class="n">encryption</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s2">&quot;f&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;j&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;l&quot;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s2">&quot;k&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;q&quot;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s2">&quot;p&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;q&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s2">&quot;u&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;b&quot;</span><span class="p">}</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#create an encryption algorithm (steps to mask a word)</span>
+</span><span class='line'><span class="n">encryption</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+</span><span class='line'>              <span class="s2">&quot;f&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;j&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;l&quot;</span><span class="p">,</span>
+</span><span class='line'>              <span class="s2">&quot;k&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;q&quot;</span><span class="p">,</span>
+</span><span class='line'>              <span class="s2">&quot;p&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;q&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
+</span><span class='line'>              <span class="s2">&quot;u&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;b&quot;</span><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#ask the user for a word</span>
-</span><span class='line'>  <span class="n">plain_word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'><span class="c1">#ask the user for a word</span>
+</span><span class='line'><span class="n">plain_word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#break the word up into a collection of its letters and save it to an array</span>
-</span><span class='line'>  <span class="n">letters</span> <span class="o">=</span> <span class="n">plain_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#break the word up into a collection of its letters and save it to an array</span>
+</span><span class='line'><span class="n">letters</span> <span class="o">=</span> <span class="n">plain_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#create a new array called secret_word as a placeholder to store each encrypted letter</span>
-</span><span class='line'>  <span class="n">secret_word</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'><span class="c1">#create a new array called secret_word as a placeholder to store each encrypted letter</span>
+</span><span class='line'><span class="n">secret_word</span> <span class="o">=</span> <span class="o">[]</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#iterate thru each letter in word</span>
-</span><span class='line'>  <span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
-</span><span class='line'>    <span class="c1">#lookup the letters encrypted value</span>
-</span><span class='line'>    <span class="n">encrypted_letter</span> <span class="o">=</span> <span class="n">encryption</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
+</span><span class='line'><span class="c1">#iterate through each letter in word</span>
+</span><span class='line'><span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1">#lookup the letters encrypted value</span>
+</span><span class='line'>  <span class="n">encrypted_letter</span> <span class="o">=</span> <span class="n">encryption</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="c1">#store the encrypted value in secret_word array</span>
-</span><span class='line'>    <span class="n">secret_word</span> <span class="o">&lt;&lt;</span> <span class="n">encrypted_letter</span>
-</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="c1">#store the encrypted value in secret_word array</span>
+</span><span class='line'>  <span class="n">secret_word</span> <span class="o">&lt;&lt;</span> <span class="n">encrypted_letter</span>
+</span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#join the secret_word array into one word and print to screen</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="n">secret_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#join the secret_word array into one word and print to screen</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">secret_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -451,23 +451,23 @@ Below is an example that could be used</p>
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create a decryption hash</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#create a decryption hash</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#break the secret_word up into its letters</span>
+</span><span class='line'><span class="c1">#break the secret_word up into its letters</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#create a new array called decoded_word as a placeholder to store each decrypted letter</span>
+</span><span class='line'><span class="c1">#create a new array called decoded_word as a placeholder to store each decrypted letter</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#iterate thru each letter</span>
-</span><span class='line'>    <span class="c1">#find the letter&#39;s decrypted value</span>
+</span><span class='line'><span class="c1">#iterate through each letter</span>
+</span><span class='line'><span class="c1">#find the letter&#39;s decrypted value</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="c1">#store the decrypted value in decoded_word array</span>
+</span><span class='line'><span class="c1">#store the decrypted value in decoded_word array</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#join the decoded_word array into a string and store its value</span>
+</span><span class='line'><span class="c1">#join the decoded_word array into a string and store its value</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#show final output</span>
-</span><span class='line'>    <span class="c1">#compare decoded_word to original word</span>
+</span><span class='line'><span class="c1">#show final output</span>
+</span><span class='line'><span class="c1">#compare decoded_word to original word</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="c1">#print string that says the word and its encrypted value</span>
+</span><span class='line'><span class="c1">#print string that says the word and its encrypted value</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -536,65 +536,65 @@ Below is an example that could be used</p>
 <span class='line-number'>57</span>
 <span class='line-number'>58</span>
 <span class='line-number'>59</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create an encryption algorithm (steps to mask a word)</span>
-</span><span class='line'>  <span class="n">encryption</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s2">&quot;f&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;j&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;l&quot;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s2">&quot;k&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;q&quot;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s2">&quot;p&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;q&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
-</span><span class='line'>                <span class="s2">&quot;u&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;b&quot;</span><span class="p">}</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#create an encryption algorithm (steps to mask a word)</span>
+</span><span class='line'><span class="n">encryption</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+</span><span class='line'>              <span class="s2">&quot;f&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="s2">&quot;h&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;i&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="s2">&quot;j&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;l&quot;</span><span class="p">,</span>
+</span><span class='line'>              <span class="s2">&quot;k&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;l&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="s2">&quot;n&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;o&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;q&quot;</span><span class="p">,</span>
+</span><span class='line'>              <span class="s2">&quot;p&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;q&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;t&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;v&quot;</span><span class="p">,</span>
+</span><span class='line'>              <span class="s2">&quot;u&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;v&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="o">=&gt;</span><span class="s2">&quot;b&quot;</span><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#ask the user for a word</span>
-</span><span class='line'>  <span class="n">plain_word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'><span class="c1">#ask the user for a word</span>
+</span><span class='line'><span class="n">plain_word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#break the word up into a collection of its letters and save it to an array</span>
-</span><span class='line'>  <span class="n">letters</span> <span class="o">=</span> <span class="n">plain_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#break the word up into a collection of its letters and save it to an array</span>
+</span><span class='line'><span class="n">letters</span> <span class="o">=</span> <span class="n">plain_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#create a new array called secret_word as a placeholder to store each encrypted letter</span>
-</span><span class='line'>  <span class="n">secret_word</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'><span class="c1">#create a new array called secret_word as a placeholder to store each encrypted letter</span>
+</span><span class='line'><span class="n">secret_word</span> <span class="o">=</span> <span class="o">[]</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#iterate thru each letter in word</span>
-</span><span class='line'>  <span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
-</span><span class='line'>    <span class="c1">#lookup the letters encrypted value</span>
-</span><span class='line'>    <span class="n">encrypted_letter</span> <span class="o">=</span> <span class="n">encryption</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
+</span><span class='line'><span class="c1">#iterate through each letter in word</span>
+</span><span class='line'><span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1">#lookup the letters encrypted value</span>
+</span><span class='line'>  <span class="n">encrypted_letter</span> <span class="o">=</span> <span class="n">encryption</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="c1">#store the encrypted value in secret_word array</span>
-</span><span class='line'>    <span class="n">secret_word</span> <span class="o">&lt;&lt;</span> <span class="n">encrypted_letter</span>
-</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="c1">#store the encrypted value in secret_word array</span>
+</span><span class='line'>  <span class="n">secret_word</span> <span class="o">&lt;&lt;</span> <span class="n">encrypted_letter</span>
+</span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#join the secret_word array into one word and print to screen</span>
-</span><span class='line'>  <span class="c1">#no need to print word here for final program output</span>
+</span><span class='line'><span class="c1">#join the secret_word array into one word and print to screen</span>
+</span><span class='line'><span class="c1">#no need to print word here for final program output</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#create a decryption hash</span>
-</span><span class='line'>  <span class="n">decryption</span> <span class="o">=</span> <span class="n">encryption</span><span class="o">.</span><span class="n">invert</span>
+</span><span class='line'><span class="c1">#create a decryption hash</span>
+</span><span class='line'><span class="n">decryption</span> <span class="o">=</span> <span class="n">encryption</span><span class="o">.</span><span class="n">invert</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#break the secret_word up into its letters</span>
-</span><span class='line'>  <span class="n">letters</span> <span class="o">=</span> <span class="n">secret_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#break the secret_word up into its letters</span>
+</span><span class='line'><span class="n">letters</span> <span class="o">=</span> <span class="n">secret_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#create a new array called decoded_word as a placeholder to store each decrypted letter</span>
-</span><span class='line'>  <span class="n">decoded_word</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'><span class="c1">#create a new array called decoded_word as a placeholder to store each decrypted letter</span>
+</span><span class='line'><span class="n">decoded_word</span> <span class="o">=</span> <span class="o">[]</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#iterate thru each letter</span>
-</span><span class='line'>  <span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
-</span><span class='line'>    <span class="c1">#find the letter&#39;s decrypted value</span>
-</span><span class='line'>    <span class="n">decrypted_letter</span> <span class="o">=</span> <span class="n">decryption</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
+</span><span class='line'><span class="c1">#iterate through each letter</span>
+</span><span class='line'><span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1">#find the letter&#39;s decrypted value</span>
+</span><span class='line'>  <span class="n">decrypted_letter</span> <span class="o">=</span> <span class="n">decryption</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="c1">#store the decrypted value in decoded_word array</span>
-</span><span class='line'>    <span class="n">decoded_word</span> <span class="o">&lt;&lt;</span> <span class="n">decrypted_letter</span>
-</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="c1">#store the decrypted value in decoded_word array</span>
+</span><span class='line'>  <span class="n">decoded_word</span> <span class="o">&lt;&lt;</span> <span class="n">decrypted_letter</span>
+</span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#join the decoded_word array into a string and store its value</span>
-</span><span class='line'>  <span class="n">decoded_word</span> <span class="o">=</span> <span class="n">decoded_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#join the decoded_word array into a string and store its value</span>
+</span><span class='line'><span class="n">decoded_word</span> <span class="o">=</span> <span class="n">decoded_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#show final output</span>
-</span><span class='line'>    <span class="c1">#print string that says the word and its encrypted value</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;The encrypted version of </span><span class="si">#{</span><span class="n">plain_word</span><span class="si">}</span><span class="s2"> is </span><span class="si">#{</span><span class="n">secret_word</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="c1">#show final output</span>
+</span><span class='line'><span class="c1">#print string that says the word and its encrypted value</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;The encrypted version of </span><span class="si">#{</span><span class="n">plain_word</span><span class="si">}</span><span class="s2"> is </span><span class="si">#{</span><span class="n">secret_word</span><span class="si">}</span><span class="s2">&quot;</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="c1">#compare decoded_word to original word</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">decoded_word</span> <span class="o">==</span> <span class="n">plain_word</span>
-</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;Decryption was a success&quot;</span>
-</span><span class='line'>    <span class="k">else</span>
-</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;Decryption was a failure&quot;</span>
-</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="c1">#compare decoded_word to original word</span>
+</span><span class='line'><span class="k">if</span> <span class="n">decoded_word</span> <span class="o">==</span> <span class="n">plain_word</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Decryption was a success&quot;</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Decryption was a failure&quot;</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -611,11 +611,11 @@ Below is an example that could be used</p>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create an array of the alphabet called characters</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#create an array of the alphabet called characters</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#create another array which rotates the alphabet array some value (under 23) called rotated_characters</span>
+</span><span class='line'><span class="c1">#create another array which rotates the alphabet array some value (under 23) called rotated_characters</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values</span>
+</span><span class='line'><span class="c1">#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -718,15 +718,15 @@ Below is an example that could be used</p>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create an array of the alphabet called characters</span>
-</span><span class='line'>  <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#create an array of the alphabet called characters</span>
+</span><span class='line'><span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#create another array which rotates the alphabet array some value (under 23) called rotated_characters</span>
-</span><span class='line'>  <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#create another array which rotates the alphabet array some value (under 23) called rotated_characters</span>
+</span><span class='line'><span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values</span>
-</span><span class='line'>  <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">encryption</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span><span class='line'><span class="c1">#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values</span>
+</span><span class='line'><span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
+</span><span class='line'><span class="n">encryption</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -755,27 +755,27 @@ Below is an example that could be used</p>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
 <span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#ask the user for the rotation value</span>
-</span><span class='line'>  <span class="n">rotation</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#ask the user for the rotation value</span>
+</span><span class='line'><span class="n">rotation</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#create an encryption algorithm (steps to mask a word)</span>
-</span><span class='line'>    <span class="c1">#create an array of the alphabet called characters</span>
-</span><span class='line'>    <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'><span class="c1">#create an encryption algorithm (steps to mask a word)</span>
+</span><span class='line'><span class="c1">#create an array of the alphabet called characters</span>
+</span><span class='line'><span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="c1">#create another array which rotates the alphabet array some value (under 23) called rotated_characters</span>
-</span><span class='line'>    <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#create another array which rotates the alphabet array some value (under 23) called rotated_characters</span>
+</span><span class='line'><span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="c1">#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values</span>
-</span><span class='line'>    <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">encryption</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span><span class='line'><span class="c1">#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values</span>
+</span><span class='line'><span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
+</span><span class='line'><span class="n">encryption</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#ask the user for a word</span>
-</span><span class='line'>  <span class="n">plain_word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'><span class="c1">#ask the user for a word</span>
+</span><span class='line'><span class="n">plain_word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#break the word up into a collection of its letters and save it to an array</span>
-</span><span class='line'>  <span class="n">letters</span> <span class="o">=</span> <span class="n">plain_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#break the word up into a collection of its letters and save it to an array</span>
+</span><span class='line'><span class="n">letters</span> <span class="o">=</span> <span class="n">plain_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#etc... (rest of file omitted)</span>
+</span><span class='line'><span class="c1">#etc... (rest of file omitted)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -808,7 +808,7 @@ Talking points for covering methods</p>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="c1">#here is our pie creating logic</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#here is our pie creating logic</span>
 </span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;how to make apple pie&quot;</span>
 </span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;first: mix sugar with the apples&quot;</span>
 </span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;second: pour mixture into a crust&quot;</span>
@@ -829,7 +829,7 @@ Talking points for covering methods</p>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="c1">#our my dynamic pie logic</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#our my dynamic pie logic</span>
 </span><span class='line'><span class="n">fruit</span> <span class="o">=</span> <span class="s2">&quot;apple&quot;</span>
 </span><span class='line'><span class="n">oven_temp</span> <span class="o">=</span> <span class="mi">350</span>
 </span><span class='line'><span class="n">cook_time</span> <span class="o">=</span> <span class="mi">40</span>
@@ -865,11 +865,11 @@ Talking points for covering methods</p>
 </span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;fourth: let cool, then enjoy&quot;</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'> <span class="c1">#now we can call our method whenever we want to make pie</span>
+</span><span class='line'><span class="c1">#now we can call our method whenever we want to make pie</span>
 </span><span class='line'>
-</span><span class='line'> <span class="n">make_pie</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
-</span><span class='line'> <span class="n">make_pie</span><span class="p">(</span><span class="s2">&quot;pear&quot;</span><span class="p">,</span> <span class="mi">375</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
-</span><span class='line'> <span class="n">make_pie</span><span class="p">(</span><span class="s2">&quot;blueberry&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span class='line'><span class="n">make_pie</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>
+</span><span class='line'><span class="n">make_pie</span><span class="p">(</span><span class="s2">&quot;pear&quot;</span><span class="p">,</span> <span class="mi">375</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+</span><span class='line'><span class="n">make_pie</span><span class="p">(</span><span class="s2">&quot;blueberry&quot;</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -881,7 +881,7 @@ Talking points for covering methods</p>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="c1">#wrapping the split logic up</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#wrapping the split logic up</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">make_into_letters</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
 </span><span class='line'>  <span class="k">return</span> <span class="n">word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 </span><span class='line'><span class="k">end</span>
@@ -904,16 +904,16 @@ Talking points for covering methods</p>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#create an encryption algorithm (steps to mask a word)</span>
-</span><span class='line'>    <span class="c1">#create an array of the alphabet called characters</span>
-</span><span class='line'>    <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#create an encryption algorithm (steps to mask a word)</span>
+</span><span class='line'><span class="c1">#create an array of the alphabet called characters</span>
+</span><span class='line'><span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="c1">#create another array which rotates the alphabet array some value (under 23) called rotated_characters</span>
-</span><span class='line'>    <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#create another array which rotates the alphabet array some value (under 23) called rotated_characters</span>
+</span><span class='line'><span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="c1">#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values</span>
-</span><span class='line'>    <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">encryption</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span><span class='line'><span class="c1">#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values</span>
+</span><span class='line'><span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
+</span><span class='line'><span class="n">encryption</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -936,7 +936,7 @@ Talking points for covering methods</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Copy and past into irb to demo</p>
+<p>Copy and paste into irb to demo</p>
 
 <div class="window">
           <nav class="control-window">
@@ -954,7 +954,7 @@ Talking points for covering methods</p>
         </div>
 
 
-<p>Work thru the encrypt and decrypt logic with the kids. Outline the goals with pseudocode</p>
+<p>Work through the encrypt and decrypt logic with the kids. Outline the goals with pseudocode</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -965,19 +965,19 @@ Talking points for covering methods</p>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#wrap the encryption hash in a method called encryption that takes a rotation as an argument</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#wrap the encryption hash in a method called encryption that takes a rotation as an argument</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#wrap the decryption hash in a method called decryption that takes a rotation as an argument</span>
+</span><span class='line'><span class="c1">#wrap the decryption hash in a method called decryption that takes a rotation as an argument</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#wrap the encrypting logic in method called encrypt that takes word as an argument</span>
+</span><span class='line'><span class="c1">#wrap the encrypting logic in method called encrypt that takes word as an argument</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#wrap the decryption logic in method called decrypt that takes a secret_word as an argument</span>
+</span><span class='line'><span class="c1">#wrap the decryption logic in method called decrypt that takes a secret_word as an argument</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#wrap the comparison logic for a decryption being successful in a method called decryption_successful? that takes the original word and decrypted word as arguments</span>
+</span><span class='line'><span class="c1">#wrap the comparison logic for a decryption being successful in a method called decryption_successful? that takes the original word and decrypted word as arguments</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Allow the kids a full pomodoro to work thru these steps.  Their code should look similar to the following&hellip;</p>
+<p>Allow the kids a full pomodoro to work through these steps.  Their code should look similar to the following&hellip;</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -1031,58 +1031,58 @@ Talking points for covering methods</p>
 <span class='line-number'>50</span>
 <span class='line-number'>51</span>
 <span class='line-number'>52</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#wrap the encryption hash in a method called encryption that takes a rotation as an argument</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">encryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
-</span><span class='line'>    <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#wrap the encryption hash in a method called encryption that takes a rotation as an argument</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">encryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'>  <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">return</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">rotated_characters</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">return</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#wrap the decryption hash in a method called decryption that takes a rotation as an argument</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">decryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'>  <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">rotated_characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">return</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#wrap the encrypting logic in method called encrypt that takes word as an argument</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">letters</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">secret_word</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">encrypted_letter</span> <span class="o">=</span> <span class="n">encryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
+</span><span class='line'>    <span class="n">secret_word</span> <span class="o">&lt;&lt;</span> <span class="n">encrypted_letter</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#wrap the decryption hash in a method called decryption that takes a rotation as an argument</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">decryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">characters</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="o">.</span><span class="n">.</span><span class="s2">&quot;z&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
-</span><span class='line'>    <span class="n">rotated_characters</span> <span class="o">=</span> <span class="n">characters</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">secret_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="n">zipped_values</span> <span class="o">=</span> <span class="n">rotated_characters</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">characters</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">return</span> <span class="no">Hash</span><span class="o">[</span><span class="n">zipped_values</span><span class="o">]</span>
+</span><span class='line'><span class="c1">#wrap the decryption logic in method called decrypt that takes a secret_word as an argument</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">secret_word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">letters</span> <span class="o">=</span> <span class="n">secret_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">decoded_word</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">decrypted_letter</span> <span class="o">=</span> <span class="n">decryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
+</span><span class='line'>    <span class="n">decoded_word</span> <span class="o">&lt;&lt;</span> <span class="n">decrypted_letter</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#wrap the encrypting logic in method called encrypt that takes word as an argument</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">letters</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">secret_word</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">decoded_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
-</span><span class='line'>      <span class="n">encrypted_letter</span> <span class="o">=</span> <span class="n">encryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
-</span><span class='line'>      <span class="n">secret_word</span> <span class="o">&lt;&lt;</span> <span class="n">encrypted_letter</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">return</span> <span class="n">secret_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#wrap the comparison logic for a decryption being successful in a method called decryption_successful? that takes the original word and decrypted word as arguments</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">decryption_successful?</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">decoded_word</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="n">decoded_word</span>
+</span><span class='line'>    <span class="k">return</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="k">return</span> <span class="kp">false</span>
 </span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1">#wrap the decryption logic in method called decrypt that takes a secret_word as an argument</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">secret_word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">letters</span> <span class="o">=</span> <span class="n">secret_word</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">decoded_word</span> <span class="o">=</span> <span class="o">[]</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">letters</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
-</span><span class='line'>      <span class="n">decrypted_letter</span> <span class="o">=</span> <span class="n">decryption</span><span class="p">(</span><span class="n">rotation</span><span class="p">)</span><span class="o">[</span><span class="n">letter</span><span class="o">]</span>
-</span><span class='line'>      <span class="n">decoded_word</span> <span class="o">&lt;&lt;</span> <span class="n">decrypted_letter</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">return</span> <span class="n">decoded_word</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1">#wrap the comparison logic for a decryption being successful in a method called decryption_successful? that takes the original word and decrypted word as arguments</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">decryption_successful?</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">decoded_word</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="n">decoded_word</span>
-</span><span class='line'>      <span class="k">return</span> <span class="kp">true</span>
-</span><span class='line'>    <span class="k">else</span>
-</span><span class='line'>      <span class="k">return</span> <span class="kp">false</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -1114,7 +1114,7 @@ Talking points for covering methods</p>
 </span><span class='line'>
 </span><span class='line'><span class="n">encrypted_word</span> <span class="o">=</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
 </span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;The encrypted version of </span><span class="si">#{</span><span class="n">word</span><span class="si">}</span><span class="s2"> is </span><span class="si">#{</span><span class="n">encrypted_word</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;running it thru the decryptor now...&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;running it through the decryptor now...&quot;</span>
 </span><span class='line'><span class="nb">sleep</span> <span class="mi">2</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">decrypted_word</span> <span class="o">=</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">encrypted_word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
@@ -1133,7 +1133,7 @@ Talking points for covering methods</p>
 
 <p>Have the students partner with someone else.  Each partner should alternate who generates the secret word.  The partner generating the secret word should not tell the other student the rotation that he/she used.  They should only tell the other partner what the encrypted version of the word is.</p>
 
-<p>The other partner should then run the encrypted word thru their decryption engine and then be able to tell the other partner what the decrypted word is and the rotation that the other student used.</p>
+<p>The other partner should then run the encrypted word through their decryption engine and then be able to tell the other partner what the decrypted word is and the rotation that the other student used.</p>
 
 <p>Have the students first solve it procedurally then refactor to use a method</p>
 
@@ -1148,15 +1148,15 @@ Talking points for covering methods</p>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#save the value of the sting given to you as secret_word</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#save the value of the sting given to you as secret_word</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#create a range of numbers from 0 to 22 and store as an array</span>
+</span><span class='line'><span class="c1">#create a range of numbers from 0 to 22 and store as an array</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#iterate thru each number</span>
+</span><span class='line'><span class="c1">#iterate through each number</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#decrypt the word and save it as decrypted_word</span>
+</span><span class='line'><span class="c1">#decrypt the word and save it as decrypted_word</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#print the current rotation and the decrypted_word</span>
+</span><span class='line'><span class="c1">#print the current rotation and the decrypted_word</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -1176,20 +1176,20 @@ Talking points for covering methods</p>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1">#save the value of the sting given to you as secret_word</span>
-</span><span class='line'>  <span class="n">secret_word</span> <span class="o">=</span> <span class="s2">&quot;sgpvdc&quot;</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#save the value of the sting given to you as secret_word</span>
+</span><span class='line'><span class="n">secret_word</span> <span class="o">=</span> <span class="s2">&quot;sgpvdc&quot;</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#create a range of numbers from 0 to 22 and store as an array</span>
-</span><span class='line'>  <span class="n">rotations</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">22</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+</span><span class='line'><span class="c1">#create a range of numbers from 0 to 22 and store as an array</span>
+</span><span class='line'><span class="n">rotations</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">22</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1">#iterate thru each number</span>
-</span><span class='line'>  <span class="n">rotations</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">rotation</span><span class="o">|</span>
-</span><span class='line'>    <span class="c1">#decrypt the word and save it as decrypted_word</span>
-</span><span class='line'>    <span class="n">decrypted_word</span> <span class="o">=</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">secret_word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#iterate through each number</span>
+</span><span class='line'><span class="n">rotations</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">rotation</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1">#decrypt the word and save it as decrypted_word</span>
+</span><span class='line'>  <span class="n">decrypted_word</span> <span class="o">=</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">secret_word</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="c1">#print the current rotation and the decrypted_word</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;rotation: </span><span class="si">#{</span><span class="n">rotation</span><span class="si">}</span><span class="s2"> | decrypted word: </span><span class="si">#{</span><span class="n">decrypted_word</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="c1">#print the current rotation and the decrypted_word</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;rotation: </span><span class="si">#{</span><span class="n">rotation</span><span class="si">}</span><span class="s2"> | decrypted word: </span><span class="si">#{</span><span class="n">decrypted_word</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -1231,7 +1231,7 @@ Talking points for covering methods</p>
         </div>
 
 
-<p>Student 2 (runs encrypted method thru their decryption engine)</p>
+<p>Student 2 (runs encrypted method through their decryption engine)</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
