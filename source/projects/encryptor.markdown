@@ -48,21 +48,21 @@ As always, we will be starting with the simplest thing that could work and then 
 We'll be starting with just the encryption part first.
 
 ```ruby
-  #create an encryption algorithm (steps to mask a word)
+#create an encryption algorithm (steps to mask a word)
 
-  #ask the user for a word
+#ask the user for a word
 
-  #break the word up into a collection of its letters and save it to an array
+#break the word up into a collection of its letters and save it to an array
 
-  #create a new array called secret_word as a placeholder to store each encrypted letter
+#create a new array called secret_word as a placeholder to store each encrypted letter
 
-  #iterate thru each letter in word
+#iterate through each letter in word
 
-  #lookup the letters encrypted value
+#lookup the letters encrypted value
 
-  #store the encrypted value in secret_word array
+#store the encrypted value in secret_word array
 
-  #join the secret_word array into one word and print to screen
+#join the secret_word array into one word and print to screen
 ```
 
 Explain that the word algorithm is nothing to be intimidated by - it's just a list of steps a program takes to achieve a task.  Writing a how-to for making PB&J is an algorithm.
@@ -80,7 +80,7 @@ phone_contacts = [["tim", "443-797-3443"], ["kyle", "819-867-8888"], ["carl", "4
 If you needed to call kyle, you would have to know that he was the second value in the array and that phone numbers are the second value in the nested array.  To retrieve you would have to do something like:
 
 ```ruby
-  phone_contacts[1][1] #=> pretty unintuitive
+phone_contacts[1][1] #=> pretty unintuitive
 ```
 
 There is a better way! Show them how hashes will make their lives better. Points to cover
@@ -119,7 +119,7 @@ ROT-2
 The students should already know how to do this.  Remind them that they can open their rps.rb and hilo.rb files to see how they did it in the past if they cannot remember.
 
 ```ruby
- plain_word = gets.chomp
+plain_word = gets.chomp
 ```
 
 ### Step 6 - Writing the encrypting logic
@@ -150,7 +150,7 @@ Now, that students have an array of letters, they need an introduction to iterat
   sleep 1
 end
 
- # more verbose example
+# more verbose example
 
 numbers = [1,2,3,4,5,6,7,8,9,10]
 numbers.each do |number|
@@ -163,7 +163,7 @@ numbers.each do |number|
 end
 ```
 
-Now, apply same concept to iterating thru the letters array.
+Now, apply same concept to iterating through the letters array.
 
 ### Step 7 - Saving the encrypted value and outputting it
 
@@ -198,33 +198,33 @@ After 10 minutes is given to solve, show them the joins method and note how it i
 Student's file should look similar to below...
 
 ```ruby
-  #create an encryption algorithm (steps to mask a word)
-  encryption = {"a"=>"c", "b"=>"d", "c"=>"e", "d"=>"f", "e"=>"g",
-                "f"=>"h", "g"=>"i", "h"=>"j", "i"=>"k", "j"=>"l",
-                "k"=>"m", "l"=>"n", "m"=>"o", "n"=>"p", "o"=>"q",
-                "p"=>"r", "q"=>"s", "r"=>"t", "s"=>"u", "t"=>"v",
-                "u"=>"w", "v"=>"x", "w"=>"y", "x"=>"z", "y"=>"a", "z"=>"b"}
+#create an encryption algorithm (steps to mask a word)
+encryption = {"a"=>"c", "b"=>"d", "c"=>"e", "d"=>"f", "e"=>"g",
+              "f"=>"h", "g"=>"i", "h"=>"j", "i"=>"k", "j"=>"l",
+              "k"=>"m", "l"=>"n", "m"=>"o", "n"=>"p", "o"=>"q",
+              "p"=>"r", "q"=>"s", "r"=>"t", "s"=>"u", "t"=>"v",
+              "u"=>"w", "v"=>"x", "w"=>"y", "x"=>"z", "y"=>"a", "z"=>"b"}
 
-  #ask the user for a word
-  plain_word = gets.chomp
+#ask the user for a word
+plain_word = gets.chomp
 
-  #break the word up into a collection of its letters and save it to an array
-  letters = plain_word.split("")
+#break the word up into a collection of its letters and save it to an array
+letters = plain_word.split("")
 
-  #create a new array called secret_word as a placeholder to store each encrypted letter
-  secret_word = []
+#create a new array called secret_word as a placeholder to store each encrypted letter
+secret_word = []
 
-  #iterate thru each letter in word
-  letters.each do |letter|
-    #lookup the letters encrypted value
-    encrypted_letter = encryption[letter]
+#iterate through each letter in word
+letters.each do |letter|
+  #lookup the letters encrypted value
+  encrypted_letter = encryption[letter]
 
-    #store the encrypted value in secret_word array
-    secret_word << encrypted_letter
-  end
+  #store the encrypted value in secret_word array
+  secret_word << encrypted_letter
+end
 
-  #join the secret_word array into one word and print to screen
-  puts secret_word.join("")
+#join the secret_word array into one word and print to screen
+puts secret_word.join("")
 ```
 ## Iteration 2: Creating the base decryptor
 
@@ -242,23 +242,23 @@ The biggest hurdle is flip flopping the keys and values of the encryption hash. 
 Create the following pseudocode with the students and then set them free to solve the decryption
 
 ```ruby
-  #create a decryption hash
+#create a decryption hash
 
-  #break the secret_word up into its letters
+#break the secret_word up into its letters
 
-  #create a new array called decoded_word as a placeholder to store each decrypted letter
+#create a new array called decoded_word as a placeholder to store each decrypted letter
 
-  #iterate thru each letter
-    #find the letter's decrypted value
+#iterate through each letter
+#find the letter's decrypted value
 
-    #store the decrypted value in decoded_word array
+#store the decrypted value in decoded_word array
 
-  #join the decoded_word array into a string and store its value
+#join the decoded_word array into a string and store its value
 
-  #show final output
-    #compare decoded_word to original word
+#show final output
+#compare decoded_word to original word
 
-    #print string that says the word and its encrypted value
+#print string that says the word and its encrypted value
 ```
 
 Give the students a full pomodoro to solve
@@ -268,65 +268,65 @@ Give the students a full pomodoro to solve
 The final program file should look like the following...
 
 ```ruby
-  #create an encryption algorithm (steps to mask a word)
-  encryption = {"a"=>"c", "b"=>"d", "c"=>"e", "d"=>"f", "e"=>"g",
-                "f"=>"h", "g"=>"i", "h"=>"j", "i"=>"k", "j"=>"l",
-                "k"=>"m", "l"=>"n", "m"=>"o", "n"=>"p", "o"=>"q",
-                "p"=>"r", "q"=>"s", "r"=>"t", "s"=>"u", "t"=>"v",
-                "u"=>"w", "v"=>"x", "w"=>"y", "x"=>"z", "y"=>"a", "z"=>"b"}
+#create an encryption algorithm (steps to mask a word)
+encryption = {"a"=>"c", "b"=>"d", "c"=>"e", "d"=>"f", "e"=>"g",
+              "f"=>"h", "g"=>"i", "h"=>"j", "i"=>"k", "j"=>"l",
+              "k"=>"m", "l"=>"n", "m"=>"o", "n"=>"p", "o"=>"q",
+              "p"=>"r", "q"=>"s", "r"=>"t", "s"=>"u", "t"=>"v",
+              "u"=>"w", "v"=>"x", "w"=>"y", "x"=>"z", "y"=>"a", "z"=>"b"}
 
-  #ask the user for a word
-  plain_word = gets.chomp
+#ask the user for a word
+plain_word = gets.chomp
 
-  #break the word up into a collection of its letters and save it to an array
-  letters = plain_word.split("")
+#break the word up into a collection of its letters and save it to an array
+letters = plain_word.split("")
 
-  #create a new array called secret_word as a placeholder to store each encrypted letter
-  secret_word = []
+#create a new array called secret_word as a placeholder to store each encrypted letter
+secret_word = []
 
-  #iterate thru each letter in word
-  letters.each do |letter|
-    #lookup the letters encrypted value
-    encrypted_letter = encryption[letter]
+#iterate through each letter in word
+letters.each do |letter|
+  #lookup the letters encrypted value
+  encrypted_letter = encryption[letter]
 
-    #store the encrypted value in secret_word array
-    secret_word << encrypted_letter
-  end
+  #store the encrypted value in secret_word array
+  secret_word << encrypted_letter
+end
 
-  #join the secret_word array into one word and print to screen
-  #no need to print word here for final program output
+#join the secret_word array into one word and print to screen
+#no need to print word here for final program output
 
-  #create a decryption hash
-  decryption = encryption.invert
+#create a decryption hash
+decryption = encryption.invert
 
-  #break the secret_word up into its letters
-  letters = secret_word.split("")
+#break the secret_word up into its letters
+letters = secret_word.split("")
 
-  #create a new array called decoded_word as a placeholder to store each decrypted letter
-  decoded_word = []
+#create a new array called decoded_word as a placeholder to store each decrypted letter
+decoded_word = []
 
-  #iterate thru each letter
-  letters.each do |letter|
-    #find the letter's decrypted value
-    decrypted_letter = decryption[letter]
+#iterate through each letter
+letters.each do |letter|
+  #find the letter's decrypted value
+  decrypted_letter = decryption[letter]
 
-    #store the decrypted value in decoded_word array
-    decoded_word << decrypted_letter
-  end
+  #store the decrypted value in decoded_word array
+  decoded_word << decrypted_letter
+end
 
-  #join the decoded_word array into a string and store its value
-  decoded_word = decoded_word.join("")
+#join the decoded_word array into a string and store its value
+decoded_word = decoded_word.join("")
 
-  #show final output
-    #print string that says the word and its encrypted value
-    puts "The encrypted version of #{plain_word} is #{secret_word}"
+#show final output
+#print string that says the word and its encrypted value
+puts "The encrypted version of #{plain_word} is #{secret_word}"
 
-    #compare decoded_word to original word
-    if decoded_word == plain_word
-      puts "Decryption was a success"
-    else
-      puts "Decryption was a failure"
-    end
+#compare decoded_word to original word
+if decoded_word == plain_word
+  puts "Decryption was a success"
+else
+  puts "Decryption was a failure"
+end
 ```
 
 ## Iteration 3: Making the encryption dynamic
@@ -338,11 +338,11 @@ Currently, our encryption algorithm is fixed at a ROT-2 sequence.  To improve th
 Outline the pseudocode
 
 ```ruby
-  #create an array of the alphabet called characters
+#create an array of the alphabet called characters
 
-  #create another array which rotates the alphabet array some value (under 23) called rotated_characters
+#create another array which rotates the alphabet array some value (under 23) called rotated_characters
 
-  #merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values
+#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values
 ```
 
 ### Step 2: Introduction to rotate method
@@ -404,15 +404,15 @@ Hash[zipped_values]
 The students should now be able to complete the pseudocode.  Give them a full pomodoro.  Final code should look similar...
 
 ```ruby
-  #create an array of the alphabet called characters
-  characters = ("a".."z").to_a
+#create an array of the alphabet called characters
+characters = ("a".."z").to_a
 
-  #create another array which rotates the alphabet array some value (under 23) called rotated_characters
-  rotated_characters = characters.rotate(10)
+#create another array which rotates the alphabet array some value (under 23) called rotated_characters
+rotated_characters = characters.rotate(10)
 
-  #merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values
-  zipped_values = characters.zip(rotated_characters)
-  encryption = Hash[zipped_values]
+#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values
+zipped_values = characters.zip(rotated_characters)
+encryption = Hash[zipped_values]
 ```
 
 ### Step 5: Updating the base encryptor
@@ -420,27 +420,27 @@ The students should now be able to complete the pseudocode.  Give them a full po
 Students will need to pass in the rotation value in the beginning of their program.
 
 ```ruby
-  #ask the user for the rotation value
-  rotation = gets.chomp.to_i
+#ask the user for the rotation value
+rotation = gets.chomp.to_i
 
-  #create an encryption algorithm (steps to mask a word)
-    #create an array of the alphabet called characters
-    characters = ("a".."z").to_a
+#create an encryption algorithm (steps to mask a word)
+#create an array of the alphabet called characters
+characters = ("a".."z").to_a
 
-    #create another array which rotates the alphabet array some value (under 23) called rotated_characters
-    rotated_characters = characters.rotate(rotation)
+#create another array which rotates the alphabet array some value (under 23) called rotated_characters
+rotated_characters = characters.rotate(rotation)
 
-    #merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values
-    zipped_values = characters.zip(rotated_characters)
-    encryption = Hash[zipped_values]
+#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values
+zipped_values = characters.zip(rotated_characters)
+encryption = Hash[zipped_values]
 
-  #ask the user for a word
-  plain_word = gets.chomp
+#ask the user for a word
+plain_word = gets.chomp
 
-  #break the word up into a collection of its letters and save it to an array
-  letters = plain_word.split("")
+#break the word up into a collection of its letters and save it to an array
+letters = plain_word.split("")
 
-  #etc... (rest of file omitted)
+#etc... (rest of file omitted)
 ```
 
 ## Iteration 4: Refactor to use methods
@@ -464,7 +464,7 @@ I find the below example to be helpful, use your own if you would like. The draw
 Ask the kids to give you the steps for making pie
 
 ```ruby
- #here is our pie creating logic
+#here is our pie creating logic
 puts "how to make apple pie"
 puts "first: mix sugar with the apples"
 puts "second: pour mixture into a crust"
@@ -475,7 +475,7 @@ puts "fourth: let cool, then enjoy"
 Now if we wanted to make our pie logic dynamic so that we could make any type of fruit pie would use variables.  Our new variables would be fruit, oven_temp, and cook_time
 
 ```ruby
- #our my dynamic pie logic
+#our my dynamic pie logic
 fruit = "apple"
 oven_temp = 350
 cook_time = 40
@@ -498,17 +498,17 @@ def make_pie(fruit, oven_temp, cook_time)
   puts "fourth: let cool, then enjoy"
 end
 
- #now we can call our method whenever we want to make pie
+#now we can call our method whenever we want to make pie
 
- make_pie("apple", 350, 40)
- make_pie("pear", 375, 30)
- make_pie("blueberry", 400, 25)
+make_pie("apple", 350, 40)
+make_pie("pear", 375, 30)
+make_pie("blueberry", 400, 25)
 ```
 
 The students will most likely need to see more than one example.  Here is an example to show explicit returns.
 
 ```ruby
- #wrapping the split logic up
+#wrapping the split logic up
 def make_into_letters(word)
   return word.split("")
 end
@@ -521,16 +521,16 @@ make_into_letters("dog") #=> ["d", "o", "g"]
 Our current logic for the encryption hash
 
 ```ruby
-  #create an encryption algorithm (steps to mask a word)
-    #create an array of the alphabet called characters
-    characters = ("a".."z").to_a
+#create an encryption algorithm (steps to mask a word)
+#create an array of the alphabet called characters
+characters = ("a".."z").to_a
 
-    #create another array which rotates the alphabet array some value (under 23) called rotated_characters
-    rotated_characters = characters.rotate(rotation)
+#create another array which rotates the alphabet array some value (under 23) called rotated_characters
+rotated_characters = characters.rotate(rotation)
 
-    #merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values
-    zipped_values = characters.zip(rotated_characters)
-    encryption = Hash[zipped_values]
+#merge characters array and rotated_characters array into a single hash such that characters array are the keys and rotated_characters array are the values
+zipped_values = characters.zip(rotated_characters)
+encryption = Hash[zipped_values]
 ```
 
 As a method...
@@ -545,7 +545,7 @@ def encryption(rotation)
 end
 ```
 
-Copy and past into irb to demo
+Copy and paste into irb to demo
 
 {% terminal %}
 encryption(3)
@@ -555,75 +555,75 @@ encryption(3)
        "u"=>"x", "v"=>"y", "w"=>"z", "x"=>"a", "y"=>"b", "z"=>"c"}
 {% endterminal %}
 
-Work thru the encrypt and decrypt logic with the kids. Outline the goals with pseudocode
+Work through the encrypt and decrypt logic with the kids. Outline the goals with pseudocode
 
 ```ruby
-  #wrap the encryption hash in a method called encryption that takes a rotation as an argument
+#wrap the encryption hash in a method called encryption that takes a rotation as an argument
 
-  #wrap the decryption hash in a method called decryption that takes a rotation as an argument
+#wrap the decryption hash in a method called decryption that takes a rotation as an argument
 
-  #wrap the encrypting logic in method called encrypt that takes word as an argument
+#wrap the encrypting logic in method called encrypt that takes word as an argument
 
-  #wrap the decryption logic in method called decrypt that takes a secret_word as an argument
+#wrap the decryption logic in method called decrypt that takes a secret_word as an argument
 
-  #wrap the comparison logic for a decryption being successful in a method called decryption_successful? that takes the original word and decrypted word as arguments
+#wrap the comparison logic for a decryption being successful in a method called decryption_successful? that takes the original word and decrypted word as arguments
 ```
 
-Allow the kids a full pomodoro to work thru these steps.  Their code should look similar to the following...
+Allow the kids a full pomodoro to work through these steps.  Their code should look similar to the following...
 
 ```ruby
-  #wrap the encryption hash in a method called encryption that takes a rotation as an argument
-  def encryption(rotation)
-    characters = ("a".."z").to_a
-    rotated_characters = characters.rotate(rotation)
+#wrap the encryption hash in a method called encryption that takes a rotation as an argument
+def encryption(rotation)
+  characters = ("a".."z").to_a
+  rotated_characters = characters.rotate(rotation)
 
-    zipped_values = characters.zip(rotated_characters)
-    return Hash[zipped_values]
+  zipped_values = characters.zip(rotated_characters)
+  return Hash[zipped_values]
+end
+
+#wrap the decryption hash in a method called decryption that takes a rotation as an argument
+def decryption(rotation)
+  characters = ("a".."z").to_a
+  rotated_characters = characters.rotate(rotation)
+
+  zipped_values = rotated_characters.zip(characters)
+  return Hash[zipped_values]
+end
+
+#wrap the encrypting logic in method called encrypt that takes word as an argument
+def encrypt(word, rotation)
+  letters = word.split("")
+  secret_word = []
+
+  letters.each do |letter|
+    encrypted_letter = encryption(rotation)[letter]
+    secret_word << encrypted_letter
   end
 
-  #wrap the decryption hash in a method called decryption that takes a rotation as an argument
-  def decryption(rotation)
-    characters = ("a".."z").to_a
-    rotated_characters = characters.rotate(rotation)
+  return secret_word.join("")
+end
 
-    zipped_values = rotated_characters.zip(characters)
-    return Hash[zipped_values]
+#wrap the decryption logic in method called decrypt that takes a secret_word as an argument
+def decrypt(secret_word, rotation)
+  letters = secret_word.split("")
+  decoded_word = []
+
+  letters.each do |letter|
+    decrypted_letter = decryption(rotation)[letter]
+    decoded_word << decrypted_letter
   end
 
-  #wrap the encrypting logic in method called encrypt that takes word as an argument
-  def encrypt(word, rotation)
-    letters = word.split("")
-    secret_word = []
+  return decoded_word.join("")
+end
 
-    letters.each do |letter|
-      encrypted_letter = encryption(rotation)[letter]
-      secret_word << encrypted_letter
-    end
-
-    return secret_word.join("")
+#wrap the comparison logic for a decryption being successful in a method called decryption_successful? that takes the original word and decrypted word as arguments
+def decryption_successful?(word, decoded_word)
+  if word == decoded_word
+    return true
+  else
+    return false
   end
-
-  #wrap the decryption logic in method called decrypt that takes a secret_word as an argument
-  def decrypt(secret_word, rotation)
-    letters = secret_word.split("")
-    decoded_word = []
-
-    letters.each do |letter|
-      decrypted_letter = decryption(rotation)[letter]
-      decoded_word << decrypted_letter
-    end
-
-    return decoded_word.join("")
-  end
-
-  #wrap the comparison logic for a decryption being successful in a method called decryption_successful? that takes the original word and decrypted word as arguments
-  def decryption_successful?(word, decoded_word)
-    if word == decoded_word
-      return true
-    else
-      return false
-    end
-  end
+end
 ```
 
 Now to run the program now...
@@ -637,7 +637,7 @@ rotation = gets.chomp.to_i
 
 encrypted_word = encrypt(word, rotation)
 puts "The encrypted version of #{word} is #{encrypted_word}"
-puts "running it thru the decryptor now..."
+puts "running it through the decryptor now..."
 sleep 2
 
 decrypted_word = decrypt(encrypted_word, rotation)
@@ -655,41 +655,41 @@ end
 
 Have the students partner with someone else.  Each partner should alternate who generates the secret word.  The partner generating the secret word should not tell the other student the rotation that he/she used.  They should only tell the other partner what the encrypted version of the word is.
 
-The other partner should then run the encrypted word thru their decryption engine and then be able to tell the other partner what the decrypted word is and the rotation that the other student used.
+The other partner should then run the encrypted word through their decryption engine and then be able to tell the other partner what the decrypted word is and the rotation that the other student used.
 
 Have the students first solve it procedurally then refactor to use a method
 
 ### Step 2: Outlining the pseudocode
 
 ```ruby
-  #save the value of the sting given to you as secret_word
+#save the value of the sting given to you as secret_word
 
-  #create a range of numbers from 0 to 22 and store as an array
+#create a range of numbers from 0 to 22 and store as an array
 
-  #iterate thru each number
+#iterate through each number
 
-  #decrypt the word and save it as decrypted_word
+#decrypt the word and save it as decrypted_word
 
-  #print the current rotation and the decrypted_word
+#print the current rotation and the decrypted_word
 ```
 
 Their code should look similar to...
 
 ```ruby
-  #save the value of the sting given to you as secret_word
-  secret_word = "sgpvdc"
+#save the value of the sting given to you as secret_word
+secret_word = "sgpvdc"
 
-  #create a range of numbers from 0 to 22 and store as an array
-  rotations = (1..22).to_a
+#create a range of numbers from 0 to 22 and store as an array
+rotations = (1..22).to_a
 
-  #iterate thru each number
-  rotations.each do |rotation|
-    #decrypt the word and save it as decrypted_word
-    decrypted_word = decrypt(secret_word, rotation)
+#iterate through each number
+rotations.each do |rotation|
+  #decrypt the word and save it as decrypted_word
+  decrypted_word = decrypt(secret_word, rotation)
 
-    #print the current rotation and the decrypted_word
-    puts "rotation: #{rotation} | decrypted word: #{decrypted_word}"
-  end
+  #print the current rotation and the decrypted_word
+  puts "rotation: #{rotation} | decrypted word: #{decrypted_word}"
+end
 ```
 
 ### Step 3: Refactor to use the decryption_engine method
@@ -714,7 +714,7 @@ encrypt("dragon" 15)
   #=> "sgpvdc"
 {% endterminal %}
 
-Student 2 (runs encrypted method thru their decryption engine)
+Student 2 (runs encrypted method through their decryption engine)
 ```ruby
 decryption_engine("sgpvdc")
  #=>rotation: 0 | decrypted word: sgpvdc
