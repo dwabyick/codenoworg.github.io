@@ -35,6 +35,7 @@ Projects for students who have completed the Beginner level.
 Those projects are intended for alumni - students who have gone through the 3 weeks of CodeNow curriculum. They require the student to be fluent with all the Ruby basics: variables, arrays, conditionals, iteration, etc.
 
 * [Messengr]({% page_url projects/messengr %}) - Master interacting with the web via Ruby by building your own chat room!
+* [Dungeon]({% page_url projects/dungeon %}) - Use your advanced Ruby knowledge to build an adventure game!
 
 ##Standalone Projects
 

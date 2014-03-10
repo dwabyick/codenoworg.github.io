@@ -1,0 +1,940 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Dungeon - CodeNow Curriculum</title>
+  <meta name="author" content="CodeNowOrg">
+
+  
+  <meta name="description" content="Dungeon In this project, we are going to build a basic text dungeon exploration game, akin to games from the 70s such as Hunt the Wumpus, Rogue, etc &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://CodeNowOrg.github.io/projects/dungeon.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="CodeNow Curriculum" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">CodeNow Curriculum</a></h1>
+  
+    <h2>A guide to teaching a CodeNow class.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:CodeNowOrg.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+
+<ul class="main-navigation">
+  <li><a href="/">Curriculum Index</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+  <article role="article">
+    
+    <header>
+      
+      <h1 class="entry-title">Dungeon</h1>
+      
+    </header>
+    
+    <p>In this project, we are going to build a basic text dungeon exploration game, akin to games from the 70s such as Hunt the Wumpus, Rogue, etc.</p>
+
+<p>Learning Goals:</p>
+
+<ul>
+<li>More advanced Ruby concepts: 2-dimensional arrays, global variables.</li>
+<li>Understand how a &ldquo;real world&rdquo; program is broken down into methods</li>
+<li>Show the students what they are capable of with everything they&rsquo;ve learned so far!</li>
+</ul>
+
+
+<h2>Iteration 0:  Setup</h2>
+
+<p>Let&rsquo;s a create a dungeon.rb file.</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>touch dungeon.rb</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>When first launched, our program will display a title and ask the user if they want instructions. If the user types Y, we display the instructions; otherwise, we don&rsquo;t.</p>
+
+<p>The code here is very straightforward and has no new elements:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span>
+</span><span class='line'><span class="s2">                      WELCOME TO THE WORLD OF</span>
+</span><span class='line'><span class="s2">████████▄  ███    █▄  ███▄▄▄▄      ▄██████▄     ▄████████  ▄██████▄  ███▄▄▄▄   </span>
+</span><span class='line'><span class="s2">███   ▀███ ███    ███ ███▀▀▀██▄   ███    ███   ███    ███ ███    ███ ███▀▀▀██▄ </span>
+</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███   ███    █▀    ███    █▀  ███    ███ ███   ███ </span>
+</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███  ▄███         ▄███▄▄▄     ███    ███ ███   ███ </span>
+</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ███    ███ ███   ███ </span>
+</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███   ███    ███   ███    █▄  ███    ███ ███   ███ </span>
+</span><span class='line'><span class="s2">███   ▄███ ███    ███ ███   ███   ███    ███   ███    ███ ███    ███ ███   ███ </span>
+</span><span class='line'><span class="s2">████████▀  ████████▀   ▀█   █▀    ████████▀    ██████████  ▀██████▀   ▀█   █▀</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Display instructions? (Y for instructions)&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">display_instructions</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">if</span> <span class="n">display_instructions</span> <span class="o">==</span> <span class="s1">&#39;Y&#39;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;You will enter a deep and dangerous dungeon.&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Your goal is to get as much gold as possible, steal the Crystal Crown from a sleeping dragon, and exit alive.&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>(the title ASCII-art can be generated with a website such as <a href="http://www.network-science.de/ascii/">this one</a>)</p>
+
+<div class="note">
+<p>The twist here is that we&#8217;re going to wrap our code in a method named `display_title`. (If the students are a bit rusty on methods, a small intro/refresher beforehand should be done. Keypoints: methods have a name, can take &#8220;arguments&#8221;, have a return value, are delimited by their begin&#8230;end, variables in a method can only be accessed in the method).</p>
+</div>
+
+
+<p>When wrapped into a method, our code doesn&rsquo;t look very different:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#This method will print the game&#39;s title and instructions</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">display_title</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;</span>
+</span><span class='line'><span class="s2">                          WELCOME TO THE WORLD OF</span>
+</span><span class='line'><span class="s2">  ████████▄  ███    █▄  ███▄▄▄▄      ▄██████▄     ▄████████  ▄██████▄  ███▄▄▄▄   </span>
+</span><span class='line'><span class="s2">███   ▀███ ███    ███ ███▀▀▀██▄   ███    ███   ███    ███ ███    ███ ███▀▀▀██▄ </span>
+</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███   ███    █▀    ███    █▀  ███    ███ ███   ███ </span>
+</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███  ▄███         ▄███▄▄▄     ███    ███ ███   ███ </span>
+</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ███    ███ ███   ███ </span>
+</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███   ███    ███   ███    █▄  ███    ███ ███   ███ </span>
+</span><span class='line'><span class="s2">███   ▄███ ███    ███ ███   ███   ███    ███   ███    ███ ███    ███ ███   ███ </span>
+</span><span class='line'><span class="s2">████████▀  ████████▀   ▀█   █▀    ████████▀    ██████████  ▀██████▀   ▀█   █▀</span>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Display instructions? (Y for instructions)&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">display_instructions</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">if</span> <span class="n">display_instructions</span> <span class="o">==</span> <span class="s1">&#39;Y&#39;</span>
+</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;You will enter a deep and dangerous dungeon.&quot;</span>
+</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;Your goal is to get as much gold as possible, steal the Crystal Crown from a sleeping dragon, and exit alive.&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note the comment above the method&rsquo;s name: while not required by Ruby, it is a good practice to always have a short description of what a method does. Insist that the students do this from now on.</p>
+
+<p>Of course, if the program is run now, nothing will happen &ndash; the method needs to be called. This can be done simply with:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">display_title</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We&rsquo;re also going to add a <code>system('cls')</code> (or <code>system('clear')</code> on UNIX systems) to clear the screen after the title and instructions have been displayed.</p>
+
+<h2>Iteration 1: Generating the dungeon</h2>
+
+<p>Now is time to get started on the game itself. For simplicity&rsquo;s sake, our player will move in a square, 2-dimensional grid-like dungeon divided into cells. The player will move from one cell to another.</p>
+
+<p>We need a way to represent the dungeon in our program. Get ideas from the students &ndash; what type of variable would we use? Brainstorming here is critical; insist that as programmers, one of the most challenging problems is to figure out how to represent ideas or real world objects into our code.</p>
+
+<p>How do you represent a car in a computer program? It depends on what your program does. If it is a racing game, then we care about things like the car&rsquo;s speed, durability, etc. If our program manages sales for a car dealership, then we care about the car&rsquo;s options, different prices, etc. What we represent in our program will depend on the goal of our program.</p>
+
+<p>Here, we&rsquo;re going to represent a dungeon with a 2-dimensional array, i.e. a grid. A 2-dimensional array is an array in which each element itself is an array. Here&rsquo;s what a 3x3 array looks like:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">my_array</span> <span class="o">=</span> <span class="o">[</span>
+</span><span class='line'>  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>  <span class="o">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>  <span class="o">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>A 2-dimensional array can be addressed as such:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">my_array</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;42&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Of course, the normal restrictions of arrays apply; this won&rsquo;t work on a 3x3 array:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">my_array</span><span class="o">[</span><span class="mi">42</span><span class="o">][</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;12&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2-dimensional arrays can be of any size by any size &ndash; but for our dungeon, we&rsquo;ll stick with a square one; that is, one where the width and height are the same. In each cell, we&rsquo;ll store what&rsquo;s in this dungeon&rsquo;s room &ndash; by default, it&rsquo;ll be empty.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">dungeon</span> <span class="o">=</span> <span class="o">[</span>
+</span><span class='line'>    <span class="o">[</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>    <span class="o">[</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>    <span class="o">[</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Iteration 2: Custom sized dungeon</h2>
+
+<p>The previous is great; however, if we want to change the dungeon&rsquo;s size (for example to increase the difficulty or size of the world to explore), we need to edit our code. Ideally, we want a smart way to initialize our dungeon.</p>
+
+<p>So far, we&rsquo;ve been declaring arrays as such:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">some_array</span> <span class="o">=</span> <span class="o">[]</span> <span class="c1">#if we want an empty array</span>
+</span><span class='line'><span class="n">some_other_array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span> <span class="c1">#if we want an array with 3 zeroes in it</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In Ruby, there&rsquo;s always more than one way to do things. Another way to declare an array is like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">some_array</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span> <span class="c1">#empty array</span>
+</span><span class='line'><span class="n">some_other_array</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">#empty array of size 3</span>
+</span><span class='line'><span class="n">another_array</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">5</span><span class="p">){</span><span class="mi">0</span><span class="p">}</span> <span class="c1">#empty array of size 5 filled with zeroes (also called &quot;default value&quot;)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>How will this translate for our dungeon? Have the students figure it out, ideally in two steps:</p>
+
+<ul>
+<li>Creating a one-dimensional dungeon:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">dungeon</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">3</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Creating a two-dimensional dungeon; the trick is that the default value doesn&rsquo;t have to be a string or a number:</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">dungeon</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">3</span><span class="p">){</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">3</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And here we go! We generated our dungeon, in a single line.</p>
+
+<p>The last little tweak we&rsquo;re going to do is not use numbers directly in our code. Often, in programming, we want things to be as easy to read as possible &ndash; numbers are bad because someone reading the code later will have no clue what the meaning behind the 3 is. Numbers hanging around like that are called &ldquo;magic values&rdquo;, and they&rsquo;re bad. What we want to do instead is put that number in a variable with a meaningful name.</p>
+
+<p>The size of the dungeon won&rsquo;t size throughout our program: it&rsquo;s a <em>constant</em>. In most programming languages, we type constants in ALL_CAPS.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">DUNGEON_SIZE</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span class='line'><span class="n">dungeon</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">DUNGEON_SIZE</span><span class="p">){</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">DUNGEON_SIZE</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Iteration 3: Moving around the dungeon</h2>
+
+<p>Alright! We have an empty dungeon. Time for us to put a player in it, and have him move around.</p>
+
+<p>First of all, we need a way to know where our player is. Work with the students: how do we identify a position in the dungeon? (x,y coordinates) How can we represent those? (for now, two variables)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">player_x</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="n">player_y</span> <span class="o">=</span> <span class="mi">0</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will make our player start at the top-left corner, which is great for now. Maybe later we&rsquo;ll want the player to start at a random position in the dungeon (where an evil wizard teleported him to), but for now top-left is good.</p>
+
+<p>Why top-left? Remember that our dungeon is a two-dimensional array. Therefore <code>dungeon[0]</code> will return the first array; and <code>dungeon[0][0]</code> will be the first element of the first array. If we visualize our 2d array as a top-view map of the dungeon, then (0,0) is the top left corner.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span>
+</span><span class='line'>    <span class="o">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
+</span><span class='line'>    <span class="o">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
+</span><span class='line'>    <span class="o">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
+</span><span class='line'><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So let&rsquo;s have 2 variables to store the player position:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">player_x</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="n">player_y</span> <span class="o">=</span> <span class="mi">0</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now we&rsquo;ll prompt the player about where he wishes to move the player. Unfortunately, because our game is text only, we can&rsquo;t use the arrow keys to move the player around in &ldquo;real time&rdquo;: our game will have to be turn by turn.</p>
+
+<p>Every turn, we will ask the player where they wish to move (up/down/left/right) and move the player accordingly. The students should be able to implement that fairly easily; the only catch is the coordinates system. Keeping the structure of the array in mind should help with that.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">begin</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;You are now at </span><span class="si">#{</span><span class="n">player_x</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">player_y</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Where to, noble adventurer?&quot;</span>
+</span><span class='line'>    <span class="n">direction</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;left&#39;</span>
+</span><span class='line'>        <span class="n">player_x</span> <span class="o">=</span> <span class="n">player_x</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;right&#39;</span>
+</span><span class='line'>        <span class="n">player_x</span> <span class="o">=</span> <span class="n">player_x</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span>
+</span><span class='line'>        <span class="n">player_y</span> <span class="o">=</span> <span class="n">player_y</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;down&#39;</span>
+</span><span class='line'>        <span class="n">player_y</span> <span class="o">=</span> <span class="n">player_y</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let&rsquo;s try out our program. What&rsquo;s wrong with it?</p>
+
+<h2>Iteration 4: Bounding player movement</h2>
+
+<p>The problem with the previous code is that the player can easily step out of the dungeon&rsquo;s boundaries. We need to only let the player move in a certain direction if he&rsquo;ll stay within the dungeon&rsquo;s boundaries.</p>
+
+<p>How do we figure this out? We need to know which values within which the 2 player coordinate variables (player_x, player_y) must remain. That&rsquo;s 0 for a minumum, and DUNGEON_SIZE for a maximum. Have the students try ot figure out what to add in the code so that the player can&rsquo;t overstep their boundaries.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">begin</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;You are now at </span><span class="si">#{</span><span class="n">player_x</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">player_y</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Where to, noble adventurer?&quot;</span>
+</span><span class='line'>    <span class="n">direction</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;left&#39;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">player_x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</span><span class='line'>            <span class="n">player_x</span> <span class="o">=</span> <span class="n">player_x</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;right&#39;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">player_x</span> <span class="o">&lt;</span> <span class="no">DUNGEON_SIZE</span>
+</span><span class='line'>            <span class="n">player_x</span> <span class="o">=</span> <span class="n">player_x</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">player_y</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</span><span class='line'>            <span class="n">player_y</span> <span class="o">=</span> <span class="n">player_y</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;down&#39;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">player_y</span> <span class="o">&lt;</span> <span class="no">DUNGEON_SIZE</span>
+</span><span class='line'>            <span class="n">player_y</span> <span class="o">=</span> <span class="n">player_y</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Boom! Wonderful. (we can also decide to display a &ldquo;You can&rsquo;t go there message&rdquo; with an else for each of the inner ifs- that&rsquo;s up to the students.)</p>
+
+<h2>Iteration 5: Refactoring the movement code</h2>
+
+<p>The previous code works great, but there is a slight problem &ndash; our main loop is already 15 lines long, and we haven&rsquo;t even added treasures and enemies yet! We want to keep our code as easy to read as possible.</p>
+
+<p>To do this, we are going to move the movement code into its own method. Ultimately, we want our main loop to look like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">begin</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;You are now at </span><span class="si">#{</span><span class="n">player_x</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="n">player_y</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Where to, noble adventurer?&quot;</span>
+</span><span class='line'>    <span class="n">direction</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">move_player</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is much better, and will keep the code easy to read as we add more features. Have the students write the <code>move_player</code> method.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Move the player around the dungeon with the given direction</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">move_player</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;left&#39;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</span><span class='line'>            <span class="vg">$player_x</span> <span class="o">=</span> <span class="vg">$player_x</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;right&#39;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_x</span> <span class="o">&lt;</span> <span class="vg">$DUNGEON_SIZE</span>
+</span><span class='line'>            <span class="vg">$player_x</span> <span class="o">=</span> <span class="vg">$player_x</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_y</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</span><span class='line'>            <span class="vg">$player_y</span> <span class="o">=</span> <span class="vg">$player_y</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;down&#39;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_y</span> <span class="o">&lt;</span> <span class="vg">$DUNGEON_SIZE</span>
+</span><span class='line'>            <span class="vg">$player_y</span> <span class="o">=</span> <span class="vg">$player_y</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This looks great! Unfortunately, trying to run the code won&rsquo;t work.</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>-> % ruby dungeon_2.rb</span><span class='line output'>You are now at 0, 0</span><span class='line output'>Where to, noble adventurer?</span><span class='line output'>up</span><span class='line output'>dungeon_2.rb:18:in `move_player': undefined local variable or method `player_y' for main:Object (NameError)</span><span class='line output'>from dungeon_2.rb:33:in `main'</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>Remember: the only variables we can have access to in methods are the variables defined in that method. Here, <code>player_x</code>, <code>player_y</code> and <code>DUNGEON_SIZE</code> were all defined outside of the method, so we can&rsquo;t use them inside the method (the inside of the method is also called its &ldquo;scope&rdquo;).</p>
+
+<p>Fortunately, there&rsquo;s an easy way to solve this problem called global variables &ndash; a way for methods to access variables defined outside of its scope. For a variable to be global, its name must start with a <code>$</code>.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#This won&#39;t work</span>
+</span><span class='line'><span class="n">my_variable</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">test</span>
+</span><span class='line'>    <span class="n">my_variable</span> <span class="o">=</span> <span class="n">my_variable</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#But this will</span>
+</span><span class='line'><span class="vg">$my_variable</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">test</span>
+</span><span class='line'>    <span class="vg">$my_variable</span> <span class="o">=</span> <span class="vg">$my_variable</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So all we need to do is make our <code>player_x</code>, <code>player_y</code> and <code>DUNGEON_SIZE</code> variables global. The final code for this part of the program will look like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vg">$DUNGEON_SIZE</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span class='line'><span class="n">dungeon</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vg">$DUNGEON_SIZE</span><span class="p">){</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vg">$DUNGEON_SIZE</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="vg">$player_x</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="vg">$player_y</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">display_title</span>
+</span><span class='line'>    <span class="c1">#...</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#Move the player around the dungeon with the given direction</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">move_player</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;left&#39;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_x</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</span><span class='line'>            <span class="vg">$player_x</span> <span class="o">=</span> <span class="vg">$player_x</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;right&#39;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_x</span> <span class="o">&lt;</span> <span class="vg">$DUNGEON_SIZE</span>
+</span><span class='line'>            <span class="vg">$player_x</span> <span class="o">=</span> <span class="vg">$player_x</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_y</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</span><span class='line'>            <span class="vg">$player_y</span> <span class="o">=</span> <span class="vg">$player_y</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;down&#39;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_y</span> <span class="o">&lt;</span> <span class="vg">$DUNGEON_SIZE</span>
+</span><span class='line'>            <span class="vg">$player_y</span> <span class="o">=</span> <span class="vg">$player_y</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#Our program starts here</span>
+</span><span class='line'><span class="n">display_title</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">begin</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;You are now at </span><span class="si">#{</span><span class="vg">$player_x</span><span class="si">}</span><span class="s2">, </span><span class="si">#{</span><span class="vg">$player_y</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Where to, noble adventurer?&quot;</span>
+</span><span class='line'>    <span class="n">direction</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">move_player</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Iteration 6: Adding a map</h2>
+
+<p>Our game is slowly taking shape! Right now though, it&rsquo;s kind of hard to visualize where we are in the dungeon. To solve this problem, we are going to draw a map of the dungeon each turn. We&rsquo;re going to write a <code>draw_dungeon</code> method which, when called, will draw the dungeon on screen.</p>
+
+<p>The first step here is seeing that this method will need to access the <code>dungeon</code> variable; therefore, we should make it global.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vg">$dungeon</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vg">$DUNGEON_SIZE</span><span class="p">){</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vg">$DUNGEON_SIZE</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let&rsquo;s write our method- the first thing we want to do is iterate through our dungeon structure to display what&rsquo;s in each cell. Using <code>.each</code>, let the students figure it out. They should come up with something like:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Draw a map of the dungeon</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">draw_dungeon</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="vg">$dungeon</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span> <span class="n">dungeon_row</span><span class="o">|</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="vg">$dungeon_row</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">cell</span><span class="o">|</span>
+</span><span class='line'>            <span class="nb">print</span> <span class="n">cell</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>        <span class="nb">puts</span> <span class="s1">&#39;&#39;</span> <span class="c1">#print an empty line here so that cells don&#39;t get displayed next to one another</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We&rsquo;re getting there! Our map is a bit hard to read though. First thing first, let&rsquo;s display the <code>▯</code> character instead of <code>empty</code> for when a cell is empty. How do we do that?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Draw a map of the dungeon</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">draw_dungeon</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="vg">$dungeon</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">dungeon_row</span><span class="o">|</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="vg">$dungeon_row</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">cell</span><span class="o">|</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="k">if</span> <span class="n">cell</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span>
+</span><span class='line'>                <span class="nb">print</span> <span class="s1">&#39;▯&#39;</span>
+</span><span class='line'>            <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>        <span class="nb">puts</span> <span class="s1">&#39;&#39;</span> <span class="c1">#print an empty line here so that cells don&#39;t get displayed next to one another</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This works just fine. However, remember that in Ruby, there are always different ways to achieve the same goal. Here, while our method works, we&rsquo;re going to want to display the player&rsquo;s position on the map &ndash; that is, use the x,y coordinates we have for the player &ndash; and we don&rsquo;t have a way to track x and y coordinates with the <code>.each</code>.</p>
+
+<p>Instead, we&rsquo;re going to use the <code>.times</code> method. This method is used as follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="mi">5</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">counter</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">counter</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let the students grok it, and then brainstorm with them- how can we use <code>.times</code> to our advantage to go over every cell of the dungeon and keep track of our current x,y coordinates? We&rsquo;re going to want to use $DUNGEON_SIZE, and because we have 2 separate coordinates, we&rsquo;ll need two nested for loops.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Draw a map of the dungeon</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">draw_dungeon</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="vg">$DUNGEON_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">y</span><span class="o">|</span>
+</span><span class='line'>        <span class="vg">$DUNGEON_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="k">if</span> <span class="vg">$dungeon</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span>
+</span><span class='line'>                <span class="nb">print</span> <span class="s1">&#39;▯&#39;</span>
+</span><span class='line'>            <span class="k">end</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>        <span class="nb">puts</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<div class='note'>
+<p>
+    Note that our first loop is y, and the second loop is x - rather than the opposite. This is because the first loop will loop over the subarrays of our $dungeon structure (that is, the y dimension) and the second loop will loop over the cells themselves. If a student writes the loop the wrong way by mistake, their program will have the bug where typing left moves the character up, right moves the character down, etc.
+</p>
+</div>
+
+
+<p>And our last step is to draw a <code>☺</code> where the player is. The students should be able to figure it out:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Draw a map of the dungeon</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">draw_dungeon</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="vg">$DUNGEON_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span><span class='line'>        <span class="vg">$DUNGEON_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">y</span><span class="o">|</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="vg">$player_x</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="vg">$player_y</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span>
+</span><span class='line'>                <span class="nb">print</span> <span class="s1">&#39;☺&#39;</span>
+</span><span class='line'>            <span class="k">elsif</span> <span class="vg">$dungeon</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span>
+</span><span class='line'>                <span class="nb">print</span> <span class="s1">&#39;▯&#39;</span>
+</span><span class='line'>            <span class="k">end</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>        <span class="nb">puts</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now as we play the game, we get a neat looking map as the player moves around.</p>
+
+<p><img class="center" src="/images/projects/dungeon/dungeon_map.gif"></p>
+
+<h2>Iteration 7: Adding gold chests</h2>
+
+<p>Well, we have a dungeon, and our player can move around in it- but it&rsquo;s completely empty! Time to start the fun part- adding objects and enemies to our dungeon! Let&rsquo;s start with adding gold chest. When the player arrives on a cell with a gold chest, he will gain +10 gold.</p>
+
+<p>The first step is placing the gold chests in the dungeon.</p>
+
+<h2>Iteration 8: Adding bats</h2>
+
+<h2>Iteration 9: Adding the dragon and the ring</h2>
+
+<h2>Iteration 10: Wrapping up</h2>
+
+<h2>Improvements</h2>
+
+<ul>
+<li><p>Add more enemies</p></li>
+<li><p>Allow player to choose a &ldquo;class&rdquo; at the beginning of the game (e.g.: warrior: gets 2 more arrows; thief: can sneak by bats 3 times per game.)</p></li>
+<li><p>Use the colorize module to make the game more pleasant</p></li>
+<li><p>&hellip; anything you want! This project is very open ended, and students can do whatever they please &ndash; the only limit is their imagination and the amount of work they put in. For inspiration, show them YouTube videos of famous text games such as Rogue, Dwarf Fortress, etc.</p></li>
+</ul>
+
+
+<h2>Full code</h2>
+
+    
+      <footer>
+        
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://CodeNowOrg.github.io/projects/dungeon.html" data-via="" data-counturl="http://CodeNowOrg.github.io/projects/dungeon.html" >Tweet</a>
+  
+  
+  
+</div>
+
+        
+      </footer>
+    
+  </article>
+
+
+</div>
+
+
+  <span class="toggle-sidebar"></span>
+
+<aside class="sidebar">
+  <div> </div>
+</aside>
+
+<script src="/javascripts/sidebar.js" type="text/javascript"> </script>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - CodeNowOrg -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
