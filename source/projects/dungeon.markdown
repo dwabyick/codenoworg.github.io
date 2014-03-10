@@ -445,7 +445,7 @@ Instead, we're going to use the `.times` method. This method is used as follows:
 end
 ```
 
-Let the students grok it, and then brainstorm with them- how can we use `.times` to our advantage to go over every cell of the dungeon and keep track of our current x,y coordinates? We're going to want to use $DUNGEON_SIZE, and because we have 2 separate coordinates, we'll need two nested for loops.
+Let the students grok it, and then brainstorm with them- how can we use `.times` to our advantage to go over every cell of the dungeon and keep track of our current (x,y) coordinates? We're going to want to use `$DUNGEON_SIZE`, and because we have 2 separate coordinates, we'll need two nested `for` loops.
 
 ```ruby
 #Draw a map of the dungeon
