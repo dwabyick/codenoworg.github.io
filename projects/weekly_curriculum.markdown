@@ -11,13 +11,13 @@ Projects intended for students who are still beginning with Ruby.
 
 * [Hi-Lo Game]({% page_url projects/hilo %}) - Your first exposure to Ruby, focusing on the most important concepts and syntax elements.
 * [Rock, Paper, Scissors]({% page_url projects/rock_paper_scissors %}) - Try your hand at building a more complex game that builds off of the concepts learned in Hi-Lo.
+* [Colors!]({% page_url projects/colors %}) - Fun with colors in the terminal
+* [Calculator]({% page_url projects/calculator %}) - Writing a basic calculator in Ruby
 * [Encryptor]({% page_url projects/encryptor %}) - Write a program that enables you to encrypt and decrypt secret messages.
 
 ### Extra projects
 
 * [Brain Refresh]({% page_url projects/week_two_brain_refresh %}) - Review of major topics covered by the beginner projects.
-* [Calculator]({% page_url projects/calculator %}) - Writing a basic calculator in Ruby
-* [Colors!]({% page_url projects/colors %}) - Fun with colors in the terminal
 
 
 ## Intermediate projects
@@ -34,6 +34,6 @@ Projects for students who have completed the Beginner level.
 * [Arduino]({% page_url projects/arduino %}) - Do some hardware hacking with an Arduino, and learn to control LEDs from a Ruby script.
 
 
-## Alumni projects
+## Advanced projects
 
-None yet :-)
+In the process of creating.
