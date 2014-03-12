@@ -232,6 +232,25 @@ Boolean Logic This tutorial is open source. If you notice &hellip;">
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
+<script>
+  //Super secure password protection version 42.93438
+  //Ryan wanted a password protection so that students can't just go on the
+  //curriculum page and read the answers. Unfortunately we're hosting things
+  //on github right now, so we can't do any form of real password protection :(
+  //But basic Javascript is enough for now.
+  //
+  //If you are a student and you figure this out...rock on!
+  if (! document.cookie){
+     window.document.body.style.display = 'none';
+     var password = prompt("Password?");
+  }
+
+  if ( btoa(password) == 'Y29kZW5vd2NvZGVub3c=' ){
+     window.document.body.style.display = 'block';
+     document.cookie = 'authed=true; expires=31 Dec 2020 00:00:00 GMT';
+  }
+</script>
+
 </footer>
   
 
