@@ -20,20 +20,20 @@ Let's a create a dungeon.rb file.
 touch dungeon.rb
 {% endterminal %}
 
-When first launched, our program will display a title and ask the user if they want instructions. If the user types Y, we display the instructions; otherwise, we don't. 
+When first launched, our program will display a title and ask the user if they want instructions. If the user types Y, we display the instructions; otherwise, we don't.
 
 The code here is very straightforward and has no new elements:
 
 ```ruby
 puts "
                       WELCOME TO THE WORLD OF
-████████▄  ███    █▄  ███▄▄▄▄      ▄██████▄     ▄████████  ▄██████▄  ███▄▄▄▄   
-███   ▀███ ███    ███ ███▀▀▀██▄   ███    ███   ███    ███ ███    ███ ███▀▀▀██▄ 
-███    ███ ███    ███ ███   ███   ███    █▀    ███    █▀  ███    ███ ███   ███ 
-███    ███ ███    ███ ███   ███  ▄███         ▄███▄▄▄     ███    ███ ███   ███ 
-███    ███ ███    ███ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ███    ███ ███   ███ 
-███    ███ ███    ███ ███   ███   ███    ███   ███    █▄  ███    ███ ███   ███ 
-███   ▄███ ███    ███ ███   ███   ███    ███   ███    ███ ███    ███ ███   ███ 
+████████▄  ███    █▄  ███▄▄▄▄      ▄██████▄     ▄████████  ▄██████▄  ███▄▄▄▄
+███   ▀███ ███    ███ ███▀▀▀██▄   ███    ███   ███    ███ ███    ███ ███▀▀▀██▄
+███    ███ ███    ███ ███   ███   ███    █▀    ███    █▀  ███    ███ ███   ███
+███    ███ ███    ███ ███   ███  ▄███         ▄███▄▄▄     ███    ███ ███   ███
+███    ███ ███    ███ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ███    ███ ███   ███
+███    ███ ███    ███ ███   ███   ███    ███   ███    █▄  ███    ███ ███   ███
+███   ▄███ ███    ███ ███   ███   ███    ███   ███    ███ ███    ███ ███   ███
 ████████▀  ████████▀   ▀█   █▀    ████████▀    ██████████  ▀██████▀   ▀█   █▀
 
 
@@ -63,13 +63,13 @@ def display_title
 
   puts "
                           WELCOME TO THE WORLD OF
-  ████████▄  ███    █▄  ███▄▄▄▄      ▄██████▄     ▄████████  ▄██████▄  ███▄▄▄▄   
-███   ▀███ ███    ███ ███▀▀▀██▄   ███    ███   ███    ███ ███    ███ ███▀▀▀██▄ 
-███    ███ ███    ███ ███   ███   ███    █▀    ███    █▀  ███    ███ ███   ███ 
-███    ███ ███    ███ ███   ███  ▄███         ▄███▄▄▄     ███    ███ ███   ███ 
-███    ███ ███    ███ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ███    ███ ███   ███ 
-███    ███ ███    ███ ███   ███   ███    ███   ███    █▄  ███    ███ ███   ███ 
-███   ▄███ ███    ███ ███   ███   ███    ███   ███    ███ ███    ███ ███   ███ 
+  ████████▄  ███    █▄  ███▄▄▄▄      ▄██████▄     ▄████████  ▄██████▄  ███▄▄▄▄
+███   ▀███ ███    ███ ███▀▀▀██▄   ███    ███   ███    ███ ███    ███ ███▀▀▀██▄
+███    ███ ███    ███ ███   ███   ███    █▀    ███    █▀  ███    ███ ███   ███
+███    ███ ███    ███ ███   ███  ▄███         ▄███▄▄▄     ███    ███ ███   ███
+███    ███ ███    ███ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ███    ███ ███   ███
+███    ███ ███    ███ ███   ███   ███    ███   ███    █▄  ███    ███ ███   ███
+███   ▄███ ███    ███ ███   ███   ███    ███   ███    ███ ███    ███ ███   ███
 ████████▀  ████████▀   ▀█   █▀    ████████▀    ██████████  ▀██████▀   ▀█   █▀
 
 
@@ -101,7 +101,7 @@ We're also going to add a `system('cls')` (or `system('clear')` on UNIX systems)
 
 Now is time to get started on the game itself. For simplicity's sake, our player will move in a square, 2-dimensional grid-like dungeon divided into cells. The player will move from one cell to another.
 
-We need a way to represent the dungeon in our program. Get ideas from the students - what type of variable would we use? Brainstorming here is critical; insist that as programmers, one of the most challenging problems is to figure out how to represent ideas or real world objects into our code. 
+We need a way to represent the dungeon in our program. Get ideas from the students - what type of variable would we use? Brainstorming here is critical; insist that as programmers, one of the most challenging problems is to figure out how to represent ideas or real world objects into our code.
 
 How do you represent a car in a computer program? It depends on what your program does. If it is a racing game, then we care about things like the car's speed, durability, etc. If our program manages sales for a car dealership, then we care about the car's options, different prices, etc. What we represent in our program will depend on the goal of our program.
 
@@ -211,7 +211,7 @@ player_x = 0
 player_y = 0
 ```
 
-Now we'll prompt the player about where he wishes to move the player. Unfortunately, because our game is text only, we can't use the arrow keys to move the player around in "real time": our game will have to be turn by turn.
+Now we'll prompt the player about where they wish to move the player. Unfortunately, because our game is text only, we can't use the arrow keys to move the player around in "real time": our game will have to be turn by turn.
 
 Every turn, we will ask the player where they wish to move (up/down/left/right) and move the player accordingly. The students should be able to implement that fairly easily; the only catch is the coordinates system. Keeping the structure of the array in mind should help with that.
 
@@ -497,7 +497,7 @@ Now as we play the game, we get a neat looking map as the player moves around.
 
 ##Iteration 7: Adding gold chests
 
-Well, we have a dungeon, and our player can move around in it- but it's completely empty! Time to start the fun part- adding objects and enemies to our dungeon! Let's start with adding gold chest. When the player arrives on a cell with a gold chest, he will gain +10 gold.
+Well, we have a dungeon, and our player can move around in it- but it's completely empty! Time to start the fun part- adding objects and enemies to our dungeon! Let's start with adding gold chest. When the player arrives on a cell with a gold chest, they will gain +10 gold.
 
 The first step is placing the gold chests in the dungeon.
 
