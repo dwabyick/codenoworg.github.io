@@ -74,7 +74,6 @@ ul.main-navigation { list-style-type: none; }
 #content {
   border: none;
   overflow: visible;
-  margin: 0;
 }
 
 #main #content article { background: #F8F8F8 $noise-bg; }
@@ -198,7 +197,6 @@ aside section:first-child {
 }
 
 @media only screen {
-  #content.sidebar-present { margin-right: 240px; }
   #content.sidebar-present { border-right: 1px solid #E0E0E0; }
 }
 
