@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Dungeon - CodeNow Curriculum</title>
+  <title>Adventure - CodeNow Curriculum</title>
   <meta name="author" content="CodeNowOrg">
 
   
-  <meta name="description" content="Dungeon In this project, we are going to build a basic text dungeon exploration game, akin to games from the 70s such as Hunt the Wumpus, Rogue, etc &hellip;">
+  <meta name="description" content="Adventure In this project, we are going to build a basic text adventure game, akin to games from the 70s such as Hunt the Wumpus, Rogue, etc. &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://CodeNowOrg.github.io/projects/dungeon.html">
+  <link rel="canonical" href="http://CodeNowOrg.github.io/projects/adventure.html">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="CodeNow Curriculum" type="application/atom+xml">
@@ -67,11 +67,11 @@
     
     <header>
       
-      <h1 class="entry-title">Dungeon</h1>
+      <h1 class="entry-title">Adventure</h1>
       
     </header>
     
-    <p>In this project, we are going to build a basic text dungeon exploration game, akin to games from the 70s such as Hunt the Wumpus, Rogue, etc.</p>
+    <p>In this project, we are going to build a basic text adventure game, akin to games from the 70s such as Hunt the Wumpus, Rogue, etc.</p>
 
 <p>Learning Goals:</p>
 
@@ -84,7 +84,7 @@
 
 <h2>Iteration 0:  Setup</h2>
 
-<p>Let&rsquo;s a create a dungeon.rb file.</p>
+<p>Let&rsquo;s a create a adventure.rb file.</p>
 
 <div class="window">
           <nav class="control-window">
@@ -94,7 +94,7 @@
           </nav>
           <h1 class="titleInside">Terminal</h1>
           <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
-</pre></td><td class='code'><pre><code><span class='line output'>touch dungeon.rb</span></code></pre></td></tr></table></div></div>
+</pre></td><td class='code'><pre><code><span class='line output'>touch adventure.rb</span></code></pre></td></tr></table></div></div>
         </div>
 
 
@@ -122,34 +122,30 @@
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span>
-</span><span class='line'><span class="s2">                      WELCOME TO THE WORLD OF</span>
-</span><span class='line'><span class="s2">████████▄  ███    █▄  ███▄▄▄▄      ▄██████▄     ▄████████  ▄██████▄  ███▄▄▄▄</span>
-</span><span class='line'><span class="s2">███   ▀███ ███    ███ ███▀▀▀██▄   ███    ███   ███    ███ ███    ███ ███▀▀▀██▄</span>
-</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███   ███    █▀    ███    █▀  ███    ███ ███   ███</span>
-</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███  ▄███         ▄███▄▄▄     ███    ███ ███   ███</span>
-</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ███    ███ ███   ███</span>
-</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███   ███    ███   ███    █▄  ███    ███ ███   ███</span>
-</span><span class='line'><span class="s2">███   ▄███ ███    ███ ███   ███   ███    ███   ███    ███ ███    ███ ███   ███</span>
-</span><span class='line'><span class="s2">████████▀  ████████▀   ▀█   █▀    ████████▀    ██████████  ▀██████▀   ▀█   █▀</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>
+</span><span class='line'><span class="s2">                                            WELCOME TO THE WORLD OF</span>
+</span><span class='line'><span class="s2">   ▄████████ ████████▄   ▄█    █▄     ▄████████ ███▄▄▄▄       ███     ███    █▄     ▄████████    ▄████████</span>
+</span><span class='line'><span class="s2">  ███    ███ ███   ▀███ ███    ███   ███    ███ ███▀▀▀██▄ ▀█████████▄ ███    ███   ███    ███   ███    ███</span>
+</span><span class='line'><span class="s2">  ███    ███ ███    ███ ███    ███   ███    █▀  ███   ███    ▀███▀▀██ ███    ███   ███    ███   ███    █▀</span>
+</span><span class='line'><span class="s2">  ███    ███ ███    ███ ███    ███  ▄███▄▄▄     ███   ███     ███   ▀ ███    ███  ▄███▄▄▄▄██▀  ▄███▄▄▄</span>
+</span><span class='line'><span class="s2">▀███████████ ███    ███ ███    ███ ▀▀███▀▀▀     ███   ███     ███     ███    ███ ▀▀███▀▀▀▀▀   ▀▀███▀▀▀</span>
+</span><span class='line'><span class="s2">  ███    ███ ███    ███ ███    ███   ███    █▄  ███   ███     ███     ███    ███ ▀███████████   ███    █▄</span>
+</span><span class='line'><span class="s2">  ███    ███ ███   ▄███ ███    ███   ███    ███ ███   ███     ███     ███    ███   ███    ███   ███    ███</span>
+</span><span class='line'><span class="s2">  ███    █▀  ████████▀   ▀██████▀    ██████████  ▀█   █▀     ▄████▀   ████████▀    ███    ███   ██████████</span>
+</span><span class='line'><span class="s2">                                                                                   ███    ███</span>
 </span><span class='line'><span class="s2">&quot;</span>
 </span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Display instructions? (Y for instructions)&quot;</span>
 </span><span class='line'>
 </span><span class='line'><span class="n">display_instructions</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">if</span> <span class="n">display_instructions</span> <span class="o">==</span> <span class="s1">&#39;Y&#39;</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;You will enter a deep and dangerous dungeon.&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;You will enter a dark and dangerous forest.&quot;</span>
 </span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Your goal is to get as much gold as possible, steal the Crystal Crown from a sleeping dragon, and exit alive.&quot;</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>(the title ASCII-art can be generated with a website such as <a href="http://www.network-science.de/ascii/">this one</a>)</p>
+<p>(the title ASCII-art can be generated with a website such as <a href="http://patorjk.com/software/taag">this one</a>)</p>
 
 <div class="note">
 <p>The twist here is that we&#8217;re going to wrap our code in a method named `display_title`. (If the students are a bit rusty on methods, a small intro/refresher beforehand should be done. Keypoints: methods have a name, can take &#8220;arguments&#8221;, have a return value, are delimited by their begin&#8230;end, variables in a method can only be accessed in the method).</p>
@@ -183,31 +179,27 @@
 <span class='line-number'>23</span>
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#This method will print the game&#39;s title and instructions</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">display_title</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;</span>
-</span><span class='line'><span class="s2">                          WELCOME TO THE WORLD OF</span>
-</span><span class='line'><span class="s2">  ████████▄  ███    █▄  ███▄▄▄▄      ▄██████▄     ▄████████  ▄██████▄  ███▄▄▄▄</span>
-</span><span class='line'><span class="s2">███   ▀███ ███    ███ ███▀▀▀██▄   ███    ███   ███    ███ ███    ███ ███▀▀▀██▄</span>
-</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███   ███    █▀    ███    █▀  ███    ███ ███   ███</span>
-</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███  ▄███         ▄███▄▄▄     ███    ███ ███   ███</span>
-</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███ ▀▀███ ████▄  ▀▀███▀▀▀     ███    ███ ███   ███</span>
-</span><span class='line'><span class="s2">███    ███ ███    ███ ███   ███   ███    ███   ███    █▄  ███    ███ ███   ███</span>
-</span><span class='line'><span class="s2">███   ▄███ ███    ███ ███   ███   ███    ███   ███    ███ ███    ███ ███   ███</span>
-</span><span class='line'><span class="s2">████████▀  ████████▀   ▀█   █▀    ████████▀    ██████████  ▀██████▀   ▀█   █▀</span>
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>
+</span><span class='line'><span class="s2">                                            WELCOME TO THE WORLD OF</span>
+</span><span class='line'><span class="s2">   ▄████████ ████████▄   ▄█    █▄     ▄████████ ███▄▄▄▄       ███     ███    █▄     ▄████████    ▄████████</span>
+</span><span class='line'><span class="s2">  ███    ███ ███   ▀███ ███    ███   ███    ███ ███▀▀▀██▄ ▀█████████▄ ███    ███   ███    ███   ███    ███</span>
+</span><span class='line'><span class="s2">  ███    ███ ███    ███ ███    ███   ███    █▀  ███   ███    ▀███▀▀██ ███    ███   ███    ███   ███    █▀</span>
+</span><span class='line'><span class="s2">  ███    ███ ███    ███ ███    ███  ▄███▄▄▄     ███   ███     ███   ▀ ███    ███  ▄███▄▄▄▄██▀  ▄███▄▄▄</span>
+</span><span class='line'><span class="s2">▀███████████ ███    ███ ███    ███ ▀▀███▀▀▀     ███   ███     ███     ███    ███ ▀▀███▀▀▀▀▀   ▀▀███▀▀▀</span>
+</span><span class='line'><span class="s2">  ███    ███ ███    ███ ███    ███   ███    █▄  ███   ███     ███     ███    ███ ▀███████████   ███    █▄</span>
+</span><span class='line'><span class="s2">  ███    ███ ███   ▄███ ███    ███   ███    ███ ███   ███     ███     ███    ███   ███    ███   ███    ███</span>
+</span><span class='line'><span class="s2">  ███    █▀  ████████▀   ▀██████▀    ██████████  ▀█   █▀     ▄████▀   ████████▀    ███    ███   ██████████</span>
+</span><span class='line'><span class="s2">                                                                                   ███    ███</span>
 </span><span class='line'><span class="s2">&quot;</span>
 </span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Display instructions? (Y for instructions)&quot;</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="n">display_instructions</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="k">if</span> <span class="n">display_instructions</span> <span class="o">==</span> <span class="s1">&#39;Y&#39;</span>
-</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;You will enter a deep and dangerous dungeon.&quot;</span>
+</span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;You will enter a dark and dangerous forest.&quot;</span>
 </span><span class='line'>      <span class="nb">puts</span> <span class="s2">&quot;Your goal is to get as much gold as possible, steal the Crystal Crown from a sleeping dragon, and exit alive.&quot;</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'>
@@ -226,15 +218,15 @@
 
 <p>We&rsquo;re also going to add a <code>system('cls')</code> (or <code>system('clear')</code> on UNIX systems) to clear the screen after the title and instructions have been displayed.</p>
 
-<h2>Iteration 1: Generating the dungeon</h2>
+<h2>Iteration 1: Generating the forest</h2>
 
-<p>Now is time to get started on the game itself. For simplicity&rsquo;s sake, our player will move in a square, 2-dimensional grid-like dungeon divided into cells. The player will move from one cell to another.</p>
+<p>Now is time to get started on the game itself. For simplicity&rsquo;s sake, our player will move in a square, 2-dimensional grid-like forest divided into cells. The player will move from one cell to another.</p>
 
-<p>We need a way to represent the dungeon in our program. Get ideas from the students &ndash; what type of variable would we use? Brainstorming here is critical; insist that as programmers, one of the most challenging problems is to figure out how to represent ideas or real world objects into our code.</p>
+<p>We need a way to represent the forest in our program. Get ideas from the students &ndash; what type of variable would we use? brainstorming here is critical; insist that as programmers, one of the most challenging problems is to figure out how to represent ideas or real world objects into our code.</p>
 
 <p>How do you represent a car in a computer program? It depends on what your program does. If it is a racing game, then we care about things like the car&rsquo;s speed, durability, etc. If our program manages sales for a car dealership, then we care about the car&rsquo;s options, different prices, etc. What we represent in our program will depend on the goal of our program.</p>
 
-<p>Here, we&rsquo;re going to represent a dungeon with a 2-dimensional array, i.e. a grid. A 2-dimensional array is an array in which each element itself is an array. Here&rsquo;s what a 3x3 array looks like:</p>
+<p>Here, we&rsquo;re going to represent a forest with a 2-dimensional array, i.e. a grid. A 2-dimensional array is an array in which each element itself is an array. Here&rsquo;s what a 3x3 array looks like:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -263,14 +255,14 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>2-dimensional arrays can be of any size by any size &ndash; but for our dungeon, we&rsquo;ll stick with a square one; that is, one where the width and height are the same. In each cell, we&rsquo;ll store what&rsquo;s in this dungeon&rsquo;s room &ndash; by default, it&rsquo;ll be empty.</p>
+<p>2-dimensional arrays can be of any size by any size &ndash; but for our forest, we&rsquo;ll stick with a square one; that is, one where the width and height are the same. In each cell, we&rsquo;ll store what&rsquo;s in this part of the forest- by default, it&rsquo;ll be empty.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">dungeon</span> <span class="o">=</span> <span class="o">[</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">forest</span> <span class="o">=</span> <span class="o">[</span>
 </span><span class='line'>    <span class="o">[</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="o">]</span><span class="p">,</span>
 </span><span class='line'>    <span class="o">[</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="o">]</span><span class="p">,</span>
 </span><span class='line'>    <span class="o">[</span><span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="p">,</span> <span class="s1">&#39;empty&#39;</span><span class="o">]</span><span class="p">,</span>
@@ -278,9 +270,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Iteration 2: Custom sized dungeon</h2>
+<h2>Iteration 2: Custom sized forest</h2>
 
-<p>The previous is great; however, if we want to change the dungeon&rsquo;s size (for example to increase the difficulty or size of the world to explore), we need to edit our code. Ideally, we want a smart way to initialize our dungeon.</p>
+<p>The previous is great; however, if we want to change the forest&rsquo;s size (for example to increase the difficulty or size of the world to explore), we need to edit our code. Ideally, we want a smart way to initialize our forest.</p>
 
 <p>So far, we&rsquo;ve been declaring arrays as such:</p>
 
@@ -302,46 +294,46 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>How will this translate for our dungeon? Have the students figure it out, ideally in two steps:</p>
+<p>How will this translate for our forest? Have the students figure it out, ideally in two steps:</p>
 
 <ul>
-<li>Creating a one-dimensional dungeon:</li>
+<li>Creating a one-dimensional forest:</li>
 </ul>
 
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">dungeon</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">3</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">forest</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">3</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <ul>
-<li>Creating a two-dimensional dungeon; the trick is that the default value doesn&rsquo;t have to be a string or a number:</li>
+<li>Creating a two-dimensional forest; the trick is that the default value doesn&rsquo;t have to be a string or a number:</li>
 </ul>
 
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">dungeon</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">3</span><span class="p">){</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">3</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span> <span class="p">}</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">forest</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">3</span><span class="p">){</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">3</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>And here we go! We generated our dungeon, in a single line.</p>
+<p>And here we go! We generated our forest, in a single line.</p>
 
 <p>The last little tweak we&rsquo;re going to do is not use numbers directly in our code. Often, in programming, we want things to be as easy to read as possible &ndash; numbers are bad because someone reading the code later will have no clue what the meaning behind the 3 is. Numbers hanging around like that are called &ldquo;magic values&rdquo;, and they&rsquo;re bad. What we want to do instead is put that number in a variable with a meaningful name.</p>
 
-<p>The size of the dungeon won&rsquo;t size throughout our program: it&rsquo;s a <em>constant</em>. In most programming languages, we type constants in ALL_CAPS.</p>
+<p>The size of the forest won&rsquo;t size throughout our program: it&rsquo;s a <em>constant</em>. In most programming languages, we type constants in ALL_CAPS.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">DUNGEON_SIZE</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span class='line'><span class="n">dungeon</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">DUNGEON_SIZE</span><span class="p">){</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">DUNGEON_SIZE</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span> <span class="p">}</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FOREST_SIZE</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span class='line'><span class="n">forest</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">FOREST_SIZE</span><span class="p">){</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">FOREST_SIZE</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Iteration 3: Moving around the dungeon</h2>
+<h2>Iteration 3: Moving around the forest</h2>
 
-<p>Alright! We have an empty dungeon. Time for us to put a player in it, and have him move around.</p>
+<p>Alright! We have an empty forest. Time for us to put a player in it, and have him move around.</p>
 
-<p>First of all, we need a way to know where our player is. Work with the students: how do we identify a position in the dungeon? (x,y coordinates) How can we represent those? (for now, two variables)</p>
+<p>First of all, we need a way to know where our player is. Work with the students: how do we identify a position in the forest? (x,y coordinates) How can we represent those? (for now, two variables)</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -350,9 +342,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This will make our player start at the top-left corner, which is great for now. Maybe later we&rsquo;ll want the player to start at a random position in the dungeon (where an evil wizard teleported him to), but for now top-left is good.</p>
+<p>This will make our player start at the top-left corner, which is great for now. Maybe later we&rsquo;ll want the player to start at a random position in the forest (where an evil wizard teleported him to), but for now top-left is good.</p>
 
-<p>Why top-left? Remember that our dungeon is a two-dimensional array. Therefore <code>dungeon[0]</code> will return the first array; and <code>dungeon[0][0]</code> will be the first element of the first array. If we visualize our 2d array as a top-view map of the dungeon, then (0,0) is the top left corner.</p>
+<p>Why top-left? Remember that our forest is a two-dimensional array. Therefore <code>forest[0]</code> will return the first array; and <code>forest[0][0]</code> will be the first element of the first array. If we visualize our 2d array as a top-view map of the forest, then (0,0) is the top left corner.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -417,9 +409,9 @@
 
 <h2>Iteration 4: Bounding player movement</h2>
 
-<p>The problem with the previous code is that the player can easily step out of the dungeon&rsquo;s boundaries. We need to only let the player move in a certain direction if he&rsquo;ll stay within the dungeon&rsquo;s boundaries.</p>
+<p>The problem with the previous code is that the player can easily step out of the forest&rsquo;s boundaries. We need to only let the player move in a certain direction if he&rsquo;ll stay within the forest&rsquo;s boundaries.</p>
 
-<p>How do we figure this out? We need to know which values within which the 2 player coordinate variables (player_x, player_y) must remain. That&rsquo;s 0 for a minumum, and DUNGEON_SIZE for a maximum. Have the students try ot figure out what to add in the code so that the player can&rsquo;t overstep their boundaries.</p>
+<p>How do we figure this out? We need to know which values within which the 2 player coordinate variables (player_x, player_y) must remain. That&rsquo;s 0 for a minumum, and FOREST_SIZE for a maximum. Have the students try ot figure out what to add in the code so that the player can&rsquo;t overstep their boundaries.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -454,7 +446,7 @@
 </span><span class='line'>            <span class="n">player_x</span> <span class="o">=</span> <span class="n">player_x</span> <span class="o">-</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;right&#39;</span>
-</span><span class='line'>        <span class="k">if</span> <span class="n">player_x</span> <span class="o">&lt;</span> <span class="no">DUNGEON_SIZE</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">player_x</span> <span class="o">&lt;</span> <span class="no">FOREST_SIZE</span>
 </span><span class='line'>            <span class="n">player_x</span> <span class="o">=</span> <span class="n">player_x</span> <span class="o">+</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span>
@@ -462,7 +454,7 @@
 </span><span class='line'>            <span class="n">player_y</span> <span class="o">=</span> <span class="n">player_y</span> <span class="o">-</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;down&#39;</span>
-</span><span class='line'>        <span class="k">if</span> <span class="n">player_y</span> <span class="o">&lt;</span> <span class="no">DUNGEON_SIZE</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">player_y</span> <span class="o">&lt;</span> <span class="no">FOREST_SIZE</span>
 </span><span class='line'>            <span class="n">player_y</span> <span class="o">=</span> <span class="n">player_y</span> <span class="o">+</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>    <span class="k">end</span>
@@ -517,14 +509,14 @@
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
 <span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Move the player around the dungeon with the given direction</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Move the player around the forest with the given direction</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">move_player</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
 </span><span class='line'>    <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;left&#39;</span>
 </span><span class='line'>        <span class="k">if</span> <span class="vg">$player_x</span> <span class="o">&gt;</span> <span class="mi">0</span>
 </span><span class='line'>            <span class="vg">$player_x</span> <span class="o">=</span> <span class="vg">$player_x</span> <span class="o">-</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;right&#39;</span>
-</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_x</span> <span class="o">&lt;</span> <span class="vg">$DUNGEON_SIZE</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_x</span> <span class="o">&lt;</span> <span class="vg">$FOREST_SIZE</span>
 </span><span class='line'>            <span class="vg">$player_x</span> <span class="o">=</span> <span class="vg">$player_x</span> <span class="o">+</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span>
@@ -532,7 +524,7 @@
 </span><span class='line'>            <span class="vg">$player_y</span> <span class="o">=</span> <span class="vg">$player_y</span> <span class="o">-</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;down&#39;</span>
-</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_y</span> <span class="o">&lt;</span> <span class="vg">$DUNGEON_SIZE</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_y</span> <span class="o">&lt;</span> <span class="vg">$FOREST_SIZE</span>
 </span><span class='line'>            <span class="vg">$player_y</span> <span class="o">=</span> <span class="vg">$player_y</span> <span class="o">+</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>    <span class="k">end</span>
@@ -555,11 +547,11 @@
 <span class='line-number'>&nbsp;</span>
 <span class='line-number'>&nbsp;</span>
 <span class='line-number'>&nbsp;</span>
-</pre></td><td class='code'><pre><code><span class='line output'>-> % ruby dungeon_2.rb</span><span class='line output'>You are now at 0, 0</span><span class='line output'>Where to, noble adventurer?</span><span class='line output'>up</span><span class='line output'>dungeon_2.rb:18:in `move_player': undefined local variable or method `player_y' for main:Object (NameError)</span><span class='line output'>from dungeon_2.rb:33:in `main'</span></code></pre></td></tr></table></div></div>
+</pre></td><td class='code'><pre><code><span class='line output'>-> % ruby forest_2.rb</span><span class='line output'>You are now at 0, 0</span><span class='line output'>Where to, noble adventurer?</span><span class='line output'>up</span><span class='line output'>forest_2.rb:18:in `move_player': undefined local variable or method `player_y' for main:Object (NameError)</span><span class='line output'>from forest_2.rb:33:in `main'</span></code></pre></td></tr></table></div></div>
         </div>
 
 
-<p>Remember: the only variables we can have access to in methods are the variables defined in that method. Here, <code>player_x</code>, <code>player_y</code> and <code>DUNGEON_SIZE</code> were all defined outside of the method, so we can&rsquo;t use them inside the method (the inside of the method is also called its &ldquo;scope&rdquo;).</p>
+<p>Remember: the only variables we can have access to in methods are the variables defined in that method. Here, <code>player_x</code>, <code>player_y</code> and <code>FOREST_SIZE</code> were all defined outside of the method, so we can&rsquo;t use them inside the method (the inside of the method is also called its &ldquo;scope&rdquo;).</p>
 
 <p>Fortunately, there&rsquo;s an easy way to solve this problem called global variables &ndash; a way for methods to access variables defined outside of its scope. For a variable to be global, its name must start with a <code>$</code>.</p>
 
@@ -592,7 +584,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>So all we need to do is make our <code>player_x</code>, <code>player_y</code> and <code>DUNGEON_SIZE</code> variables global. The final code for this part of the program will look like this:</p>
+<p>So all we need to do is make our <code>player_x</code>, <code>player_y</code> and <code>FOREST_SIZE</code> variables global. The final code for this part of the program will look like this:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -635,8 +627,8 @@
 <span class='line-number'>39</span>
 <span class='line-number'>40</span>
 <span class='line-number'>41</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vg">$DUNGEON_SIZE</span> <span class="o">=</span> <span class="mi">3</span>
-</span><span class='line'><span class="n">dungeon</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vg">$DUNGEON_SIZE</span><span class="p">){</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vg">$DUNGEON_SIZE</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span> <span class="p">}</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vg">$FOREST_SIZE</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span class='line'><span class="n">forest</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vg">$FOREST_SIZE</span><span class="p">){</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vg">$FOREST_SIZE</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span> <span class="p">}</span>
 </span><span class='line'>
 </span><span class='line'><span class="vg">$player_x</span> <span class="o">=</span> <span class="mi">0</span>
 </span><span class='line'><span class="vg">$player_y</span> <span class="o">=</span> <span class="mi">0</span>
@@ -645,14 +637,14 @@
 </span><span class='line'>    <span class="c1">#...</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="c1">#Move the player around the dungeon with the given direction</span>
+</span><span class='line'><span class="c1">#Move the player around the forest with the given direction</span>
 </span><span class='line'><span class="k">def</span> <span class="nf">move_player</span><span class="p">(</span><span class="n">direction</span><span class="p">)</span>
 </span><span class='line'>    <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;left&#39;</span>
 </span><span class='line'>        <span class="k">if</span> <span class="vg">$player_x</span> <span class="o">&gt;</span> <span class="mi">0</span>
 </span><span class='line'>            <span class="vg">$player_x</span> <span class="o">=</span> <span class="vg">$player_x</span> <span class="o">-</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;right&#39;</span>
-</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_x</span> <span class="o">&lt;</span> <span class="vg">$DUNGEON_SIZE</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_x</span> <span class="o">&lt;</span> <span class="vg">$FOREST_SIZE</span>
 </span><span class='line'>            <span class="vg">$player_x</span> <span class="o">=</span> <span class="vg">$player_x</span> <span class="o">+</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span>
@@ -660,7 +652,7 @@
 </span><span class='line'>            <span class="vg">$player_y</span> <span class="o">=</span> <span class="vg">$player_y</span> <span class="o">-</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>    <span class="k">elsif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;down&#39;</span>
-</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_y</span> <span class="o">&lt;</span> <span class="vg">$DUNGEON_SIZE</span>
+</span><span class='line'>        <span class="k">if</span> <span class="vg">$player_y</span> <span class="o">&lt;</span> <span class="vg">$FOREST_SIZE</span>
 </span><span class='line'>            <span class="vg">$player_y</span> <span class="o">=</span> <span class="vg">$player_y</span> <span class="o">+</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>    <span class="k">end</span>
@@ -681,16 +673,16 @@
 
 <h2>Iteration 6: Adding a map</h2>
 
-<p>Our game is slowly taking shape! Right now though, it&rsquo;s kind of hard to visualize where we are in the dungeon. To solve this problem, we are going to draw a map of the dungeon each turn. We&rsquo;re going to write a <code>draw_dungeon</code> method which, when called, will draw the dungeon on screen.</p>
+<p>Our game is slowly taking shape! Right now though, it&rsquo;s kind of hard to visualize where we are in the forest. To solve this problem, we are going to draw a map of the forest each turn. We&rsquo;re going to write a <code>draw_forest</code> method which, when called, will draw the forest on screen.</p>
 
-<p>The first step here is seeing that this method will need to access the <code>dungeon</code> variable; therefore, we should make it global.</p>
+<p>The first step here is seeing that this method will need to access the <code>forest</code> variable; therefore, we should make it global.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vg">$dungeon</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vg">$DUNGEON_SIZE</span><span class="p">){</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vg">$DUNGEON_SIZE</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span> <span class="p">}</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="vg">$forest</span> <span class="o">=</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vg">$FOREST_SIZE</span><span class="p">){</span> <span class="nb">Array</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="vg">$FOREST_SIZE</span><span class="p">){</span><span class="s1">&#39;empty&#39;</span><span class="p">}</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Let&rsquo;s write our method- the first thing we want to do is iterate through our dungeon structure to display what&rsquo;s in each cell. Using <code>.each</code>, let the students figure it out. They should come up with something like:</p>
+<p>Let&rsquo;s write our method- the first thing we want to do is iterate through our forest structure to display what&rsquo;s in each cell. Using <code>.each</code>, let the students figure it out. They should come up with something like:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -704,12 +696,12 @@
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Draw a map of the dungeon</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">draw_dungeon</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Draw a map of the forest</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">draw_forest</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="vg">$dungeon</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span> <span class="n">dungeon_row</span><span class="o">|</span>
+</span><span class='line'>    <span class="vg">$forest</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span> <span class="n">forest_row</span><span class="o">|</span>
 </span><span class='line'>
-</span><span class='line'>        <span class="vg">$dungeon_row</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">cell</span><span class="o">|</span>
+</span><span class='line'>        <span class="vg">$forest_row</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">cell</span><span class="o">|</span>
 </span><span class='line'>            <span class="nb">print</span> <span class="n">cell</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>        <span class="nb">puts</span> <span class="s1">&#39;&#39;</span> <span class="c1">#print an empty line here so that cells don&#39;t get displayed next to one another</span>
@@ -737,12 +729,12 @@
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Draw a map of the dungeon</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">draw_dungeon</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Draw a map of the forest</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">draw_forest</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="vg">$dungeon</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">dungeon_row</span><span class="o">|</span>
+</span><span class='line'>    <span class="vg">$forest</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">forest_row</span><span class="o">|</span>
 </span><span class='line'>
-</span><span class='line'>        <span class="vg">$dungeon_row</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">cell</span><span class="o">|</span>
+</span><span class='line'>        <span class="vg">$forest_row</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">cell</span><span class="o">|</span>
 </span><span class='line'>
 </span><span class='line'>            <span class="k">if</span> <span class="n">cell</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span>
 </span><span class='line'>                <span class="nb">print</span> <span class="s1">&#39;▯&#39;</span>
@@ -769,7 +761,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Let the students grok it, and then brainstorm with them- how can we use <code>.times</code> to our advantage to go over every cell of the dungeon and keep track of our current (x,y) coordinates? We&rsquo;re going to want to use <code>$DUNGEON_SIZE</code>, and because we have 2 separate coordinates, we&rsquo;ll need two nested <code>for</code> loops.</p>
+<p>Let the students grok it, and then brainstorm with them- how can we use <code>.times</code> to our advantage to go over every cell of the forest and keep track of our current (x,y) coordinates? We&rsquo;re going to want to use <code>$FOREST_SIZE</code>, and because we have 2 separate coordinates, we&rsquo;ll need two nested <code>for</code> loops.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -785,13 +777,13 @@
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Draw a map of the dungeon</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">draw_dungeon</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Draw a map of the forest</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">draw_forest</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="vg">$DUNGEON_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">y</span><span class="o">|</span>
-</span><span class='line'>        <span class="vg">$DUNGEON_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span><span class='line'>    <span class="vg">$FOREST_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">y</span><span class="o">|</span>
+</span><span class='line'>        <span class="vg">$FOREST_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
 </span><span class='line'>
-</span><span class='line'>            <span class="k">if</span> <span class="vg">$dungeon</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span>
+</span><span class='line'>            <span class="k">if</span> <span class="vg">$forest</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span>
 </span><span class='line'>                <span class="nb">print</span> <span class="s1">&#39;▯&#39;</span>
 </span><span class='line'>            <span class="k">end</span>
 </span><span class='line'>        <span class="k">end</span>
@@ -806,7 +798,7 @@
 
 <div class='note'>
 <p>
-    Note that our first loop is y, and the second loop is x - rather than the opposite. This is because the first loop will loop over the subarrays of our $dungeon structure (that is, the y dimension) and the second loop will loop over the cells themselves. If a student writes the loop the wrong way by mistake, their program will have the bug where typing left moves the character up, right moves the character down, etc.
+    Note that our first loop is y, and the second loop is x - rather than the opposite. This is because the first loop will loop over the subarrays of our $forest structure (that is, the y dimension) and the second loop will loop over the cells themselves. If a student writes the loop the wrong way by mistake, their program will have the bug where typing left moves the character up, right moves the character down, etc.
 </p>
 </div>
 
@@ -829,15 +821,15 @@
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Draw a map of the dungeon</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">draw_dungeon</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Draw a map of the forest</span>
+</span><span class='line'><span class="k">def</span> <span class="nf">draw_forest</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="vg">$DUNGEON_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
-</span><span class='line'>        <span class="vg">$DUNGEON_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">y</span><span class="o">|</span>
+</span><span class='line'>    <span class="vg">$FOREST_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+</span><span class='line'>        <span class="vg">$FOREST_SIZE</span><span class="o">.</span><span class="n">times</span> <span class="k">do</span> <span class="o">|</span><span class="n">y</span><span class="o">|</span>
 </span><span class='line'>
 </span><span class='line'>            <span class="k">if</span> <span class="p">(</span><span class="vg">$player_x</span> <span class="o">==</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="vg">$player_y</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span>
 </span><span class='line'>                <span class="nb">print</span> <span class="s1">&#39;☺&#39;</span>
-</span><span class='line'>            <span class="k">elsif</span> <span class="vg">$dungeon</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span>
+</span><span class='line'>            <span class="k">elsif</span> <span class="vg">$forest</span><span class="o">[</span><span class="n">x</span><span class="o">][</span><span class="n">y</span><span class="o">]</span> <span class="o">==</span> <span class="s1">&#39;empty&#39;</span>
 </span><span class='line'>                <span class="nb">print</span> <span class="s1">&#39;▯&#39;</span>
 </span><span class='line'>            <span class="k">end</span>
 </span><span class='line'>        <span class="k">end</span>
@@ -850,13 +842,13 @@
 
 <p>Now as we play the game, we get a neat looking map as the player moves around.</p>
 
-<p><img class="center" src="/images/projects/dungeon/dungeon_map.gif"></p>
+<p><img class="center" src="/images/projects/adventure/adventure_map.gif"></p>
 
 <h2>Iteration 7: Adding gold chests</h2>
 
-<p>Well, we have a dungeon, and our player can move around in it- but it&rsquo;s completely empty! Time to start the fun part- adding objects and enemies to our dungeon! Let&rsquo;s start with adding gold chest. When the player arrives on a cell with a gold chest, they will gain +10 gold.</p>
+<p>Well, we have a forest, and our player can move around in it- but it&rsquo;s completely empty! Time to start the fun part- adding objects and enemies to our forest! Let&rsquo;s start with adding gold chest. When the player arrives on a cell with a gold chest, they will gain +10 gold.</p>
 
-<p>The first step is placing the gold chests in the dungeon.</p>
+<p>The first step is placing the gold chests in the forest.</p>
 
 <h2>Iteration 8: Adding bats</h2>
 
