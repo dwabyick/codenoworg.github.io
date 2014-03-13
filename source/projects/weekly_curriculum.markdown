@@ -28,7 +28,7 @@ Projects for students who have completed the Beginner level.
 * [TwitterBot]({% page_url projects/twitter_bot %}) - Write a TwitterBot that will allow you to tweet from the command prompt! Learn how to make the bot send private messages and also spam your followers!
 * [Messengr]({% page_url projects/messengr %}) - Master interacting with the web via Ruby by building your own chat room!
 * [Hangman]({% page_url projects/hangman %}) - Writing a hangman game
-* [Dungeon]({% page_url projects/dungeon %}) - (still in progress) Use your advanced Ruby knowledge to build an adventure game!
+* [Adventure]({% page_url projects/adventure %}) - (still in progress) Use your advanced Ruby knowledge to build an adventure game!
 
 ### Extra projects
 * [Arduino]({% page_url projects/arduino %}) - Do some hardware hacking with an Arduino, and learn to control LEDs from a Ruby script.
