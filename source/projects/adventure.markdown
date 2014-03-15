@@ -495,13 +495,114 @@ Now as we play the game, we get a neat looking map as the player moves around.
 
 Well, we have a forest, and our player can move around in it- but it's completely empty! Time to start the fun part- adding objects and enemies to our forest! Let's start with adding gold chest. When the player arrives on a cell with a gold chest, they will gain +10 gold.
 
-The first step is placing the gold chests in the forest.
+First, we want to define a constant for the number of chests we'll have in the forest. Remember, we always put constants at the top of the file, grouped together.
 
-##Iteration 8: Adding bats
+```ruby
+$NUM_CHESTS = 3
+```
 
-##Iteration 9: Adding the dragon and the ring
+Now we're going to write a method which places chests randomly in the forest. Have the students come up with pseudocode for this; it should look something like:
 
-##Iteration 10: Wrapping up
+```
+- pick a random position on the map
+- if it's empty, place a chest there
+- if we have placed $NUM_CHESTS, end; otherwise, repeat.
+```
+
+In Ruby, we'll get this:
+
+```ruby
+def place_chests
+  chests_placed = 0
+
+  begin
+    chest_x = rand($FOREST_SIZE)
+    chest_y = rand($FOREST_SIZE)
+
+    if $forest[chest_x][chest_y] == 'empty'
+      $forest[chest_x][chest_y] = 'chest'
+      chests_placed = chests_placed + 1
+    end
+
+  end while chests_placed < $NUMBER_CHESTS
+
+end
+```
+
+Let's call the method in our program. Where do we want to put it? (right before our main loop)
+
+Have the students run the game. What's wrong? The chests don't appear on the map :( So let's modify the `draw_forest` method to display chests as well. This should be easy to do:
+
+```ruby
+#Draw a map of the forest
+def draw_forest
+
+    $FOREST_SIZE.times do |y|
+        $FOREST_SIZE.times do |x|
+
+            if ($player_x == x) && ($player_y == y)
+                print '☺'
+            elsif $forest[x][y] == 'empty'
+                print '▯'
+            elsif $forest[x][y] == 'chest'
+                print '$'
+            end
+
+        end
+        puts
+    end
+
+end
+```
+
+Let's run the program - the gold chests should show up on the map now!
+
+##Iteration 8: Picking up the gold
+
+Have the player walk around on the map. What happens when the player goes over a gold chest? Sadly, nothing. Let's fix that!
+
+The first thing we're going to do is add a variable that holds how much gold the player has. Let's add it right after our definition for `$player_x` and `$player_y`.
+
+```ruby
+$player_gold = 0
+```
+
+We're now going to add a method named `check_for_action`. What will this method do?
+
+This method will be called in the main loop, right after drawing the map, and will check if there is any action to perform on the current cell. For now this will only be opening gold chests; but later, it can be anything we want it to! (for example fight ennemies, avoid a trap, teleport somewhere else, etc.)
+
+So let's write our method. In pseudo code, what should it do?
+
+```
+- check the current player's cell
+- if it's a gold chest:
+-- give the player 10 gold
+-- remove the chest
+```
+
+In Ruby:
+
+```ruby
+def check_for_action
+  if $forest[$player_x][$player_y] == 'chest'
+    #give the gold to the player
+    puts "You open a chest and find 10 gold!"
+    $player_gold = $player_gold + 10
+    #remove the chest
+    $forest[$player_x][$player_y] = 'empty'
+  end
+end
+```
+
+Let's now try out our program:
+
+{% img center /images/projects/adventure/adventure_2.gif %}
+
+##Iteration 9: Adding bats
+
+##Iteration 10: Adding the dragon and the ring
+
+##Iteration 11: Wrapping up
 
 ##Improvements
 - Add more enemies
