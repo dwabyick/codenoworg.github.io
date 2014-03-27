@@ -85,6 +85,7 @@ Have the students run the program to prove that the computer does not execute co
 ### Step 4 - Setting variables
 
 Demonstrate how variables work and why they are useful. Explain the following key concepts: 
+
 1. Variables are set using the equals operator (=). The value on the right side of the equals sign, is the value that is stored.
 2. Variables look a lot like strings, but without the quotes. The quotes makes a huge difference.
 3. Naming variables is important. Intuitive names help us understand code, but they are not required.
