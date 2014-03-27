@@ -164,7 +164,7 @@ end
 ```
 Have students try to play their game.
 
-Reiterate that because we used gets, the value stored inside guess is a string. Unlike the Hi-Lo game, we dont' receive the same ArgumentError because strings can be compared with other strings.
+Reiterate that because we used gets, the value stored inside player_move is a string. Unlike the Hi-Lo game, we dont' receive the same ArgumentError because strings can be compared with other strings.
 
 Have the students run their program to confirm this works and test all 9 cases. In order to do this, they will have to change the computer_move variable.
 
@@ -210,7 +210,7 @@ computer_move = possible_moves.sample
 
 Have students play their game and prove that computer_move is no longer fixed. Since the computer's move is random, students should have difficulty proving all nine cases. Show them how they can debug their programs by printing out computer_move using `puts`.
 
-Ask them how we should make the game more fun. The typical response is that they'd like to be able to make more than one guess.
+Ask them how we should make the game more fun. The typical response is that they'd like to be able to make more than one move.
 
 ## Iteration 2: Looping the program
 
@@ -332,8 +332,8 @@ begin
 
   # Output whether the player won, lost, or tied
 
-  # If the player chose rock and the computer chose rock, print a tie message
-  if player_move == "rock" && computer_move == "rock"
+  # If the player_move is the same as the computer_move, print a tie message
+  if player_move == computer_move
     puts "#{tie_message}"
 
   # Otherwise, if the player chose rock and the computer chose scissors, print a win message
@@ -344,10 +344,6 @@ begin
   elsif player_move == "rock" && computer_move == "paper"
     puts "#{lose_message}"
 
-  # Otherwise, if the player chose paper and the computer chose paper, print a tie message
-  elsif player_move == "paper" && computer_move == "paper"
-    puts "#{tie_message}"
-
   # Otherwise, if the player chose paper and the computer chose rock, print a win message
   elsif player_move == "paper" && computer_move == "rock"
     puts "#{win_message}"
@@ -355,10 +351,6 @@ begin
   # Otherwise, if the player chose paper and the computer chose scissors, print a lose message
   elsif player_move == "paper" && computer_move == "scissors"
     puts "#{lose_message}"
-
-  # Otherwise, if the player chose scissors and the computer chose scissors, print a tie message
-  elsif player_move == "scissors" && computer_move == "scissors"
-    puts "#{tie_message}"
 
   # Otherwise, if the player chose scissors and the computer chose paper, print a win message
   elsif player_move == "scissors" && computer_move == "paper"
