@@ -338,7 +338,7 @@
 
 <p>Have students try to play their game.</p>
 
-<p>Reiterate that because we used gets, the value stored inside guess is a string. Unlike the Hi-Lo game, we dont&#8217; receive the same ArgumentError because strings can be compared with other strings.</p>
+<p>Reiterate that because we used gets, the value stored inside player_move is a string. Unlike the Hi-Lo game, we dont&#8217; receive the same ArgumentError because strings can be compared with other strings.</p>
 
 <p>Have the students run their program to confirm this works and test all 9 cases. In order to do this, they will have to change the computer_move variable.</p>
 
@@ -406,7 +406,7 @@
 
 <p>Have students play their game and prove that computer_move is no longer fixed. Since the computer&rsquo;s move is random, students should have difficulty proving all nine cases. Show them how they can debug their programs by printing out computer_move using <code>puts</code>.</p>
 
-<p>Ask them how we should make the game more fun. The typical response is that they&rsquo;d like to be able to make more than one guess.</p>
+<p>Ask them how we should make the game more fun. The typical response is that they&rsquo;d like to be able to make more than one move.</p>
 
 <h2>Iteration 2: Looping the program</h2>
 
@@ -622,14 +622,6 @@
 <span class='line-number'>50</span>
 <span class='line-number'>51</span>
 <span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">tries</span> <span class="o">=</span> <span class="mi">0</span>
 </span><span class='line'>
 </span><span class='line'><span class="k">begin</span>
@@ -653,8 +645,8 @@
 </span><span class='line'>
 </span><span class='line'>  <span class="c1"># Output whether the player won, lost, or tied</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1"># If the player chose rock and the computer chose rock, print a tie message</span>
-</span><span class='line'>  <span class="k">if</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span>
+</span><span class='line'>  <span class="c1"># If the player_move is the same as the computer_move, print a tie message</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">player_move</span> <span class="o">==</span> <span class="n">computer_move</span>
 </span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">tie_message</span><span class="si">}</span><span class="s2">&quot;</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="c1"># Otherwise, if the player chose rock and the computer chose scissors, print a win message</span>
@@ -665,10 +657,6 @@
 </span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span>
 </span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">lose_message</span><span class="si">}</span><span class="s2">&quot;</span>
 </span><span class='line'>
-</span><span class='line'>  <span class="c1"># Otherwise, if the player chose paper and the computer chose paper, print a tie message</span>
-</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">tie_message</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>
 </span><span class='line'>  <span class="c1"># Otherwise, if the player chose paper and the computer chose rock, print a win message</span>
 </span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span>
 </span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">win_message</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -676,10 +664,6 @@
 </span><span class='line'>  <span class="c1"># Otherwise, if the player chose paper and the computer chose scissors, print a lose message</span>
 </span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span>
 </span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">lose_message</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># Otherwise, if the player chose scissors and the computer chose scissors, print a tie message</span>
-</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">tie_message</span><span class="si">}</span><span class="s2">&quot;</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="c1"># Otherwise, if the player chose scissors and the computer chose paper, print a win message</span>
 </span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span>
