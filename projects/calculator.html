@@ -335,14 +335,49 @@
   //But basic Javascript is enough for now.
   //
   //If you are a student and you figure this out...rock on!
-  if (! document.cookie){
-     window.document.body.style.display = 'none';
-     var password = prompt("Password?");
+
+  function getCookie(needleCookie){
+    var cookies = document.cookie.split(';');
+
+    for (var i = 0; i < cookies.length; i++){
+      var cookie = cookies[i];
+
+      var cookieName = cookie.split('=')[0];
+      var cookieValue = cookie.split('=')[1];
+
+      if (cookieName == needleCookie){
+        return cookieValue;
+      }
+    }
+    return null;
   }
 
-  if ( btoa(password) == 'YzBkZW4wdyExMjQ=' ){
-     window.document.body.style.display = 'block';
-     document.cookie = 'authed=true; expires=31 Dec 2020 00:00:00 GMT';
+  //constants
+  var SECONDS = 1 * 1000;
+  var MINUTES = 60 * SECONDS;
+  var HOURS = 60 * MINUTES;
+  var DAYS = 24 * HOURS;
+
+  var AUTH_COOKIE = 'authed-v1'
+
+  //configuration
+  var cooloff_time = 1 * HOURS;
+
+  //
+  var d = new Date();
+  d.setTime(d.getTime() + cooloff_time);
+  cookie_expiry = "expires=" + d.toGMTString()
+
+  if ( getCookie(AUTH_COOKIE) != 'true' ){
+     window.document.body.style.display = 'none';
+     var password = prompt("Password?");
+
+    if ( btoa(password) == 'YzBkZW4wdyExMjQ=' ){
+       window.document.body.style.display = 'block';
+       document.cookie = AUTH_COOKIE + '=true; ' + cookie_expiry;
+    } else {
+      alert('Wrong password.');
+    }
   }
 </script>
 
