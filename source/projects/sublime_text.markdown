@@ -65,6 +65,7 @@ Click on "Settings - User" which should bring you to a blank file. Paste in the 
 
 ```ruby
 {
+  "auto_indent": true,
   "auto_match_enabled" : true,
   "bold_folder_labels": true,
   "color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
@@ -77,7 +78,7 @@ Click on "Settings - User" which should bring you to a blank file. Paste in the 
     "Vintage"
   ],
   "line_numbers": true,
-  "auto_indent": true,
+  "save_on_focus_lost": true,
   "smart_indent": true,
   "tab_size": 2,
   "translate_tabs_to_spaces": true
