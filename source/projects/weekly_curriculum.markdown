@@ -1,6 +1,9 @@
 ## Basics
-Go through those (in order) with the students to get them to understand the programming tools they'll be using all throughout the CodeNow curriculum.
+Go through those (in order) with the students to get them to understand the programming tools they'll be using all throughout the CodeNow program.
 
+
+* [What are Git, GitHub.com, and Nitrous.io?]({% page_url projects/git_github_nitrous %})
+* [Instructions to creating accounts]({% page_url projects/creating_accounts %})
 * [Command Prompt Basics]({% page_url projects/command_prompt %}) - Get familiar with the command prompt inside Windows machines. Master creating, copying, and deleting files and folders all without using your mouse.
 * [Sublime Text]({% page_url projects/sublime_text %}) - Get familiar with SublimeText and customize your text editor
 
