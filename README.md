@@ -10,12 +10,19 @@ Get in touch with [Ed Weng](https://github.com/wengzilla) or [Guillaume Ardaud](
 
 Clone the repo, then `cd` into it.
 
+You'll need to setup some Ruby stuff (Octopress):
+
 ```
-git checkout source origin/source
-git checkout source
+gem install rake bundler
 ```
 
-Then make your changes, commit as needed. Remember, you want to be on `source`.
+We want to move on the source branch:
+
+```
+git checkout source origin/source
+```
+
+Then make your changes, commit as needed. Remember, you want to be on `source` (git` checkout source`).
 Debug locally with:
 
 ```
