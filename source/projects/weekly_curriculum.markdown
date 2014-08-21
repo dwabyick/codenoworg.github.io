@@ -18,11 +18,6 @@ Projects intended for students who are still beginning with Ruby.
 * [Calculator]({% page_url projects/calculator %}) - Writing a basic calculator in Ruby
 * [Encryptor]({% page_url projects/encryptor %}) - Write a program that enables you to encrypt and decrypt secret messages.
 
-### Extra projects
-
-* [Brain Refresh]({% page_url projects/week_two_brain_refresh %}) - Review of major topics covered by the beginner projects.
-
-
 ## Intermediate projects
 Projects for students who have completed the Beginner level.
 
