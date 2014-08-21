@@ -8,15 +8,20 @@ Go through those (in order) with the students to get them to understand the prog
 * [Sublime Text]({% page_url projects/sublime_text %}) - Get familiar with SublimeText and customize your text editor
 
 ## Beginner projects
-Projects intended for students who are still beginning with Ruby.
+Projects intended for students who are beginning with Ruby.
 
-###Projects to do in order
+###Workshop Projects (to do in order)
 
 * [Hi-Lo Game]({% page_url projects/hilo %}) - Your first exposure to Ruby, focusing on the most important concepts and syntax elements.
 * [Rock, Paper, Scissors]({% page_url projects/rock_paper_scissors %}) - Try your hand at building a more complex game that builds off of the concepts learned in Hi-Lo.
 * [Colors!]({% page_url projects/colors %}) - Fun with colors in the terminal
 * [Calculator]({% page_url projects/calculator %}) - Writing a basic calculator in Ruby
 * [Encryptor]({% page_url projects/encryptor %}) - Write a program that enables you to encrypt and decrypt secret messages.
+
+###Review Projects
+
+* [Hobbit Game]({% page_url projects/hobbit %}) - Review of conditionals and boolean logic
+* [MadLib Game]({% page_url projects/madlib %}) - Review of variables
 
 ## Intermediate projects
 Projects for students who have completed the Beginner level.
