@@ -23,6 +23,11 @@ Projects intended for students who are beginning with Ruby.
 * [Hobbit Game]({% page_url projects/hobbit %}) - Review of conditionals and boolean logic
 * [MadLib Game]({% page_url projects/madlib %}) - Review of variables
 
+### Other Resources
+
+* [Homework Review]({% page_url projects/homework_review %})
+* [Ruby Cheat Sheet](https://docs.google.com/document/d/1SHwAF5MiAkRqWVQBe4WR9Se_T_WNLv72jezShfY-pG8)
+
 ## Intermediate projects
 Projects for students who have completed the Beginner level.
 
@@ -41,7 +46,3 @@ Projects for students who have completed the Beginner level.
 
 In the process of creating.
 
-## Other
-
-* [Homework Review]({% page_url projects/homework_review %})
-* [Ruby Cheat Sheet](https://docs.google.com/document/d/1SHwAF5MiAkRqWVQBe4WR9Se_T_WNLv72jezShfY-pG8)
