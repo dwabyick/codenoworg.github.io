@@ -35,3 +35,8 @@ Projects for students who have completed the Beginner level.
 ## Advanced projects
 
 In the process of creating.
+
+## Other
+
+* [Homework Review]({% page_url projects/homework_review %})
+* [Ruby Cheat Sheet](https://docs.google.com/document/d/1SHwAF5MiAkRqWVQBe4WR9Se_T_WNLv72jezShfY-pG8)
