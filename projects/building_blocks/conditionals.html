@@ -79,22 +79,35 @@
 
 <header>
 
-<h1 class="entry-title">Writing Pseudocode</h1>
+<h1 class="entry-title">Conditionals</h1>
 
 </header>
 
-<p>Plan out your program before you code it.</p>
+<p>Conditionals are a control structure. Using them allow us to execute code we want to execute only when certain conditions are met.</p>
 
-<p>Pseudocode is an informal high-level description of the program we are planning to write. It is often written in plain text and it is not an executable program.</p>
+<p>Conditionals are important to program control flow.</p>
 
-<p>Writing our program in pseudocode first helps us think about the different pieces it will include. In particular, when writing pseudocode we want to include the different steps that are needed in order for our program to produce the desired output.
+<p>Remember that code is executed from top to bottom. In cases when we want for some code to execute only under certain conditions, we use conditionals. If the conditions are not met, the code following those conditions will be skipped.</p>
 
-<p>Hint: Think about the peanut butter and jelly sandwich activity.</p>
+<p>There are four components to a conditional block in Ruby:</p>
+<ol>
+<li><code>if</code>(required)</li>
+<li><code>elsif</code>(optional)</li>
+<li><code>else</code>(optional, does not require an expression to be evaluated)</li>
+<li><code>end</code>(required)</li>
+</ol>
 
-<p>Write your program in pseudocode using <code>#</code> in front of every line. This will tell the computer to treat what you write as a comment. As you write your pseudocode, think about the order in which the different steps should take place, this is referred to as program control flow.</p>
+<p>It is important to understand that the if/elsif/else statements will operate sequentially and will exit the if/elsif/else as soon as one condition is satisfied.</p>
 
-<p>After you are satisfied with your pseudocode, you will start translating it line by line into source code. You will use the language Ruby to write your program’s source code.
-</p>
+<p>Often conditionals are based on expressions that compare values. There are six operators used when doing value comparisons:</p> 
+<ul>
+<li><code>==</code> = equals</li>
+<li><code>!=</code>is not equal to</li>
+<li><code><</code>is less than</li>
+<li><code>></code>is greater than</li>
+<li><code><=</code>is less than or equal to</li>
+<li><code>>=</code>is greater than or equal to</li>
+</ul>
 
 <footer>
 
