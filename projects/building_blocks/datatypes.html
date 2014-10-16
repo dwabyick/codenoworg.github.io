@@ -78,23 +78,49 @@
 <article role="article">
 
 <header>
-
-<h1 class="entry-title">Writing Pseudocode</h1>
-
+<h1>Datatypes: String and Integers</h1>
 </header>
 
-<p>Plan out your program before you code it.</p>
+<p> The data that we store and use in our programs can be of different types. Two main types are string and integer.</p>
 
-<p>Pseudocode is an informal high-level description of the program we are planning to write. It is often written in plain text and it is not an executable program.</p>
+<p>Numeric data that are whole numbers are of type integer, hence the variables we use to store it are also of type integer.</p>
+<p>Among the operations we can use with integers are the following: addition, subtraction, multiplication, and division.</p>
+<p>To perform these operations we use the following symbols: <code>+</code>for addition, <code>-</code>for subtraction, <code>*</code> for multiplication, and <code>/</code> for division.
 
-<p>Writing our program in pseudocode first helps us think about the different pieces it will include. In particular, when writing pseudocode we want to include the different steps that are needed in order for our program to produce the desired output.
+<p>Textual data is of type string, hence the variables we use to store it are also of type string. Strings are written inside double quotes.</p>
+<p>We can also perform “operations” on strings. In order to perform “operations” on strings we use methods. Some of the methods we can use are:</p>
+<ul>
+<li><code>puts</code> = when we want to print something to the screen.</li> 
+<li><code>gets</code></li> = when we want to capture user input.</li> 
+<li><code>.chomp</code></li> =  when we need to strip the new line character.</li>
+<li><code>.downcase</code></li> = when we want to convert all characters to lowercase.</li>
+<li><code>.upcase</code></li> = when we want to convert all characters to uppercase.</li>
+<li><code>.capitalize</code></li> when we want to convert the first character to uppercase and the remainder to lowercase</li>
 
-<p>Hint: Think about the peanut butter and jelly sandwich activity.</p>
+<p>Try the following in irb:</p>
+<ul>
+<li><code>puts “what is your name?”</code></li>
+<li><code>name = gets.chomp</code></li>
+<li><code>puts name.downcase</code></li>
+<li><code>puts name.upcase</code></li>
+<li><code>puts name.capitalize</code></li>
+</ul>
 
-<p>Write your program in pseudocode using <code>#</code> in front of every line. This will tell the computer to treat what you write as a comment. As you write your pseudocode, think about the order in which the different steps should take place, this is referred to as program control flow.</p>
+<p>Finally, sometimes we want to convert between a string and an integer. To do this we can use the methods:</p>
+<ul>
+<li><code>.to_i</code></li> = when we want to convert a string to an integer
+<li><code>.to_s</code></li> = when we want to convert an integer to a string
 
-<p>After you are satisfied with your pseudocode, you will start translating it line by line into source code. You will use the language Ruby to write your program’s source code.
-</p>
+<p>Try the following in irb:</p>
+
+<ul>
+<li><code>puts “what is your age?”</code></li>
+<li><code>age = gets.chomp</code></li>
+<li><code>age > 10</code></li>
+
+<p>You should receive an <code>ArgumentError '&gt;': comparison of String with Fixnum failed (ArgumentError)</code></p>
+<p>Remember that because we used <code>gets</code>, the value stored inside age is a string.</p>
+<p>How would you fix the error?</p>
 
 <footer>
 
