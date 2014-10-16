@@ -71,7 +71,7 @@
       
     </header>
     
-    <p>In this project, students will learn how to use the command line tool and IRB.</p>
+    <p>In this project, students will learn how to use the command line tool, IRB, and SublimeText (text editor).</p>
 
 <p>Learning Goals:</p>
 
@@ -79,6 +79,7 @@
 <li>Understand why the command line is useful</li>
 <li>Learn how to replicate many of the explorer actions without the use of a mouse</li>
 <li>Get introduced to IRB (Interactive RuBy)</li>
+<li>Understand what SublimeText is</li>
 </ul>
 
 
@@ -90,6 +91,8 @@
 <h2>Overview</h2>
 
 <p>Tell the students about the history of the command prompt. Go over why understanding the command prompt is important for programmers.</p>
+
+<p> Tell the students a text editor is and why we need it for computer programming. Explain that like they use Microsoft Word to write their essays, programmers use SublimeText to write their code.</p>
 
 <h2>The basic commands</h2>
 
@@ -121,21 +124,50 @@
 
 <h2>Exercises</h2>
 
-<p>Open up your Terminal program</p>
+<h3>Open up your Terminal program</h3>
+
+<p>Students can get to the command prompt by hitting the windows key and typing "command prompt with ruby and rails". Once they hit enter, they should be brought to the command prompt that has paths for Rails and Ruby set in the environment.</p>
+
+<p>Make sure students are opening "Command Prompt with Ruby and Rails". Many perplexing erros occur when students open the regular version of the command prompt. None of the typical commands will work.</p>
 
 <h3>Part I: Getting familiar with the Command Prompt</h3>
 
 <p>Create a new directory called <code>codelater</code></p>
-<p>Oops! You realize it needs to be called <code>code</code></p>
+<p>Oops! You realize it needs to be called <code>codenow</code></p>
 <p>Move up a directory and delete <code>codelater</code></p>
-<p>Make a new directory properly named <code>code</code></p>
+<p>Make a new directory properly named <code>codenow</code></p>
 
-<p>Create a new file inside <code>code</code> called <code>hello_world.txt</code></p>
+<p>Create a new file inside <code>codenow</code> called <code>hello_world.txt</code></p>
 <p>Oops! We're writing Ruby so this should be a ruby file, let's use the .rb extension instead</p>
 <p>Rename the file <code>hello_world.txt</code> to <code>hello_world.rb</code></p>
-<p>Open <code>hello_world.rb</code> with Sublime Text</p> 
+<p>Open <code>hello_world.rb</code> with SublimeText by typing <code>hello_world.rb</code> directly into the command prompt.</p>
+<p>If SublimeText has not yet been set as the default editor for Ruby files, ask students to open the file directly in SublimeText. The next exercise will tell you have to set up SublimeText as the default editor. </p>
 <p>Write <code>puts "Hello World"</code> and save the file</p>
-<p>Open <code>irb</code> and run the file. Do you see "Hello World" in the command line?</p>
+<p>Run the file. Do you see "Hello World" in the command line?</p>
+
+<h3>Part II: Learning to use IRB (Interactive RuBy)</h3>
+
+<p>Open up Interactive Ruby Mode by typing <code>irb</code> in your terminal.
+<p>You should see something like this: <code>irb(main):001:0</code></p>
+<p>Type the following and see what happens</p>
+<li>
+<ul><code>1 + 1</code></ul>
+<ul><code>puts “Hello World”</code></ul>
+<ul><code>3 * 2</code></ul>
+<ul><code>3 ** 2</code></ul>
+<ul><code>3 / 2</code></ul>
+<ul><code>“Hello World” * 5</code></ul>
+<ul>Type <code>exit</code> to leave interactive mode</ul>
+</li>
+
+<h3>There are two ways to give your computer commands in Ruby to execute:</h3>
+
+<p>Script mode: loads a file and runs all commands associated with that file. This file must have a “.rb” extension. This is what we did as the last step in the first part of this exercise.</p>
+
+<p>Interactive Mode: referred to as ‘irb,’ where the computer will execute commands as you type them in. This is what we did in the second part of this exercise.</p>
+
+<p>When writing and running our programs we will be doing it in script mode. But you can always try things out in interactive mode. Remember to exit interactive mode whenever you want to run your program.</p>
+
 
 <!--<p>For practice exercises, refer the students here: <a href="http://bit.ly/codenow-command-prompt-exercises">http://bit.ly/codenow-command-prompt-exercises</a></p> -->
 
