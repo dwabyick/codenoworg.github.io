@@ -118,7 +118,7 @@
 
 <h3>Step 1 &ndash; Writing pseudocode</h3>
 
-<p>Work together with the group to first write pseudocode for the Hi-Lo game. See here for a mini lesson.</p>
+<p>Work together with the group to first write pseudocode for the Hi-Lo game. See here for key concepts you want to touch on.</p>
 
 <ol>
 <li>As a group discuss what actions need to happen during the game and when should they take place.</li> 
@@ -155,107 +155,16 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p></p>
-
 <h3>Step 2 &ndash; Setting variables</h3>
 
-<p>Demonstrate how variables work and why they are useful. Explain the following key concepts:</p>
+<p>Introduce students to variables (strings and integers). See here for key concepts you want to touch on.</p>
 
 <ol>
-<li>Variables are set using the equals operator (=). The value on the right side of the equals sign, is the value that is stored.</li>
-<li>Variables look a lot like strings, but without the quotes. The quotes makes a huge difference.</li>
-<li>Naming variables is important. Intuitive names help us understand code, but they are not required.</li>
-<li>Once a variable is set, it will store that information until the variable is set to a new value. Write a simple example and ask them what values will be printed to the screen:</li>
+<li>Go over the purpose for which we would want to store information in our game, the scenarios during which we would want to manipulate the information (if any), the place in the program where we would want to use the information stored, etc.</li>
+<li>Ask student to add variables to their game using their pseudocode as a guide.</li>
+<li>Tell students to start off by setting the variables to a fixed value.</li>
+<li>Have students run their programs to ensure that their code is in a working state.</li>
 </ol>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">number</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">number</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="n">number</span> <span class="o">=</span> <span class="mi">10</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">number</span><span class="si">}</span><span class="s2">&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Return to the <code>hilo.rb</code> file and work together to define a variable to store a &ldquo;secret number.&rdquo; Once the variable is defined, start off by setting the secret number to a fixed value.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Computer needs to generate a secret number</span>
-</span><span class='line'><span class="n">secret_number</span> <span class="o">=</span> <span class="mi">5</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Challenge the students to fill in the next step by themselves.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Tell the user to guess a number between 1 and 10</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Please guess a number!&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Have the students run their programs to ensure that their code is in a working state. Frequently, students will forget about quotation marks in the <code>puts</code> statement or capitalize <code>puts</code>. Stress that capitalization and punctuation are incredibly important in computer programming.</p>
-
-<h3>Step 5 &ndash; Getting user input</h3>
-
-<p>Have the students call the gets method in their programs, but don&rsquo;t tell them what it does.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># User guesses a number</span>
-</span><span class='line'><span class="nb">gets</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Tell the students run their programs and ask if they notice a difference in program behavior. Show them that the computer is waiting for a human response. Explain that the opposite of <code>puts</code> is <code>gets</code> and that the <code>s</code> is short for string.</p>
-
-<p>Next, show them that the value of the gets can be stored inside a variable. Work as a class to choose an appropriate variable name to store the user&rsquo;s guess. As a last step, call <code>.chomp</code> on the gets to strip the new line character from the gets. Avoid an in-depth explanation if possible.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># User guesses a number</span>
-</span><span class='line'><span class="n">guess</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Step 6 &ndash; Conditional statement</h3>
-
-<p>Make a detour here to explain conditions and if statements. Start off by explaning what a condition is and show the class how it can be used in an if statement. Have them open IRB and experiment with various conditions.</p>
-
-<div class="window">
-          <nav class="control-window">
-            <a href="#finder" class="close" data-rel="close">close</a>
-            <a href="#" class="minimize">minimize</a>
-            <a href="#" class="deactivate">deactivate</a>
-          </nav>
-          <h1 class="titleInside">IRB</h1>
-          <div class="container"><div class="irb"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1.9.2p320 :001&gt;</span>
-<span class='line-number'>1.9.2p320 :002&gt;</span>
-<span class='line-number'>1.9.2p320 :003&gt;</span>
-<span class='line-number'>1.9.2p320 :004&gt;</span>
-<span class='line-number'>1.9.2p320 :005&gt;</span>
-<span class='line-number'>1.9.2p320 :006&gt;</span>
-<span class='line-number'>1.9.2p320 :007&gt;</span>
-<span class='line-number'>1.9.2p320 :008&gt;</span>
-<span class='line-number'>1.9.2p320 :009&gt;</span>
-<span class='line-number'>1.9.2p320 :010&gt;</span>
-<span class='line-number'>1.9.2p320 :011&gt;</span>
-<span class='line-number'>1.9.2p320 :012&gt;</span>
-<span class='line-number'>1.9.2p320 :013&gt;</span>
-<span class='line-number'>1.9.2p320 :014&gt;</span>
-<span class='line-number'>1.9.2p320 :015&gt;</span>
-<span class='line-number'>1.9.2p320 :016&gt;</span>
-</pre></td><td class='code'><pre><code><span class='line command'>5 &lt; 10</span><span class='line command'>=&gt; true</span><span class='line command'>10 &lt; 5</span><span class='line command'>=&gt; false</span><span class='line command'>x = 5</span><span class='line command'>=&gt; 5</span><span class='line command'>10 &gt; x</span><span class='line command'>=&gt; true</span><span class='line command'>y = 10</span><span class='line command'>=&gt; 10</span><span class='line command'>y &gt; x</span><span class='line command'>=&gt; true</span><span class='line command'>x == y</span><span class='line command'>=&gt; false</span><span class='line command'>x != y</span><span class='line command'>=&gt; true</span></code></pre></td></tr></table></div></div>
-        </div>
-
-
-<p>Avoid teaching them about else and elsif statements for now. Work with the class to come up with the three if statements needed for Hi-Lo. It should look something like this:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -268,241 +177,30 @@
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># If the guess was higher than the secret number print &quot;Too high!&quot;</span>
-</span><span class='line'><span class="k">if</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">random_number</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Too high!&quot;</span>
-</span><span class='line'><span class="k">end</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Computer needs to generate a secret number</span>
+</span><span class='line'><span class="n">secret_number</span> <span class="o">=</span> <span class="mi">5</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Tell the user to guess a number between 1 and 10</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># User guesses a number</span>
+</span><span class='line'><span class="n">user_number</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># If the guess was higher than the secret number print &quot;Too high!&quot;</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># If the guess was lower than the secret number print &quot;Too low!&quot;</span>
-</span><span class='line'><span class="k">if</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="n">random_number</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Too low!&quot;</span>
-</span><span class='line'><span class="k">end</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># If the guess was equal to the secret number print &quot;Congratulations!&quot;</span>
-</span><span class='line'><span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">random_number</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Congratulations&quot;</span>
-</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
+<h3>Step 3 &ndash; Getting user input</h3>
 
-<p>Have students try to play their game. It shouldn&rsquo;t work. They should receive an ArgumentError, <code>'&gt;': comparison of String with Fixnum failed (ArgumentError)</code></p>
+<h3>Step 4 &ndash; Conditional statement</h3>
 
-<p>Reiterate that because we used gets, the value stored inside guess is a string. Have them open IRB and try to replicate the error. Teach them about the <code>to_i</code> method. Ask them how they how they would change their program.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># User guesses a number</span>
-</span><span class='line'><span class="n">guess</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
-</span><span class='line'><span class="n">guess</span> <span class="o">=</span> <span class="n">guess</span><span class="o">.</span><span class="n">to_i</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Have the students run their program to confirm this works and test all three cases. Ask them how we should make the game more fun. The typical response is that the secret number should not be fixed.</p>
-
-<h2>Iteration 1: Adding randomness</h2>
-
-<p>We are going to use the <code>rand</code> method in order to add randomness to the secret_number variable. Have students open up IRB and have them experiment with rand(n). Explain that rand(10) won&rsquo;t generate numbers in the range that we want (rand generates between 0 and n-1, whereas we want to make numbers between 1 and n). Challenge them to think of a solution.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Computer needs to generate a secret number</span>
-</span><span class='line'><span class="n">secret_number</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-</span></code></pre></td></tr></table></div></figure>
+<h3>Step 5 &ndash; Adding randomness</h3>
 
 
 <p>Have students play their game and prove that the secret number is no longer fixed. Since the secret number is random, students should have difficulty proving all three cases. Show them how they can debug their programs by printing out the secret number using <code>puts</code>.</p>
 
-<p>Ask them how we should make the game more fun. The typical response is that they&rsquo;d like to be able to make more than one guess.</p>
-
-<h2>Iteration 2: Looping the program</h2>
-
-<p>Teach the class about the while loop. Use the begin/end/while syntax and open up a new script to demonstrate how it works.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">begin</span>
-</span><span class='line'>  <span class="n">x</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</span><span class='line'>  <span class="nb">print</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>  <span class="nb">sleep</span> <span class="mi">1</span>
-</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">10</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Ask students what they think this program does and walk through the execution line by line. Once they grasp the concept, remove the sleep and show that computers can do repetitive tasks at an extremely high speed.</p>
-
-<p>Work together to use the begin/end/while syntax to loop their game. Start off by identifying which portion of the program they want to repeat. Then discuss what the condition should look like in order to satisfy the Hi-Lo game. The loop should look like this:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">begin</span>
-</span><span class='line'>  <span class="n">tries</span> <span class="o">=</span> <span class="n">tries</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># Tell the user to guess a number between 1 and 10</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Guess a number between 1 and </span><span class="si">#{</span><span class="n">range_limit</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># Let the user guess a number</span>
-</span><span class='line'>  <span class="n">guess</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># If the guess was higher than the secret number print &quot;Too high!&quot;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">secret_number</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Too high!&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># If the guess was lower than the secret number print &quot;Too low!&quot;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="n">secret_number</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Too low!&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># If the guess was equal to the secret number print &quot;Congratulations!&quot;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">secret_number</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Congratulations&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="n">guess</span> <span class="o">!=</span> <span class="n">secret_number</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Iteration 3: Being the product manager</h2>
-
-<p>Ask students what other features they think the game should have. Some features we&rsquo;ve seen:
-&ndash; Limiting the number of guesses (think of having 3 lives in a video game)
-&ndash; Printing out a &ldquo;You Lose!&rdquo; message
-&ndash; Dynamically setting the range of random numbers, so that the upper limit is not always 10</p>
-
-<p>Depending on how much time is left, pick one or two features and work with the class to implement it. This is how the final program might look.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Get the upper limit from the user</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Please enter the upper bound for your limit.&quot;</span>
-</span><span class='line'><span class="n">upper_limit</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Get the maximum number of guesses from the user</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;How many tries do you want to allow?&quot;</span>
-</span><span class='line'><span class="n">max_tries</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Initialize tries variable to 0</span>
-</span><span class='line'><span class="n">tries</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1"># Computer needs to generate a secret number</span>
-</span><span class='line'><span class="n">secret_number</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="n">upper_limit</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">begin</span>
-</span><span class='line'>  <span class="n">tries</span> <span class="o">=</span> <span class="n">tries</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># Tell the user to guess a number between 1 and 10</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Guess a number between 1 and </span><span class="si">#{</span><span class="n">upper_limit</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># Let the user guess a number</span>
-</span><span class='line'>  <span class="n">guess</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># If the guess was higher than the secret number print &quot;Too high!&quot;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">secret_number</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Too high!&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># If the guess was lower than the secret number print &quot;Too low!&quot;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="n">secret_number</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Too low!&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># If the guess was equal to the secret number print &quot;Congratulations!&quot;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">secret_number</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Congratulations&quot;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="n">guess</span> <span class="o">!=</span> <span class="n">secret_number</span> <span class="ow">and</span> <span class="n">tries</span> <span class="o">!=</span> <span class="n">max_tries</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">tries</span> <span class="o">==</span> <span class="n">max_tries</span> <span class="ow">and</span> <span class="n">guess</span> <span class="o">!=</span> <span class="n">secret_number</span>
-</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;You lose!&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-    
-      <footer>
-        
-        
-          <div class="sharing">
-  
-  
-  
-</div>
-
-        
-      </footer>
-    
-  </article>
-
-
-</div>
 
 
   <span class="toggle-sidebar"></span>
