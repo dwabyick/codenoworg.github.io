@@ -278,29 +278,81 @@
 </span><span class='line'><span class="n">user_number</span><span class="o">=</span><span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># If the guess was higher than the secret number print &quot;Too high!&quot;</span>
-</span><span class='line'><span class="k">if</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">random_number</span>
+</span><span class='line'><span class="k">if</span> <span class="n">secret_number</span> <span class="o">&gt;</span> <span class="n">user_number</span>
 </span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Too high!&quot;</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># If the guess was lower than the secret number print &quot;Too low!&quot;</span>
-</span><span class='line'><span class="k">if</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="n">random_number</span>
+</span><span class='line'><span class="k">if</span> <span class="n">secret_number</span> <span class="o">&lt;</span> <span class="n">user_number</span>
 </span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Too low!&quot;</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># If the guess was equal to the secret number print &quot;Congratulations!&quot;</span>
-</span><span class='line'><span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">random_number</span>
+</span><span class='line'><span class="k">if</span> <span class="n">secret_number</span> <span class="o">==</span> <span class="n">user_number</span>
 </span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Congratulations&quot;</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 <h3>Step 5 &ndash; Adding randomness</h3>
 
+<ol>
+<li>Explain to students that we can use the <code>rand()</code> method to generate a random number.</li>
+<li>Point out the need to use +1 (e.g., <code>rand(10) + 1</code>)</li>
+<li>Ask students to use <code>rand()</code> in their game</li>
+</ol>
 
 <p>Have students play their game and prove that the secret number is no longer fixed. Since the secret number is random, students should have difficulty proving all three cases. Show them how they can debug their programs by printing out the secret number using <code>puts</code>.</p>
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Computer needs to generate a secret number</span>
+</span><span class='line'><span class="n">secret_number</span> <span class="o">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Tell the user to guess a number between 1 and 10</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Please guess a number!&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># User guesses a number</span>
+</span><span class='line'><span class="n">user_number</span><span class="o">=</span><span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># If the guess was higher than the secret number print &quot;Too high!&quot;</span>
+</span><span class='line'><span class="k">if</span> <span class="n">secret_number</span> <span class="o">&gt;</span> <span class="n">user_number</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Too high!&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># If the guess was lower than the secret number print &quot;Too low!&quot;</span>
+</span><span class='line'><span class="k">if</span> <span class="n">secret_number</span> <span class="o">&lt;</span> <span class="n">user_number</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Too low!&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># If the guess was equal to the secret number print &quot;Congratulations!&quot;</span>
+</span><span class='line'><span class="k">if</span> <span class="n">secret_number</span> <span class="o">==</span> <span class="n">user_number</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Congratulations&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
-
-  <span class="toggle-sidebar"></span>
+<span class="toggle-sidebar"></span>
 
 <aside class="sidebar">
   <div> </div>
