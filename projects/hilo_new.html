@@ -231,6 +231,50 @@
 
 <h3>Step 4 &ndash; Conditional statement</h3>
 
+<p>Introduce students to conditionals (“if/end” only). See here for key concepts you want to touch on.</p>
+
+<ol>
+<li>Ask student to add conditionals to their game using their pseudocode as a guide</li>
+<li>Remind students of the difference between using <code>=</code>= and using <code>==</code></li>
+<li>Have the students run their program to confirm it works and test all three cases by trying different combinations of numbers</li>
+</ol>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Computer needs to generate a secret number</span>
+</span><span class='line'><span class="n">secret_number</span> <span class="o">=</span> <span class="mi">5</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Tell the user to guess a number between 1 and 10</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Please guess a number!&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># User guesses a number</span>
+</span><span class='line'><span class="n">user_number</span><span class="o">=</span><span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># If the guess was higher than the secret number print &quot;Too high!&quot;</span>
+</span><span class='line'><span class="k">if</span> <span class="n">guess</span> <span class="o">&gt;</span> <span class="n">random_number</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Too high!&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># If the guess was lower than the secret number print &quot;Too low!&quot;</span>
+</span><span class='line'><span class="k">if</span> <span class="n">guess</span> <span class="o">&lt;</span> <span class="n">random_number</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Too low!&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># If the guess was equal to the secret number print &quot;Congratulations!&quot;</span>
+</span><span class='line'><span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">random_number</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Congratulations&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 <h3>Step 5 &ndash; Adding randomness</h3>
 
 
