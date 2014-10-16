@@ -96,7 +96,7 @@
 <li><code>.downcase</code></li> = when we want to convert all characters to lowercase.</li>
 <li><code>.upcase</code></li> = when we want to convert all characters to uppercase.</li>
 <li><code>.capitalize</code></li> when we want to convert the first character to uppercase and the remainder to lowercase</li>
-
+</ul>
 <p>Try the following in irb:</p>
 <ul>
 <li><code>puts “what is your name?”</code></li>
@@ -108,16 +108,15 @@
 
 <p>Finally, sometimes we want to convert between a string and an integer. To do this we can use the methods:</p>
 <ul>
-<li><code>.to_i</code></li> = when we want to convert a string to an integer
-<li><code>.to_s</code></li> = when we want to convert an integer to a string
-
+<li><code>.to_i</code> = when we want to convert a string to an integer</li>
+<li><code>.to_s</code> = when we want to convert an integer to a string</li>
+</ul>
 <p>Try the following in irb:</p>
-
 <ul>
 <li><code>puts “what is your age?”</code></li>
 <li><code>age = gets.chomp</code></li>
 <li><code>age > 10</code></li>
-
+</ul>
 <p>You should receive an <code>ArgumentError '&gt;': comparison of String with Fixnum failed (ArgumentError)</code></p>
 <p>Remember that because we used <code>gets</code>, the value stored inside age is a string.</p>
 <p>How would you fix the error?</p>
