@@ -99,8 +99,7 @@
 </ul>
 <p>Try the following in irb:</p>
 <ul>
-<li><code>puts “what is your name?”</code></li>
-<li><code>name = gets.chomp</code></li>
+<li><code>name = gets.chomp</code>. The computer will wait for your response.</li>
 <li><code>puts name.downcase</code></li>
 <li><code>puts name.upcase</code></li>
 <li><code>puts name.capitalize</code></li>
@@ -113,11 +112,10 @@
 </ul>
 <p>Try the following in irb:</p>
 <ul>
-<li><code>puts “what is your age?”</code></li>
-<li><code>age = gets.chomp</code></li>
+<li><code>age = gets.chomp</code> The computer will wait for your response.</li>
 <li><code>age > 10</code></li>
 </ul>
-<p>You should receive an <code>ArgumentError '&gt;': comparison of String with Fixnum failed (ArgumentError)</code></p>
+<p>You should receive an error similar to: <code>ArgumentError: comparison of String with Fixnum failed (ArgumentError)</code></p>
 <p>Remember that because we used <code>gets</code>, the value stored inside age is a string.</p>
 <p>How would you fix the error?</p>
 
