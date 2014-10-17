@@ -117,7 +117,8 @@
 
 <h2>Step 1 &ndash; Writing pseudocode</h2>
 
-<p>Go over the process of writing pseudocode. See <a href="">here</a> for points you want to touch on.</p>
+<p>Go over the process of writing pseudocode. See <a href="/projects/building_blocks/pseudocode.html">here</a> for key concepts you want to touch on.
+</p>
 
 <p>Work together to get to the following pseudocode:</p>
 
@@ -193,7 +194,8 @@
 
 <h2>Step 2 &ndash; Setting the computer and player moves</h2>
 
-<p>Review with students the concept of variables and data types (strings). See here and here for points you want to touch on.</p>
+<p>Review with students the concept of variables and data types (strings). See <a href="/projects/building_blocks/variables.html">here</a> and <a href="/projects/building_blocks/datatypes.html">here</a> for key concepts you want to touch on.</p>
+
 <ol>
 <li>Go over the purpose for which we would want to store information in our game, the scenarios during which we would want to manipulate the information (if any), the place in the program where we would want to use the information stored, etc.</li>
 <li>Ask the students to define variables to store the &ldquo;computer move&rdquo; and the &ldquo;player move.&rdquo;</li>
@@ -219,8 +221,8 @@
 <h2>Step 3 &ndash; Conditional statements</h2>
 
 <p>The conditions in Rock, Paper, Scissors are slightly more complicated than the students covered in Hi-Lo.</p>
-<p>Review the concept of conditionals with students; make sure they understand the if/elsif/else structure. See here for points you want to touch on.</p>
-<p>Introduce students to Boolean logic and how that plays into forming more complex conditions. See here for points you want to touch on.</p>
+<p>Review the concept of conditionals with students; make sure they understand the if/elsif/else structure. See <a href="/projects/building_blocks/conditionals.html">here</a> for key concepts you want to touch on.</p>
+<p>Introduce students to Boolean logic and how that plays into forming more complex conditions. See <a href="/projects/building_blocks/boolean_logic.html">here</a> for key concepts you want to touch on.</p>
 
 <p>Ask students to add conditional statements to their projects using their pseudocode as a guide.</p>
 
@@ -326,7 +328,7 @@
 
 <p>We are going to use the <code>sample</code> method on the <code>Array</code> class in order to add randomness to the <code>computer_move</code> variable.</p>
 
-<p>First, we&rsquo;ll need to take a small detour and cover the concept of an array. See here for the main concepts that you&rsquo;ll want to mention.</p>
+<p>First, we&rsquo;ll need to take a small detour and cover the concept of an array. See <a href="/projects/building_blocks/arrays.html">here</a> for key concepts you want to touch on.</p>
 
 <p>In order to randomly generate a computer move, we&rsquo;ll have to first define an array of possible moves. Challenge the students to come up with an array and sample the array to pick a computer move.</p>
 
@@ -340,6 +342,30 @@
 
 <p><code>computer_move</code> is no longer fixed. Since the computer&rsquo;s move is random, students should have difficulty proving all nine cases. Show them how they can debug their programs by printing out <code>computer_move</code> using <code>puts</code>.</p>
 
+<h2>Step 6 &ndash; Let's review</h2>
+
+<p>Now that you have completed the base project, do a quick review with your students of the concepts they used.</p>
+
+<ul>
+<li>Ask students to tell you, without looking at their notes, what are the concepts they learned about in this project. The objective is for students to mention the building blocks introduced and/or reviewed in the project.
+<ul><li>Writing pseudocode, understanding program control flow, using variables (string), data structures (arrays), and control structures (conditionals: if/elsif/else), and understanding Boolean logic.</li></ul></li> 
+<li>If student do not mention some of the building blocks, ask them about it specifically</li>
+<li>Finally, ask students if they would like you to review any of the building blocks or if they have any additional questions.</li>
+</ul>
+
+<h2>Step 7 &ndash; Add-on's</h2>
+
+<p>After completing the base project and doing a quick review of the building blocks introduced and/or reviewed, work with your students on adding additional features to the project. Work on add-on’s only if the time allocated to this project has not ran out.</p>
+<p>Suggestions for add-on’s</p>
+<ol>
+<li>Add levels to the game, where each level has one more object and let students create their own rules. For example, in the easy level the player can choose rock, paper, scissors, or mirror; etc.</li>
+<li>Add version options and let the students create their own rules. For example, the player can choose to play the version where the objects are a sword, a ruby, and a net.</li>
+<li>Add a “quit” option, where the player is asked if he/she wants to play or quit.</li> 
+<li>Invalid input: modify the program such that it does not accept invalid inputs</li>
+<li>Refactoring: There are some refactorings that can be done. Explain the concept of refactoring and why it is useful to clean up code. See <a href="/projects/building_blocks/refactoring.html">here</a> for key concepts you want to touch on. A refactor students can do is modifying the program to only use one if statement for the three tie scenarios. Challenge the students to write this refactor by themselves. As a hint tell students to think about to comparing the player’s move to the computer’s move.
+</li>
+<li>Let students come up with their own ideas on how to extend their programs - see what they come up with!</li>
+</ol>
 
 
 
