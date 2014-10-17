@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Rock, Paper, Scissors - CodeNow Curriculum</title>
+  <meta name="author" content="CodeNowOrg">
+
+  
+  <meta name="description" content="Rock, Paper, Scissors In this project, students will build a procedural version of Rock, Paper, Scissors. Learning Goals: Practice the fundamentals &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://CodeNowOrg.github.io/projects/rock_paper_scissors.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="CodeNow Curriculum" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">CodeNow Curriculum</a></h1>
+  
+    <h2>A guide to teaching a CodeNow class.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:CodeNowOrg.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+
+<ul class="main-navigation">
+  <li><a href="/">Curriculum Index</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+  <article role="article">
+    
+    <header>
+      
+      <h1 class="entry-title">Rock, Paper, Scissors</h1>
+      
+    </header>
+    
+    <p>In this project, students will build a procedural version of Rock, Paper, Scissors.</p>
+
+<p>Learning Goals:</p>
+
+<ul>
+<li>Practice the fundamentals of Ruby including setting variables, getting user input, printing messages</li>
+<li>Understand control flow and conditional branching</li>
+<li>Get exposure to while loops</li>
+</ul>
+
+
+<div class="note">
+<p>The design decisions in the following code are intentional to help absolute beginners quickly learn the basics without overwhelming them with intermediate concepts.</p>
+</div>
+
+
+
+
+<div class="note">
+<p>This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please <a href="https://github.com/CodeNowOrg/codenoworg.github.io">submit them to the project on Github</a>.</p>
+</div>
+
+
+<h2>Iteration 0: Up &amp; running</h2>
+
+<p>Have the students create a new file called <code>rps.rb</code> in a codenow directory.</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>touch rps.rb</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>To open the file inside SublimeText, we can simply type the filename into the command prompt. If it has not already been set as the default text editor for ruby files, make sure you set it.</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>rps.rb</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<h3>Step 1 &ndash; Writing pseudocode</h3>
+
+<p>Have the students try writing the pseudocode for Rock, Paper, Scissors. If they get stuck, have them look at the Hi-Lo game for hints.</p>
+
+<p>Work together to get to the following pseudocode:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Computer needs to pick rock, paper, or scissors</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Tell the player to pick rock, paper, or scissors</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Output whether the player won, lost, or tied</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Work with the students to generate pseudocode for the win, loss, tie scenarios. If they get stuck, show them what the first if statement might look like.</p>
+
+<p>For the first iteration of the game, this is roughly what the pseudocode should look like:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Computer needs to pick rock, paper, or scissors</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Tell the player to pick rock, paper, or scissors</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Get the player&#39;s move</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Output whether the player won, lost, or tied</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># If the player chose rock and the computer chose rock, print a tie message</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose rock and the computer chose scissors, print a win message</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose rock and the computer chose paper, print a lose message</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose paper and the computer chose paper, print a tie message</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose paper and the computer chose rock, print a win message</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose paper and the computer chose scissors, print a lose message</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose scissors and the computer chose scissors, print a tie message</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose scissors and the computer chose paper, print a win message</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose scissors and the computer chose rock, print a lose message</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ask the students how to run this program. Ask them what happens if you run the program in it&rsquo;s current state.</p>
+
+<h3>Step 2 &ndash; Setting computer moves</h3>
+
+<p>Review the concept of setting variables. Explain that the right hand side is evaluated before it is saved into the variable. You might use the following example to prove that evaluation happens before variable assignment:</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">IRB</h1>
+          <div class="container"><div class="irb"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1.9.2p320 :001&gt;</span>
+<span class='line-number'>1.9.2p320 :002&gt;</span>
+<span class='line-number'>1.9.2p320 :003&gt;</span>
+<span class='line-number'>1.9.2p320 :004&gt;</span>
+<span class='line-number'>1.9.2p320 :005&gt;</span>
+<span class='line-number'>1.9.2p320 :006&gt;</span>
+</pre></td><td class='code'><pre><code><span class='line command'>y = 10</span><span class='line command'>=&gt; 10</span><span class='line command'>x = 2 * y</span><span class='line command'>=&gt; 20</span><span class='line command'>x</span><span class='line command'>=&gt; 20</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>Return to the <code>rps.rb</code> file and work together to define a variable to store a &ldquo;computer move.&rdquo; Once the variable is defined, start off by setting the computer move to a fixed value.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Computer needs to pick rock, paper, or scissors</span>
+</span><span class='line'><span class="n">computer_move</span> <span class="o">=</span> <span class="s2">&quot;rock&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 3 &ndash; Getting player input</h3>
+
+<p>Challenge the students to fill in the next two steps by themselves. It should look like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Tell the player to pick rock, paper, or scissors</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Please enter a move: rock, paper, or scissors&quot;</span>
+</span><span class='line'><span class="c1"># Get the player&#39;s move</span>
+</span><span class='line'><span class="n">player_move</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the students get stuck, have them open up hilo.rb and look at how they got the player input. Ask them why they don&rsquo;t need to call to_i on the player_move variable. Have the students run their programs to ensure that their code is in a working state.</p>
+
+<h3>Step 4 &ndash; Conditional statement</h3>
+
+<p>The conditions in Rock, Paper, Scissors is slightly more complicated than the students covered in Hi-Lo. There are two major concepts that we&rsquo;ll want to cover:</p>
+
+<ol>
+<li>Touch on if/elsif/else statements. Make sure they know that the if/elsif/else statements will operate sequentially and will exit the if/elsif/else as soon as one condition is satisified.</li>
+<li>Explain &amp;&amp; and || and how that plays into forming more complex conditions</li>
+</ol>
+
+
+<p>Ask the class how many conditions you will need to have for the Rock, Paper, Scissors game. Work together to come up with the 9 conditions. The code should look something like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># If the player chose rock and the computer chose rock, print a tie message</span>
+</span><span class='line'><span class="k">if</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span>
+</span><span class='line'>  <span class="n">tie_message</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Otherwise, if the player chose rock and the computer chose scissors, print a win message</span>
+</span><span class='line'><span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">win_message</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Otherwise, if the player chose rock and the computer chose paper, print a lose message</span>
+</span><span class='line'><span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">lose_message</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Otherwise, if the player chose paper and the computer chose paper, print a tie message</span>
+</span><span class='line'><span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span>
+</span><span class='line'>  <span class="n">tie_message</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Otherwise, if the player chose paper and the computer chose rock, print a win message</span>
+</span><span class='line'><span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">win_message</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Otherwise, if the player chose paper and the computer chose scissors, print a lose message</span>
+</span><span class='line'><span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">lose_message</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Otherwise, if the player chose scissors and the computer chose scissors, print a tie message</span>
+</span><span class='line'><span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span>
+</span><span class='line'>  <span class="n">tie_message</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Otherwise, if the player chose scissors and the computer chose paper, print a win message</span>
+</span><span class='line'><span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">win_message</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Otherwise, if the player chose scissors and the computer chose rock, print a lose message</span>
+</span><span class='line'><span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">lose_message</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Have students try to play their game.</p>
+
+<p>Reiterate that because we used gets, the value stored inside player_move is a string. Unlike the Hi-Lo game, we dont&#8217; receive the same ArgumentError because strings can be compared with other strings.</p>
+
+<p>Have the students run their program to confirm this works and test all 9 cases. In order to do this, they will have to change the computer_move variable.</p>
+
+<h2>Iteration 1: Adding randomness</h2>
+
+<p>We are going to use the <code>sample</code> method on the <code>Array</code> class in order to add randomness to the computer_move variable. First, we&rsquo;ll need to cover the concept of an array. The main concepts that you&rsquo;ll want to mention:</p>
+
+<ol>
+<li>An Array holds a collection of items, the types of these items are not important</li>
+<li>Order is important</li>
+<li>Elements can be accessed by using the bracket operators <code>[n]</code>, where n is the index.</li>
+<li>The array is zero-indexed</li>
+<li>Every array has convenience methods on it, such as <code>first</code>, <code>last</code>, <code>length</code></li>
+</ol>
+
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">IRB</h1>
+          <div class="container"><div class="irb"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1.9.2p320 :001&gt;</span>
+<span class='line-number'>1.9.2p320 :002&gt;</span>
+<span class='line-number'>1.9.2p320 :003&gt;</span>
+<span class='line-number'>1.9.2p320 :004&gt;</span>
+<span class='line-number'>1.9.2p320 :005&gt;</span>
+<span class='line-number'>1.9.2p320 :006&gt;</span>
+<span class='line-number'>1.9.2p320 :007&gt;</span>
+<span class='line-number'>1.9.2p320 :008&gt;</span>
+<span class='line-number'>1.9.2p320 :009&gt;</span>
+<span class='line-number'>1.9.2p320 :010&gt;</span>
+<span class='line-number'>1.9.2p320 :011&gt;</span>
+<span class='line-number'>1.9.2p320 :012&gt;</span>
+</pre></td><td class='code'><pre><code><span class='line command'>zoo = [1, "zebra", 2]</span><span class='line command'>=&gt; [1, "zebra", 2]</span><span class='line command'>zoo = ["elephant", "zebra", "camel"]</span><span class='line command'>=&gt; ["elephant", "zebra", "camel"]</span><span class='line command'>zoo[0]</span><span class='line command'>=&gt; "elephant"</span><span class='line command'>zoo[2]</span><span class='line command'>=&gt; "camel"</span><span class='line command'>zoo.first</span><span class='line command'>=&gt; "elephant"</span><span class='line command'>=&gt; zoo.sample</span><span class='line command'>=&gt; "zebra"</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>Have students open up IRB and have them experiment with arrays. Have them generate their own arrays of animals and have them save it in a variable called <code>zoo</code>. Have them call <code>sample</code> on the zoo array. Challenge them to think of how they could get a random animal using the <code>rand(n)</code> method we used in the Hi-Lo game.</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">IRB</h1>
+          <div class="container"><div class="irb"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1.9.2p320 :001&gt;</span>
+<span class='line-number'>1.9.2p320 :002&gt;</span>
+</pre></td><td class='code'><pre><code><span class='line command'>zoo[rand(3)]</span><span class='line command'>=&gt; "camel"</span></code></pre></td></tr></table></div></div>
+        </div>
+
+
+<p>In order to randomly generate a computer move, we&rsquo;ll have to first define an array of possible moves. Work with the students to come up with an array and sample the array to pick a computer move.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Computer needs to pick rock, paper, or scissors</span>
+</span><span class='line'><span class="n">possible_moves</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;rock&quot;</span><span class="p">,</span> <span class="s2">&quot;paper&quot;</span><span class="p">,</span> <span class="s2">&quot;scissors&quot;</span><span class="o">]</span>
+</span><span class='line'><span class="n">computer_move</span> <span class="o">=</span> <span class="n">possible_moves</span><span class="o">.</span><span class="n">sample</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Have students play their game and prove that computer_move is no longer fixed. Since the computer&rsquo;s move is random, students should have difficulty proving all nine cases. Show them how they can debug their programs by printing out computer_move using <code>puts</code>.</p>
+
+<p>Ask them how we should make the game more fun. The typical response is that they&rsquo;d like to be able to make more than one move.</p>
+
+<h2>Iteration 2: Looping the program</h2>
+
+<p>Review the begin/end/while syntax and ask the students to try to make it so that we can play Rock, Paper, Scissors indefinitely.</p>
+
+<p>If the students get stuck, work together to use the begin/end/while syntax to loop their game. Start off by identifying which portion of the program they want to repeat. Then discuss what the condition should look like in order to satisfy our requirement. The loop should look like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">begin</span>
+</span><span class='line'>  <span class="c1"># Computer needs to pick rock, paper, or scissors</span>
+</span><span class='line'>  <span class="n">possible_moves</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;rock&quot;</span><span class="p">,</span> <span class="s2">&quot;paper&quot;</span><span class="p">,</span> <span class="s2">&quot;scissors&quot;</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">computer_move</span> <span class="o">=</span> <span class="n">possible_moves</span><span class="o">.</span><span class="n">sample</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Tell the player to pick rock, paper, or scissors</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Please enter a move: </span><span class="si">#{</span><span class="n">possible_moves</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Get the player&#39;s move</span>
+</span><span class='line'>  <span class="n">player_move</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Output whether the player won, lost, or tied</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># If the player chose rock and the computer chose rock, print a tie message</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2"> is equal to </span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2">. Oh no, it&#39;s a tie!&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose rock and the computer chose scissors, print a win message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2"> trumps </span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2">. You win!&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose rock and the computer chose paper, print a lose message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2"> trumps </span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2">. Computer wins!&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose paper and the computer chose paper, print a tie message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2"> is equal to </span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2">. Oh no, it&#39;s a tie!&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose paper and the computer chose rock, print a win message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2"> trumps </span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2">. You win!&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose paper and the computer chose scissors, print a lose message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2"> trumps </span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2">. Computer wins!&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose scissors and the computer chose scissors, print a tie message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2"> is equal to </span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2">. Oh no, it&#39;s a tie!&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose scissors and the computer chose paper, print a win message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2"> trumps </span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2">. You win!&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose scissors and the computer chose rock, print a lose message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2"> trumps </span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2">. Computer wins!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Iteration 3: Refactoring</h2>
+
+<p>The code we wrote is a little messy and there are some nice refactorings that can be done. Explain the concept of refactoring and why it is useful to clean up code.</p>
+
+<p>The first refactor we&rsquo;d like to accomplish is modifying the program to only use one if statement for the three tie scenarios. Challenge the students to write this refactor by themselves. Give them the hint to compare that we&rsquo;ll need to compare the player&rsquo;s move to the computer&rsquo;s move.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># If the player_move is the same as the computer_move, print a tie message</span>
+</span><span class='line'><span class="k">if</span> <span class="n">player_move</span> <span class="o">==</span> <span class="n">computer_move</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2"> is equal to </span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2">. Oh no, it&#39;s a tie!&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The second refactor we&rsquo;d like to accomplish is modifying the program to save the messages into variables.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Save win, lose, and tie messages in variables</span>
+</span><span class='line'><span class="n">win_message</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2"> beats </span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2">. You win!&quot;</span>
+</span><span class='line'><span class="n">lose_message</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2"> beats </span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2">. Computer wins!&quot;</span>
+</span><span class='line'><span class="n">tie_message</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2"> is equal to </span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2">. Oh no, it&#39;s a tie!&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># If the player_move is the same as the computer_move, print a tie message</span>
+</span><span class='line'><span class="k">if</span> <span class="n">player_move</span> <span class="o">==</span> <span class="n">computer_move</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">tie_message</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">elsif</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Iteration 4: Extensions</h2>
+
+<p>If students finish early, let them choose one of the following extensions:</p>
+
+<ol>
+<li>Modify the program so that instead of running forever, the game ends after three rounds.</li>
+<li>Modify the program (without changing the logic), such that the computer always wins</li>
+<li>Modify the program such that it does not accept invalid inputs</li>
+<li>Modify the program such that it keeps track of how many times you have won and lost.</li>
+<li>Modify the program such that you can type &lsquo;quit&rsquo; and the program stops.</li>
+</ol>
+
+
+<p>A completed version of the program might look as follows:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">tries</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">begin</span>
+</span><span class='line'>  <span class="c1">#increment tries</span>
+</span><span class='line'>  <span class="n">tries</span> <span class="o">=</span> <span class="n">tries</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Computer needs to pick rock, paper, or scissors</span>
+</span><span class='line'>  <span class="n">possible_moves</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;rock&quot;</span><span class="p">,</span> <span class="s2">&quot;paper&quot;</span><span class="p">,</span> <span class="s2">&quot;scissors&quot;</span><span class="o">]</span>
+</span><span class='line'>  <span class="n">computer_move</span> <span class="o">=</span> <span class="n">possible_moves</span><span class="o">.</span><span class="n">sample</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Tell the player to pick rock, paper, or scissors</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Please enter a move: </span><span class="si">#{</span><span class="n">possible_moves</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;, &quot;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Get the player&#39;s move</span>
+</span><span class='line'>  <span class="n">player_move</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Save win, lose, and tie messages in variables</span>
+</span><span class='line'>  <span class="n">win_message</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2"> beats </span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2">. You win!&quot;</span>
+</span><span class='line'>  <span class="n">lose_message</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2"> beats </span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2">. Computer wins!&quot;</span>
+</span><span class='line'>  <span class="n">tie_message</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">computer_move</span><span class="si">}</span><span class="s2"> is equal to </span><span class="si">#{</span><span class="n">player_move</span><span class="si">}</span><span class="s2">. Oh no, it&#39;s a tie!&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Output whether the player won, lost, or tied</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># If the player_move is the same as the computer_move, print a tie message</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">player_move</span> <span class="o">==</span> <span class="n">computer_move</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">tie_message</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose rock and the computer chose scissors, print a win message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">win_message</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose rock and the computer chose paper, print a lose message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">lose_message</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose paper and the computer chose rock, print a win message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">win_message</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose paper and the computer chose scissors, print a lose message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">lose_message</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose scissors and the computer chose paper, print a win message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;paper&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">win_message</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Otherwise, if the player chose scissors and the computer chose rock, print a lose message</span>
+</span><span class='line'>  <span class="k">elsif</span> <span class="n">player_move</span> <span class="o">==</span> <span class="s2">&quot;scissors&quot;</span> <span class="o">&amp;&amp;</span> <span class="n">computer_move</span> <span class="o">==</span> <span class="s2">&quot;rock&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">lose_message</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="n">tries</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="n">player_move</span> <span class="o">!=</span> <span class="s2">&quot;quit&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+    
+      <footer>
+        
+        
+          <div class="sharing">
+  
+  
+  
+</div>
+
+        
+      </footer>
+    
+  </article>
+
+
+</div>
+
+
+  <span class="toggle-sidebar"></span>
+
+<aside class="sidebar">
+  <div> </div>
+</aside>
+
+<script src="/javascripts/sidebar.js" type="text/javascript"> </script>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - CodeNowOrg -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<script>
+  //Super secure password protection version 42.93438
+  //Ryan wanted a password protection so that students can't just go on the
+  //curriculum page and read the answers. Unfortunately we're hosting things
+  //on github right now, so we can't do any form of real password protection :(
+  //But basic Javascript is enough for now.
+  //
+  //If you are a student and you figure this out...rock on!
+
+  function getCookie(needleCookie){
+    var cookies = document.cookie.split(';');
+
+    for (var i = 0; i < cookies.length; i++){
+      var cookie = cookies[i];
+
+      var cookieName = cookie.split('=')[0];
+      var cookieValue = cookie.split('=')[1];
+
+      if (cookieName == needleCookie){
+        return cookieValue;
+      }
+    }
+    return null;
+  }
+
+  //constants
+  var SECONDS = 1 * 1000;
+  var MINUTES = 60 * SECONDS;
+  var HOURS = 60 * MINUTES;
+  var DAYS = 24 * HOURS;
+
+  var AUTH_COOKIE = 'authed-v1'
+
+  //configuration
+  var cooloff_time = 1 * HOURS;
+
+  //
+  var d = new Date();
+  d.setTime(d.getTime() + cooloff_time);
+  cookie_expiry = "expires=" + d.toGMTString()
+
+  if ( getCookie(AUTH_COOKIE) != 'true' ){
+     window.document.body.style.display = 'none';
+     var password = prompt("Password?");
+
+    if ( btoa(password) == 'YzBkZW4wdyExMjQ=' ){
+       window.document.body.style.display = 'block';
+       document.cookie = AUTH_COOKIE + '=true; ' + cookie_expiry;
+    } else {
+      alert('Wrong password.');
+    }
+  }
+</script>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
