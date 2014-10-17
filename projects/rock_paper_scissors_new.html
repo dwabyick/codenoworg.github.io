@@ -79,18 +79,13 @@
 <li>Practice the fundamentals of Ruby including using variables (string), data structures (arrays), and control structures (conditionals: if/elsif/else), and understanding Boolean logic.</li>
 </ul>
 
-
 <div class="note">
 <p>The design decisions in the following code are intentional to help absolute beginners quickly learn the basics without overwhelming them with intermediate concepts.</p>
 </div>
 
-
-
-
 <div class="note">
 <p>This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please <a href="https://github.com/CodeNowOrg/codenoworg.github.io">submit them to the project on Github</a>.</p>
 </div>
-
 
 <h2>Step 0: Up &amp; running</h2>
 
@@ -107,7 +102,6 @@
 </pre></td><td class='code'><pre><code><span class='line output'>touch rps.rb</span></code></pre></td></tr></table></div></div>
         </div>
 
-
 <p>To open the file inside SublimeText, we can simply type the filename into the command prompt. If it has not already been set as the default text editor for ruby files, make sure you set it.</p>
 
 <div class="window">
@@ -120,7 +114,6 @@
           <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
 </pre></td><td class='code'><pre><code><span class='line output'>rps.rb</span></code></pre></td></tr></table></div></div>
         </div>
-
 
 <h2>Step 1 &ndash; Writing pseudocode</h2>
 
@@ -139,7 +132,6 @@
 </span><span class='line'>
 </span><span class='line'><span class="c1"># Output whether the player won, lost, or tied</span>
 </span></code></pre></td></tr></table></div></figure>
-
 
 <p>Ask students to generate pseudocode for the win, loss, tie scenarios. If they get stuck, have them look at the Hi-Lo game for hints.</p>
 
@@ -197,15 +189,15 @@
 </span><span class='line'>  <span class="c1"># Otherwise, if the player chose scissors and the computer chose rock, print a lose message</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
 <p>Ask the students how to run this program. Ask them what happens if you run the program in it&rsquo;s current state.</p>
 
-<h2>Step 2 &ndash; Setting computer and player moves</h2>
+<h2>Step 2 &ndash; Setting the computer and player moves</h2>
 
 <p>Review with students the concept of variables and data types (strings). See here and here for points you want to touch on.</p>
 <ol>
 <li>Go over the purpose for which we would want to store information in our game, the scenarios during which we would want to manipulate the information (if any), the place in the program where we would want to use the information stored, etc.</li>
-<li>Ask the students to define variables to store the &ldquo;computer move.&rdquo; and the &ldquo;player move.&rdquo; Once the variable is defined, start off by setting both the computer and player moves to a fixed value.</li>
+<li>Ask the students to define variables to store the &ldquo;computer move&rdquo; and the &ldquo;player move.&rdquo;</li>
+<li>Once the variables are defined, start off by setting both the computer and player moves to a fixed value.</li>
 <li>Have students run their programs to ensure that their code is in a working state.</li>
 </ol>
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -213,6 +205,8 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Computer needs to pick rock, paper, or scissors</span>
 </span><span class='line'><span class="n">computer_move</span> <span class="o">=</span> <span class="s2">&quot;rock&quot;</span>
 </span><span class='line'>
@@ -222,10 +216,10 @@
 </span><span class='line'><span class="n">player_move</span> <span class="o">=</span> <span class="s2">&quot;paper&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<h2>Step 3 &ndash; Conditional statement</h2>
+<h2>Step 3 &ndash; Conditional statements</h2>
 
 <p>The conditions in Rock, Paper, Scissors are slightly more complicated than the students covered in Hi-Lo.</p>
-<p>Review the concept on conditinals with students; make sure they understand the if/elsif/else structure. See here for points you want to touch on.</p>
+<p>Review the concept of conditionals with students; make sure they understand the if/elsif/else structure. See here for points you want to touch on.</p>
 <p>Introduce students to Boolean logic and how that plays into forming more complex conditions. See here for points you want to touch on.</p>
 
 <p>Ask students to add conditional statements to their projects using their pseudocode as a guide.</p>
@@ -304,16 +298,11 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
 <p>Have students try to play their game.</p>
 
-<p>Reiterate that because we used gets, the value stored inside player_move is a string. Unlike the Hi-Lo game, we dont&#8217; receive the same ArgumentError because strings can be compared with other strings.</p>
+<p>Have the students run their program to confirm this works and test all 9 cases. In order to do this, they will have to change the <code>computer_move</code> and <code>player_move</code> variables.</p>
 
-<p>Have the students run their program to confirm this works and test all 9 cases. In order to do this, they will have to change the computer_move and player_move variables.</p>
-
-<h3>Step 4 &ndash; Getting player input</h3>
-
-<p>If necessary review with students the data types integer and string. See here for points you want to touch on.
+<h2>Step 4 &ndash; Getting player input</h2>
 
 <p>Challenge the students to fill in the code to add player input by themselves. It should look like this:</p>
 
@@ -327,11 +316,11 @@
 </span><span class='line'><span class="n">player_move</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
 <p>If the students get stuck, have them open up hilo.rb and look at how they got the player input. Ask them why they don&rsquo;t need to call to_i on the player_move variable.</p>
 
-<p>Have the students run their programs to ensure that their code is in a working state.</p>
+<p>Reiterate that because we used <code>gets</code>, the value stored inside <code>player_move</code> is a string. Unlike the Hi-Lo game, we dont&#8217; receive the same ArgumentError because strings can be compared with other strings.</p>
 
+<p>Have the students run their programs to ensure that their code is in a working state.</p>
 
 <h2>Step 5: Adding randomness</h2>
 
@@ -348,9 +337,7 @@
 </span><span class='line'><span class="n">possible_moves</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;rock&quot;</span><span class="p">,</span> <span class="s2">&quot;paper&quot;</span><span class="p">,</span> <span class="s2">&quot;scissors&quot;</span><span class="o">]</span>
 </span><span class='line'><span class="n">computer_move</span> <span class="o">=</span> <span class="n">possible_moves</span><span class="o">.</span><span class="n">sample</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-<p>Have students play their game and prove that computer_move is no longer fixed. Since the computer&rsquo;s move is random, students should have difficulty proving all nine cases. Show them how they can debug their programs by printing out computer_move using <code>puts</code>.</p>
+<code>computer_move</code> is no longer fixed. Since the computer&rsquo;s move is random, students should have difficulty proving all nine cases. Show them how they can debug their programs by printing out <code>computer_move</code> using <code>puts</code>.</p>
 
 
 
