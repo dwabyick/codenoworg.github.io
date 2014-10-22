@@ -200,8 +200,9 @@
 <li>Go over the purpose for which we would want to store information in our game, the scenarios during which we would want to manipulate the information (if any), the place in the program where we would want to use the information stored, etc.</li>
 <li>Ask the students to define variables to store the &ldquo;computer move&rdquo; and the &ldquo;player move.&rdquo;
 <ul><li>Tell students to start off by setting both the computer and player moves to a fixed value.</li></ul></li>
-<li>Have students run their programs to ensure that their code is in a working state.</li>
 </ol>
+<p>Have students run their programs to ensure that their code is in a working state.</p>
+
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -225,6 +226,8 @@
 <p>Introduce students to Boolean logic and how that plays into forming more complex conditions. See <a href="/projects/building_blocks/boolean_logic.html">here</a> for key concepts you want to touch on.</p>
 
 <p>Ask students to add conditional statements to their projects using their pseudocode as a guide.</p>
+
+<p>Have students play their game and confirm all 9 cases work. In order to do this, they will have to change the <code>computer_move</code> and <code>player_move</code> variables.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -300,13 +303,15 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>Have students try to play their game.</p>
-
-<p>Have the students run their program to confirm this works and test all 9 cases. In order to do this, they will have to change the <code>computer_move</code> and <code>player_move</code> variables.</p>
-
 <h2>Step 4 &ndash; Getting player input</h2>
 
 <p>Challenge the students to fill in the code to add player input by themselves. It should look like this:</p>
+
+<p>If the students get stuck, have them open up hilo.rb and look at how they got the player input. Ask them why they don&rsquo;t need to call to_i on the player_move variable.</p>
+
+<p>Reiterate that because we used <code>gets</code>, the value stored inside <code>player_move</code> is a string. Unlike the Hi-Lo game, we dont&#8217; receive the same ArgumentError because strings can be compared with other strings.</p>
+
+<p>Have the students run their programs to ensure that their code is in a working state.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -318,12 +323,6 @@
 </span><span class='line'><span class="n">player_move</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>If the students get stuck, have them open up hilo.rb and look at how they got the player input. Ask them why they don&rsquo;t need to call to_i on the player_move variable.</p>
-
-<p>Reiterate that because we used <code>gets</code>, the value stored inside <code>player_move</code> is a string. Unlike the Hi-Lo game, we dont&#8217; receive the same ArgumentError because strings can be compared with other strings.</p>
-
-<p>Have the students run their programs to ensure that their code is in a working state.</p>
-
 <h2>Step 5: Adding randomness</h2>
 
 <p>We are going to use the <code>sample</code> method on the <code>Array</code> class in order to add randomness to the <code>computer_move</code> variable.</p>
@@ -331,6 +330,8 @@
 <p>First, we&rsquo;ll need to take a small detour and cover the concept of an array. See <a href="/projects/building_blocks/arrays.html">here</a> for key concepts you want to touch on.</p>
 
 <p>In order to randomly generate a computer move, we&rsquo;ll have to first define an array of possible moves. Challenge the students to come up with an array and sample the array to pick a computer move.</p>
+
+<p><code>computer_move</code> is no longer fixed. Since the computer&rsquo;s move is random, students should have difficulty proving all nine cases. Show them how they can debug their programs by printing out <code>computer_move</code> using <code>puts</code>.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -340,16 +341,14 @@
 </span><span class='line'><span class="n">computer_move</span> <span class="o">=</span> <span class="n">possible_moves</span><span class="o">.</span><span class="n">sample</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p><code>computer_move</code> is no longer fixed. Since the computer&rsquo;s move is random, students should have difficulty proving all nine cases. Show them how they can debug their programs by printing out <code>computer_move</code> using <code>puts</code>.</p>
-
 <h2>Step 6 &ndash; Let's review</h2>
 
-<p>Now that you have completed the base project, do a quick review with your students of the concepts they used.</p>
+<p>Now that you have completed the base project, do a quick review of the concepts with your students.</p>
 
 <ul>
 <li>Ask students to tell you, without looking at their notes, what are the concepts they learned about in this project. The objective is for students to mention the building blocks introduced and/or reviewed in the project.
-<ul><li>Writing pseudocode, understanding program control flow, using variables (string), data structures (arrays), and control structures (conditionals: if/elsif/else), and understanding Boolean logic.</li></ul></li> 
-<li>If student do not mention some of the building blocks, ask them about it specifically</li>
+<ul><li>Writing pseudocode, program control flow, using variables (string), data structures (arrays), and control structures (conditionals: if/elsif/else), and Boolean logic.</li></ul></li> 
+<li>If student do not mention some of the building blocks, ask them about it specifically. See here for a list of sample questions.</li>
 <li>Finally, ask students if they would like you to review any of the building blocks or if they have any additional questions.</li>
 </ul>
 
