@@ -222,11 +222,11 @@
 <h2>Step 3 &ndash; Conditional statements</h2>
 
 <p>The conditions in Rock, Paper, Scissors are slightly more complicated than the students covered in Hi-Lo.</p>
-<p>Review the concept of conditionals with students; make sure they understand the if/elsif/else structure. See <a href="/projects/building_blocks/conditionals.html">here</a> for key concepts you want to touch on.</p>
-<p>Introduce students to Boolean logic and how that plays into forming more complex conditions. See <a href="/projects/building_blocks/boolean_logic.html">here</a> for key concepts you want to touch on.</p>
-
-<p>Ask students to add conditional statements to their projects using their pseudocode as a guide.</p>
-
+<ol>
+<li>Review the concept of conditionals with students; make sure they understand the if/elsif/else structure. See <a href="/projects/building_blocks/conditionals.html">here</a> for key concepts you want to touch on.</li>
+<li>Introduce students to Boolean logic and how that plays into forming more complex conditions. See <a href="/projects/building_blocks/boolean_logic.html">here</a> for key concepts you want to touch on.</li>
+<li>Ask students to add conditional statements to their projects using their pseudocode as a guide.</li>
+</ol>
 <p>Have students play their game and confirm all 9 cases work. In order to do this, they will have to change the <code>computer_move</code> and <code>player_move</code> variables.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -307,12 +307,6 @@
 
 <p>Challenge the students to fill in the code to add player input by themselves. It should look like this:</p>
 
-<p>If the students get stuck, have them open up hilo.rb and look at how they got the player input. Ask them why they don&rsquo;t need to call to_i on the player_move variable.</p>
-
-<p>Reiterate that because we used <code>gets</code>, the value stored inside <code>player_move</code> is a string. Unlike the Hi-Lo game, we dont&#8217; receive the same ArgumentError because strings can be compared with other strings.</p>
-
-<p>Have the students run their programs to ensure that their code is in a working state.</p>
-
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -322,6 +316,12 @@
 </span><span class='line'><span class="c1"># Get the player&#39;s move</span>
 </span><span class='line'><span class="n">player_move</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span></code></pre></td></tr></table></div></figure>
+
+<p>If the students get stuck, have them open up hilo.rb and look at how they got the player input. Ask them why they don&rsquo;t need to call to_i on the player_move variable.</p>
+
+<p>Reiterate that because we used <code>gets</code>, the value stored inside <code>player_move</code> is a string. Unlike the Hi-Lo game, we dont&#8217; receive the same ArgumentError because strings can be compared with other strings.</p>
+
+<p>Have the students run their programs to ensure that their code is in a working state.</p>
 
 <h2>Step 5: Adding randomness</h2>
 
