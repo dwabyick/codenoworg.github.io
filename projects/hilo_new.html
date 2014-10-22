@@ -73,8 +73,8 @@
 <p>Learning Goals:</p>
 
 <ul>
-<li>Understand the process of writing pseudocode and program control flow </li>
-<li>Practice the fundamentals of Ruby including capturing and using user input (puts/gets) and using variables (strings, integers) and control structures (conditionals: if/end)</li>
+<li>Understand program control flow and the process of writing pseudocode.  </li>
+<li>Practice fundamentals of Ruby including capturing and using user input (puts/gets) and using variables (strings, integers) and control structures (conditionals: if/end)</li>
 </ul>
 
 <div class="note">
@@ -163,7 +163,9 @@
 <ol>
 <li>Go over the purpose for which we would want to store information in our game, the scenarios during which we would want to manipulate the information (if any), the place in the program where we would want to use the information stored, etc.</li>
 <li>Ask student to add variables to their game using their pseudocode as a guide.</li>
+<ul>
 <li>Tell students to start off by setting the variables to a fixed value.</li>
+</ul>
 <li>Have students run their programs to ensure that their code is in a working state.</li>
 </ol>
 
@@ -201,7 +203,9 @@
 
 <ol>
 <li>Ask students to add player input to their game using their pseudocode as a guide</li>
+<ul>
 <li>Remind students that all user input is always captured as a string, and we can use “.to_i” if we need the numerical value.</li>
+</ul>
 <li>Have students run their programs to ensure that their code is in a working state.</li>
 </ol>
 
@@ -226,7 +230,7 @@
 </span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Please guess a number!&quot;</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># User guesses a number</span>
-</span><span class='line'><span class="n">user_number</span><span class="o">=</span><span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'><span class="n">user_number</span><span class="o">=</span><span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># If the guess was higher than the secret number print &quot;Too high!&quot;</span>
 </span><span class='line'>
@@ -241,7 +245,9 @@
 
 <ol>
 <li>Ask student to add conditionals to their game using their pseudocode as a guide</li>
-<li>Remind students of the difference between using <code>=</code>= and using <code>==</code></li>
+<ul>
+<li>Remind students of the difference between using <code>=</code> and using <code>==</code></li>
+</ul>
 <li>Have the students run their program to confirm it works and test all three cases by trying different combinations of numbers</li>
 </ol>
 
@@ -275,7 +281,7 @@
 </span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Please guess a number!&quot;</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># User guesses a number</span>
-</span><span class='line'><span class="n">user_number</span><span class="o">=</span><span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'><span class="n">user_number</span><span class="o">=</span><span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># If the guess was higher than the secret number print &quot;Too high!&quot;</span>
 </span><span class='line'><span class="k">if</span> <span class="n">secret_number</span> <span class="o">&gt;</span> <span class="n">user_number</span>
@@ -297,7 +303,7 @@
 
 <ol>
 <li>Explain to students that we can use the <code>rand()</code> method to generate a random number.</li>
-<li>Point out the need to use +1 (e.g., <code>rand(10) + 1</code>)</li>
+<li>Point out the need to use +1 (e.g., <code>rand(10) + 1</code>), and explain why.</li>
 <li>Ask students to use <code>rand()</code> in their game</li>
 </ol>
 
@@ -333,7 +339,7 @@
 </span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Please guess a number!&quot;</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># User guesses a number</span>
-</span><span class='line'><span class="n">user_number</span><span class="o">=</span><span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'><span class="n">user_number</span><span class="o">=</span><span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1"># If the guess was higher than the secret number print &quot;Too high!&quot;</span>
 </span><span class='line'><span class="k">if</span> <span class="n">secret_number</span> <span class="o">&gt;</span> <span class="n">user_number</span>
@@ -353,13 +359,13 @@
 
 <h2>Step 6 &ndash; Let's review</h2>
 
-<p>Now that you have completed the base project, do a quick review with your students of the concepts they used.</p>
+<p>Now that you have completed the base project, do a quick review of the concepts with your students.</p>
 
 <ul>
-<li>Ask students to tell you, without looking at their notes, what are the concepts they learned about in this project. The objective is for students to mention the building blocks introduced and/or reviewed in the project.
-<ul><li>Writing pseudocode, understanding program control flow, capturing and using user input (puts/gets), using variables (strings, integers) and control structures (conditionals: if/end)</li></ul></li> 
-<li>If student do not mention some of the building blocks, ask them about it specifically</li>
-<li>Finally, ask students if they would like you to review any of the building blocks or if they have any additional questions.</li>
+<li>Ask students to tell you, without looking at their notes, what are the concepts they learned about in this project. Students should mention the building blocks introduced and/or reviewed in the project:
+<ul><li>pseudocode, program control flow, capturing and using user input (puts/gets), using variables (strings, integers), control structures (conditionals: if/end)</li></ul></li> 
+<li>If student do not mention some of the building blocks, ask them about them specifically. See here for sample questions.
+<li>Finally, ask students if they would like you to review any of the concepts or if they have any additional questions.</li>
 </ul>
 
 <h2>Step 7 &ndash; Add-on's</h2>
