@@ -267,8 +267,58 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
+<h2>Step 4: Adding loops</h2>
 
-<h2>Iteration 2: Refactoring</h2>
+<p>Introduce students to loops (begin/end/while). See <a href="/projects/building_blocks/loops.html">here</a> for key concepts you want to touch on.</p></p>
+
+<ol>
+<li>Decide when the app ends and figure out what repeats.</li>
+<li>Discuss with students what the loop condition should be, i.e., under which condition should the loop execute and stop.</li> 
+<li>Ask students to think about what needs to be repeated and what needs to go inside versus outside the loop.</li>
+<li>Ask students to add a loop to their code using their pseudocode as a guide</li>
+</ol>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;First number?&quot;</span>
+</span><span class='line'><span class="n">first_number</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Second number?&quot;</span>
+</span><span class='line'><span class="n">second_number</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Operation?&quot;</span>
+</span><span class='line'><span class="n">operation</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">first_number</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">operation</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">second_number</span><span class="si">}</span><span class="s2"> = &quot;</span>
+</span><span class='line'><span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">+</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">elsif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">-</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">elsif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;*&#39;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">*</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">elsif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">/</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h2>Step 5: Refactoring</h2>
 
 <p>Finally, we&rsquo;re going to introduce the students to the concept of refactoring; that is, modifying code we just wrote to make it more concise and clean. Ask them if they see anything that could be &ldquo;refactored&rdquo;. The key insight here is that the lien printing the operation can be condensed as such:</p>
 
@@ -316,45 +366,7 @@
 
 <h2>Full code</h2>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;First number?&quot;</span>
-</span><span class='line'><span class="n">first_number</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Second number?&quot;</span>
-</span><span class='line'><span class="n">second_number</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Operation?&quot;</span>
-</span><span class='line'><span class="n">operation</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">first_number</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">operation</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">second_number</span><span class="si">}</span><span class="s2"> = &quot;</span>
-</span><span class='line'><span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">+</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">elsif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">-</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">elsif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;*&#39;</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">*</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">elsif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">/</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+
 
 
     
