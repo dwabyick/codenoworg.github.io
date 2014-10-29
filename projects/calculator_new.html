@@ -78,7 +78,7 @@
 
 <ul>
 <li>Understand program control flow and the process of writing pseudocode.</li>
-<li>Practice fundamentals of Ruby including capturing and using user input (puts/gets), using variables (strings, integers) and control structures (conditionals: if/end), and get introduced to loops</li>
+<li>Practice fundamentals of Ruby including capturing and using user input (puts/gets), using variables (strings, integers) and control structures (conditionals: if/elsif/else), and get introduced to arrays and loops (begin/en/while)</li>
 </ul>
 
 
@@ -99,15 +99,33 @@
 </pre></td><td class='code'><pre><code><span class='line output'>touch calculator.rb</span></code></pre></td></tr></table></div></div>
         </div>
 
+<p>To open the file inside SublimeText, we can simply type the filename into the command prompt. If it has not already been set as the default text editor for ruby files, make sure you set it.</p>
 
-<p>Now we want to tell the user</p>
+<div class="window">
+         <nav class="control-window">
+           <a href="#finder" class="close" data-rel="close">close</a>
+           <a href="#" class="minimize">minimize</a>
+           <a href="#" class="deactivate">deactivate</a>
+         </nav>
+         <h1 class="titleInside">Terminal</h1>
+         <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>calculator.rb</span></code></pre></td></tr></table></div></div>
+       </div>
 
-<ul>
-<li>to enter a first number (and save it)</li>
-<li>to enter a second number (and save it)</li>
-<li>to enter the operation to perform (and save it)</li>
-</ul>
 
+<h2>Step 1 &ndash; Writing pseudocode</h2>
+
+<p>Work together with the group to first write pseudocode for the Hi-Lo game. See <a href="/projects/building_blocks/pseudocode.html">here</a> for key concepts you want to touch on.</p>
+
+<ol>
+<li>As a group discuss what actions need to happen for the calculator to work and when should they take place.</li>
+<li>Explain that the computer runs code sequentially, starting from the first line of the program and ending at the last line.</li>
+<li>As a group, come up with the first two to three lines of pseudocode.</li>
+<li>Ask the students to continue the discussion with their partners and complete their pseudocode</li>
+</ol>
+<p>Have the students run the program to prove that the computer does not execute comments.</p>
+
+<h2>Step 2 &ndash; Writing pseudocode</h2>
 
 <p>Here&rsquo;s what the students should come up with:</p>
 
@@ -143,7 +161,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Iteration 1: Conditionals</h2>
+<h2>Step 3: Adding Conditionals</h2>
 
 <p>The next step is to actually perform the operation. Let&rsquo;s start with addition (when operator == &lsquo;+&rsquo;). We first need to write our if block:</p>
 
