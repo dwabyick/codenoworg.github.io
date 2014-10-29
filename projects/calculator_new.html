@@ -208,7 +208,7 @@
 </span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;You entered the operation </span><span class="si">#{</span><span class="n">operation</span><span class="si">}</span><span class="s2">&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<h2>Step 3: Adding Conditionals</h2>
+<h2>Step 3: Adding conditionals</h2>
 
 <p>The next step is to actually perform the operation. Let&rsquo;s start with addition (when operator == &lsquo;+&rsquo;). We first need to write our if block:</p>
 
@@ -233,7 +233,6 @@
 </span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">+</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
 
 <p>Regarding the second line, we can either print the result by storing it in a variable and then printing that variable, or doing the sum directly in the interpolation. Both methods are valid, and students should be aware of both!</p>
 
@@ -272,13 +271,18 @@
 <p>Introduce students to loops (begin/end/while). See <a href="/projects/building_blocks/loops.html">here</a> for key concepts you want to touch on.</p></p>
 
 <ol>
-<li>Decide when the app ends and figure out what repeats.</li>
+<li>Decide when the app ends; e.g., user types "quit" when given the option.</li>
 <li>Discuss with students what the loop condition should be, i.e., under which condition should the loop execute and stop.</li> 
 <li>Ask students to think about what needs to be repeated and what needs to go inside versus outside the loop.</li>
 <li>Ask students to add a loop to their code using their pseudocode as a guide</li>
 </ol>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter"><pre class="line-numbers">
+<span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -297,23 +301,34 @@
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
 <span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;First number?&quot;</span>
-</span><span class='line'><span class="n">first_number</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td>
+<td class='code'><pre><code class='ruby'>
+<span class='line'><span class="nb">begin</span></span>
+<span class='line'>
+<td class='code'><pre><code class='ruby'>
+<span class='line'><span class="nb">puts</span><span class="s2">&quot;First number?&quot;</span></span>
+<span class='line'><span class="n">first_number</span><span class="o">=</span><span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
 </span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Second number?&quot;</span>
+</span><span class='line'><span class="nb">puts</span><span class="s2">&quot;Second number?&quot;</span>
 </span><span class='line'><span class="n">second_number</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span><span class="o">.</span><span class="n">to_i</span>
 </span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Operation?&quot;</span>
-</span><span class='line'><span class="n">operation</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'><span class="nb">puts</span><span class="s2">&quot;Operation?&quot;</span>
+</span><span class='line'><span class="n">operation</span><span class="o">=</span><span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
 </span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">first_number</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">operation</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">second_number</span><span class="si">}</span><span class="s2"> = &quot;</span>
-</span><span class='line'><span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span>
+<span class='line'><span class="k">if</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">first_number</span><span class="si">}</span><span class="s2"> + </span><span class="si">#{</span><span class="n">second_number</span><span class="si">}</span><span class="s2"> = &quot;</span>
 </span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">+</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
 </span><span class='line'><span class="k">elsif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">first_number</span><span class="si">}</span><span class="s2"> - </span><span class="si">#{</span><span class="n">second_number</span><span class="si">}</span><span class="s2"> = &quot;</span>
 </span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">-</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
 </span><span class='line'><span class="k">elsif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;*&#39;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">first_number</span><span class="si">}</span><span class="s2"> * </span><span class="si">#{</span><span class="n">second_number</span><span class="si">}</span><span class="s2"> = &quot;</span>
 </span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">*</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
 </span><span class='line'><span class="k">elsif</span> <span class="n">operation</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">first_number</span><span class="si">}</span><span class="s2"> / </span><span class="si">#{</span><span class="n">second_number</span><span class="si">}</span><span class="s2"> = &quot;</span>
 </span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span> <span class="n">first_number</span> <span class="o">/</span> <span class="n">second_number</span> <span class="si">}</span><span class="s2">&quot;</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -352,7 +367,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Improvements</h2>
+<h2>Step 7: Add-on's</h2>
 
 <p>If the students finish early, here are a few things that can be done to improve the program:</p>
 
@@ -363,13 +378,6 @@
 <li>If the students are familiar with iteration, make the program repeat until &ldquo;done&rdquo; is typed for the operation</li>
 </ol>
 
-
-<h2>Full code</h2>
-
-
-
-
-    
       <footer>
         
         
