@@ -349,12 +349,15 @@
 
 <h2>Step 5: Refactoring</h2>
 
-<p>Finally, we&rsquo;re going to introduce the students to the concept of refactoring; that is, modifying code we just wrote to make it more concise and clean. Ask them if they see anything that could be &ldquo;refactored&rdquo;. The key insight here is that the lien printing the operation can be condensed as such:</p>
+<p>Finally, we&rsquo;re going to do some refactoring; that is, modifying code we just wrote to make it more concise and clean.</p>
+
+<p>Explain or review the concept of refactoring and why it is useful to clean up code. See <a href="/projects/building_blocks/refactoring.html">here</a> for key concepts you want to touch on.</p>
+
+<p>Ask students if they see anything that could be &ldquo;refactored&rdquo;. The key insight here is that the line printing the operation can be condensed as such:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">first_number</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">operation</span><span class="si">}</span><span class="s2"> </span><span class="si">#{</span><span class="n">second_number</span><span class="si">}</span><span class="s2"> = &quot;</span>
 </span></code></pre></td></tr></table></div></figure>
-
 
 <p>and put at the top of the if block:</p>
 
@@ -380,6 +383,16 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
+<h2>Step 6 &ndash; Let's review</h2>
+
+<p>Now that you have completed the base project, do a quick review of the concepts with your students.</p>
+
+<ul>
+<li>Ask students to tell you, without looking at their notes, what are the concepts they learned about in this project. Students should mention the building blocks introduced and/or reviewed in the project:
+<ul><li>pseudocode, program control flow, capturing and using user input (puts/gets), using variables (strings, integers), control structures (conditionals: if/end, loops (begin/end/while), refactoring</li></ul></li>
+<li>If student do not mention some of the building blocks, ask them about them specifically. See <a href="/projects/building_blocks/sample_review_questions.html">here</a> for sample questions.
+<li>Finally, ask students if they would like you to review any of the concepts or if they have any additional questions.</li>
+</ul>
 
 <h2>Step 7: Add-on's</h2>
 
@@ -389,7 +402,7 @@
 <li>Give an error message if the user doesn&rsquo;t type a proper operation</li>
 <li>Add operations, for example modulo or exponent.</li>
 <li>Allow operations to be typed out (&lsquo;add&rsquo; would work just like &lsquo;+&rsquo;) to introduce the &ldquo;or&rdquo; in conditionals</li>
-<li>If the students are familiar with iteration, make the program repeat until &ldquo;done&rdquo; is typed for the operation</li>
+<li>Go back to the project you worked on yesterday and add loops</li>
 </ol>
 
       <footer>
