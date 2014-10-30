@@ -85,9 +85,35 @@
 
 <p><img class="center" src="/images/projects/colors/colors.png"></p>
 
-<h2>Iteration 0: Setup</h2>
+<h2>Step 0: Up & running</h2>
 
-<p>There are a few things we need to do. First, we need to install the <code>colorize</code> and the <code>win32console</code> gems:</p>
+<p>Let&rsquo;s create a colorize.rb file.</p>
+
+<div class="window">
+         <nav class="control-window">
+           <a href="#finder" class="close" data-rel="close">close</a>
+           <a href="#" class="minimize">minimize</a>
+           <a href="#" class="deactivate">deactivate</a>
+         </nav>
+         <h1 class="titleInside">Terminal</h1>
+         <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>touch colorize.rb</span></code></pre></td></tr></table></div></div>
+       </div>
+
+<p>To open the file inside SublimeText, we can simply type the filename into the command prompt. If it has not already been set as the default text editor for ruby files, make sure you set it.</p>
+
+<div class="window">
+        <nav class="control-window">
+          <a href="#finder" class="close" data-rel="close">close</a>
+          <a href="#" class="minimize">minimize</a>
+          <a href="#" class="deactivate">deactivate</a>
+        </nav>
+        <h1 class="titleInside">Terminal</h1>
+        <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>colorize.rb</span></code></pre></td></tr></table></div></div>
+      </div>
+
+<p>There are a few more things we need to do. First, we need to install the <code>colorize</code> and the <code>win32console</code> gems:</p>
 
 <div class="window">
           <nav class="control-window">
@@ -100,10 +126,9 @@
 </pre></td><td class='code'><pre><code><span class='line command'>gem install win32console colorize</span></code></pre></td></tr></table></div></div>
         </div>
 
-
 <p>Explain to the students what gems are: a way for programmers to share the code they&rsquo;ve written in a way that allows other programmers to reuse them. There are gems for everything: doing complicated math operations, writing games, writing websites, etc. The great thing about gems is that they&rsquo;re free to use and anyone can make them (yes &ndash; even them when they&rsquo;re a bit more advanced with Ruby!)</p>
 
-<p>Let&rsquo;s create a <code>colors.rb</code> file, and <code>require</code> our gems in it. It tells Ruby we want to use those gems:</p>
+<p>Afterwards we want to <code>require</code> the gems in our colorize.rb file. It tells Ruby we want to use those gems:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -113,6 +138,8 @@
 
 
 <p>Let&rsquo;s run the program! Of course, nothing happens. All we have done so far is tell Ruby we want the possibility to use those gems, but we haven&rsquo;t actually used them. We still want to run the program though &ndash; if the gems aren&rsquo;t installed, we&rsquo;ll get an error.</p>
+
+<h2>Step 1: Gems, Symbols, and Strings</h2>
 
 <p>Let&rsquo;s now add the following:</p>
 
@@ -168,9 +195,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Iteration 1: Fun with colors</h2>
+<h2>Step 2: Fun with colors</h2>
 
-<p>We&rsquo;re now going to write a basic program that prints a word typed by the user in a color specified by the user. Our program should ask for a word, and then a color.</p>
+<p>We&rsquo;re now going to write a basic program that prints a word typed by the user in a color specified by the user. Our program should ask for a word, and then a color. Challenge students to write the pseudocode and code</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -201,9 +228,7 @@
 
 <p><img class="center" src="/images/projects/colors/step1.png"></p>
 
-<h2>Iteration 2: Color cycling</h2>
-
-<h3>Step 1</h3>
+<h2>Step 3: Color cycling</h2>
 
 <p>Now we&rsquo;re going to have a bit of fun with loops and colors. Our first program will ask the user for text, and then print that text in several different colors.</p>
 
@@ -235,7 +260,7 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
+<!--
 <h3>Step 2</h3>
 
 <p>Now for something a bit different: again, we&rsquo;re going to ask the user for some text, and print that text colored. This time however, we are going to alternate the colors for each letter.</p>
@@ -335,14 +360,15 @@ If the students haven&rsquo;t done a project that uses modulo yet, introduce the
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="o">[</span> <span class="n">letters_printed</span> <span class="o">%</span> <span class="n">colors</span><span class="o">.</span><span class="n">length</span> <span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
+-->
 
-<h2>Iteration 3: Color Reading Game</h2>
+<h2>Step 4: Color Reading Game: Setting up the array of colors</h2>
 
 <p>We&rsquo;re going to write a fun Ruby program to illustrate the <a href="http://en.wikipedia.org/wiki/Stroop_effect">&ldquo;Stroop Effect&rdquo;</a>. It&rsquo;s the effect that makes it hard to quickly say which color a word is if the word is of a different color. For example:</p>
 
 <p><img class="center" src="/images/projects/colors/stroop.png"></p>
 
-<p>Our program will:</p>
+<p>Ask students to create a new file and call it colors_game.rb. Our new program will:</p>
 
 <ol>
 <li>print a random word in a random color</li>
@@ -350,13 +376,29 @@ If the students haven&rsquo;t done a project that uses modulo yet, introduce the
 <li>clear the screen and repeat.</li>
 </ol>
 
-
 <p>The first step is to setup an array with all of the colors we&rsquo;ll pick from:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">colors</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
+<p>We'll also want to do two other things:</p>
+
+<ul>
+<li>pick a random color for the word</li>
+<li>pick a random color for the word&rsquo;s color</li>
+</ul>
+
+<p>We&rsquo;re going to use the array&rsquo;s .sample method. Give the students a quick reminder on it if needed.
+We can then do:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">word</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">sample</span>
+</span><span class='line'><span class="n">word_color</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">sample</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h2>Step 5: Color Reading Game: Making an infinite loop</h2>
 
 <p>The second step is to make an infinite loop &ndash; i.e., our program will only stop if the user presses Ctrl+c. The way we achieve this in Ruby is by having a condition that&rsquo;s always true:</p>
 
