@@ -414,19 +414,30 @@ We can then do:</p>
 
 <p>We'll want to pick the random word and color and print our random word in the random color inside the loop. Nothing groundbreaking here- just don&rsquo;t forget the .to_sym:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'>
+<figcaption><span></span></figcaption>
+<div class="highlight">
+<table>
+<tr>
+<td class="gutter">
+<pre class="line-numbers">
+<span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td>
-<td class='code'><pre><code class='ruby'>
+</pre>
+</td>
+<td class='code'>
+<pre>
+<code class='ruby'>
 <span class='line'><span class="k">begin</span></span>
-<span class='line'>     <span class="n">word </span><span class="o">= </span><span class="n">colors</span><span class="o">.</span><span class="n">sample</span></span>
-<span class='line'>     <span class="n">word_color </span><span class="o">= </span><span class="n">colors</span><span class="o">.</span><span class="n">sample</span></span>
-<span class='line'>     <span class="nb">puts </span><span class="n">word</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span><span class="n">word_color</span><span class="o">.</span><span class="n">to_sym</span><span class="p">)</span></span>
+<span class='line'> <span class="n">word </span><span class="o">= </span><span class="n">colors</span><span class="o">.</span><span class="n">sample</span></span>
+<span class='line'> <span class="n">word_color </span><span class="o">= </span><span class="n">colors</span><span class="o">.</span><span class="n">sample</span></span>
+<span class='line'> <span class="nb">puts </span><span class="n">word</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span><span class="n">word_color</span><span class="o">.</span><span class="n">to_sym</span><span class="p">)</span></span>
 <span class='line'><span class="k">end </span><span class="k">while </span><span class="mi">1 </span><span class="o">== </span><span class="mi">1</span></span>
-</code></pre></td></tr></table></div></figure>
+</code></pre></td>
+</tr></table></div></figure>
 
 <p>This works, but it goes really fast. What should we do?
 Let&rsquo;s make our program wait for 1 second between each color, using <code>sleep</code>:</p>
