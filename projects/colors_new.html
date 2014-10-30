@@ -410,16 +410,20 @@ We can then do:</p>
 </span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="mi">1</span><span class="o">==</span><span class="mi">1</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
 <p>Of course, there are many ways one can write the condition; this is just an example (we could also just write <code>end while true</code>).</p>
 
-<p>We'll want to print our random word inside the loop in a random color inside the loop. Nothing groundbreaking here- just don&rsquo;t forget the .to_sym:</p>
+<p>We'll want to pick the random word and color and print our random word in the random color inside the loop. Nothing groundbreaking here- just don&rsquo;t forget the .to_sym:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">begin</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="n">word</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span> <span class="n">word_color</span><span class="o">.</span><span class="n">to_sym</span> <span class="p">)</span>
+</span>
+<code class='ruby'><span class='line'><span class="n">word</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">sample</span>
+</span><span class='line'><span class="n">word_color</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">sample</span>
+<span class='line'>    <span class="nb">puts</span> <span class="n">word</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span> <span class="n">word_color</span><span class="o">.</span><span class="n">to_sym</span> <span class="p">)</span>
 </span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="mi">1</span><span class="o">==</span><span class="mi">1</span>
 </span></code></pre></td></tr></table></div></figure>
 
