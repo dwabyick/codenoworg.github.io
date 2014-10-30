@@ -413,25 +413,7 @@ We can then do:</p>
 
 <p>Of course, there are many ways one can write the condition; this is just an example (we could also just write <code>end while true</code>).</p>
 
-<p>Now that we have our infinite loop, we need to do two things:</p>
-
-<ul>
-<li>pick a random color for the word</li>
-<li>pick a random color for the word&rsquo;s color</li>
-</ul>
-
-
-<p>We&rsquo;re going to use the array&rsquo;s .sample method. Give the students a quick primer on it if needed.
-We can then do:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">word</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">sample</span>
-</span><span class='line'><span class="n">word_color</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">sample</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We now have two random colors; we now need to print it. Nothing groundbreaking here- just don&rsquo;t forget the .to_sym:</p>
+<p>We'll want to print our random word inside the loop in a random color inside the loop. Nothing groundbreaking here- just don&rsquo;t forget the .to_sym:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -440,7 +422,6 @@ We can then do:</p>
 </span><span class='line'>    <span class="nb">puts</span> <span class="n">word</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span> <span class="n">word_color</span><span class="o">.</span><span class="n">to_sym</span> <span class="p">)</span>
 </span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="mi">1</span><span class="o">==</span><span class="mi">1</span>
 </span></code></pre></td></tr></table></div></figure>
-
 
 <p>This works, but it goes really fast. What should we do?
 Let&rsquo;s make our program wait for 1 second between each color, using <code>sleep</code>:</p>
