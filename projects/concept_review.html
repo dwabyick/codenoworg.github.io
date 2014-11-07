@@ -70,6 +70,76 @@
       
     </header>
     
+<h2>Variables</h2>
+
+<p>Variables store data and help us keep track of information. Variables can be used for different purposes and have different types. Two common types are string (text) and integer (numbers).</p> 
+
+<p>When adding variables to our program we should think about the purpose for which we would want to store data in a particular program, the scenarios during which we would want to manipulate the data, the place in the program where we would want to use the data stored, etc.</p>
+
+<p>Naming variables is important. Intuitive names help us understand our code. When thinking about naming our variables we should make sure we understand the purpose for the variable.</p>
+
+<p>Variables are set using the equals operator (=). The value on the right side of the equals sign is the value that is stored. Once a variable is set, it will store that information until the variable is set to a new value.</p>
+
+<p>Try the following in irb:</p> 
+<ul>
+<li>number is a variable being used to store an integer
+<ul>
+<li><code>number = 5</code></li>
+<li><code>puts number</code></li>
+<li><code>number = 10</code></li>
+<li><code>puts number</code></li>
+</ul>
+</li>
+<li>name is a variable being used to store a string
+<ul>
+<li><code>name = “CodeNow”</code></li>
+<li><code>puts name</code></li>
+<li><code>name = “CodeLater”</code></li>
+<li><code>puts name</code></li>
+</ul>
+</li>
+</ul>
+<p>Notice that <code>number</code>, <code>name</code> and <code>puts</code> are all in lower case. And that <code>CodeNow</code> and <code>CodeLater</code> have both lower and upper case letters. Also, they are enclosed in quotations. Capitalization and punctuation are incredibly important in computer programming. Commands in Ruby are always lower case, variables always start with a lowercase letter, and strings are always enclosed in quotations.</p>
+
+<h2>Data Types</h2>
+
+<p> The data that we store and use in our programs can be of different types. Two main types are string and integer.</p>
+
+<p>Numeric data that are whole numbers are of type integer, hence the variables we use to store it are also of type integer.</p>
+<p>Among the operations we can use with integers are the following: addition, subtraction, multiplication, and division.</p>
+<p>To perform these operations we use the following symbols: <code>+</code> for addition, <code>-</code> for subtraction, <code>*</code> for multiplication, and <code>/</code> for division.
+
+<p>Textual data is of type string, hence the variables we use to store it are also of type string. Strings are written inside double quotes.</p>
+<p>We can also perform “operations” on strings. In order to perform “operations” on strings we use methods. Some of the methods we can use are:</p>
+<ul>
+<li><code>puts</code> = when we want to print something to the screen.</li> 
+<li><code>gets</code> = when we want to capture user input.</li> 
+<li><code>.chomp</code> =  when we need to strip the new line character.</li>
+<li><code>.downcase</code> = when we want to convert all characters to lowercase.</li>
+<li><code>.upcase</code> = when we want to convert all characters to uppercase.</li>
+<li><code>.capitalize</code> = when we want to convert the first character to uppercase and the remainder to lowercase</li>
+</ul>
+
+<p>Try the following in irb:</p>
+<ul>
+<li><code>name = gets.chomp</code>. The computer will wait for your response.</li>
+<li><code>puts name.downcase</code></li>
+<li><code>puts name.upcase</code></li>
+<li><code>puts name.capitalize</code></li>
+</ul>
+<p>Finally, sometimes we want to convert between a string and an integer. To do this we can use the methods:</p>
+<ul>
+<li><code>.to_i</code> = when we want to convert a string to an integer</li>
+<li><code>.to_s</code> = when we want to convert an integer to a string</li>
+</ul>
+<p>Try the following in irb:</p>
+<ul>
+<li><code>age = gets.chomp</code> The computer will wait for your response.</li>
+<li><code>age > 10</code></li>
+</ul>
+<p>You should receive an error similar to: <code>ArgumentError: comparison of String with Fixnum failed (ArgumentError)</code></p>
+<p>Remember that because we used <code>gets</code>, the value stored inside age is a string.</p>
+<p>How would you fix the error?</p>
 
 <h2>Arrays</h2>
 
@@ -105,6 +175,7 @@
 <li><code>my_anything_array.sample</code> Try this last command several times</li>
 </ul>
 
+<!--
 <h2>Boolean Logic</h2>
 
 <p>Conditionals and looping routines both contain expressions that can evaluate to “false” or “true”. Also, both can include one expression to be evaluated or a combination of expressions. When using a combination of expressions, we use boolean operators.</p>
@@ -190,47 +261,6 @@
     <td>T</td>
   </tr>
 </table>
-<p>Try the following in irb:</p> 
-<ul>
-<li>number is a variable being used to store an integer
-<ul>
-<li><code>number = 5</code></li>
-<li><code>puts number</code></li>
-<li><code>number = 10</code></li>
-<li><code>puts number</code></li>
-</ul>
-</li>
-<li>name is a variable being used to store a string
-<ul>
-<li><code>name = “CodeNow”</code></li>
-<li><code>puts name</code></li>
-<li><code>name = “CodeLater”</code></li>
-<li><code>puts name</code></li>
-</ul>
-</li>
-</ul>
-<p>Notice that <code>number</code>, <code>name</code> and <code>puts</code> are all in lower case. And that <code>CodeNow</code> and <code>CodeLater</code> have both lower and upper case letters. Also, they are enclosed in quotations. Capitalization and punctuation are incredibly important in computer programming. Commands in Ruby are always lower case, variables always start with a lowercase letter, and strings are always enclosed in quotations.</p>
-
-<p>Try the following in irb:</p> 
-<ul>
-<li>number is a variable being used to store an integer
-<ul>
-<li><code>number = 5</code></li>
-<li><code>puts number</code></li>
-<li><code>number = 10</code></li>
-<li><code>puts number</code></li>
-</ul>
-</li>
-<li>name is a variable being used to store a string
-<ul>
-<li><code>name = “CodeNow”</code></li>
-<li><code>puts name</code></li>
-<li><code>name = “CodeLater”</code></li>
-<li><code>puts name</code></li>
-</ul>
-</li>
-</ul>
-<p>Notice that <code>number</code>, <code>name</code> and <code>puts</code> are all in lower case. And that <code>CodeNow</code> and <code>CodeLater</code> have both lower and upper case letters. Also, they are enclosed in quotations. Capitalization and punctuation are incredibly important in computer programming. Commands in Ruby are always lower case, variables always start with a lowercase letter, and strings are always enclosed in quotations.</p>
 
 <!--
 <h2>Conditionals</h2>
@@ -265,45 +295,7 @@
 <p>See <a href="conditionals_ex.html">here</a> for exercises students can complete in IRB</p>
 -->
 
-<h2>Data Types</h2>
 
-<p> The data that we store and use in our programs can be of different types. Two main types are string and integer.</p>
-
-<p>Numeric data that are whole numbers are of type integer, hence the variables we use to store it are also of type integer.</p>
-<p>Among the operations we can use with integers are the following: addition, subtraction, multiplication, and division.</p>
-<p>To perform these operations we use the following symbols: <code>+</code> for addition, <code>-</code> for subtraction, <code>*</code> for multiplication, and <code>/</code> for division.
-
-<p>Textual data is of type string, hence the variables we use to store it are also of type string. Strings are written inside double quotes.</p>
-<p>We can also perform “operations” on strings. In order to perform “operations” on strings we use methods. Some of the methods we can use are:</p>
-<ul>
-<li><code>puts</code> = when we want to print something to the screen.</li> 
-<li><code>gets</code> = when we want to capture user input.</li> 
-<li><code>.chomp</code> =  when we need to strip the new line character.</li>
-<li><code>.downcase</code> = when we want to convert all characters to lowercase.</li>
-<li><code>.upcase</code> = when we want to convert all characters to uppercase.</li>
-<li><code>.capitalize</code> = when we want to convert the first character to uppercase and the remainder to lowercase</li>
-</ul>
-
-<p>Try the following in irb:</p>
-<ul>
-<li><code>name = gets.chomp</code>. The computer will wait for your response.</li>
-<li><code>puts name.downcase</code></li>
-<li><code>puts name.upcase</code></li>
-<li><code>puts name.capitalize</code></li>
-</ul>
-<p>Finally, sometimes we want to convert between a string and an integer. To do this we can use the methods:</p>
-<ul>
-<li><code>.to_i</code> = when we want to convert a string to an integer</li>
-<li><code>.to_s</code> = when we want to convert an integer to a string</li>
-</ul>
-<p>Try the following in irb:</p>
-<ul>
-<li><code>age = gets.chomp</code> The computer will wait for your response.</li>
-<li><code>age > 10</code></li>
-</ul>
-<p>You should receive an error similar to: <code>ArgumentError: comparison of String with Fixnum failed (ArgumentError)</code></p>
-<p>Remember that because we used <code>gets</code>, the value stored inside age is a string.</p>
-<p>How would you fix the error?</p>
 
 <!--
 <p>See <a href="datatypes_ex.html">here</a> for exercises students can complete in IRB</p>
