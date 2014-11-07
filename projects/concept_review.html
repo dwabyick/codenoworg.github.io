@@ -284,6 +284,27 @@
 <li><code>.capitalize</code> = when we want to convert the first character to uppercase and the remainder to lowercase</li>
 </ul>
 
+<p>Try the following in irb:</p>
+<ul>
+<li><code>name = gets.chomp</code>. The computer will wait for your response.</li>
+<li><code>puts name.downcase</code></li>
+<li><code>puts name.upcase</code></li>
+<li><code>puts name.capitalize</code></li>
+</ul>
+<p>Finally, sometimes we want to convert between a string and an integer. To do this we can use the methods:</p>
+<ul>
+<li><code>.to_i</code> = when we want to convert a string to an integer</li>
+<li><code>.to_s</code> = when we want to convert an integer to a string</li>
+</ul>
+<p>Try the following in irb:</p>
+<ul>
+<li><code>age = gets.chomp</code> The computer will wait for your response.</li>
+<li><code>age > 10</code></li>
+</ul>
+<p>You should receive an error similar to: <code>ArgumentError: comparison of String with Fixnum failed (ArgumentError)</code></p>
+<p>Remember that because we used <code>gets</code>, the value stored inside age is a string.</p>
+<p>How would you fix the error?</p>
+
 <!--
 <p>See <a href="datatypes_ex.html">here</a> for exercises students can complete in IRB</p>
 -->
