@@ -30,8 +30,6 @@
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
-  
-
 </head>
 
 <body   >
@@ -55,7 +53,6 @@
   </fieldset>
 </form>
   
-
 <ul class="main-navigation">
   <li><a href="/">Curriculum Index</a></li>
 </ul>
@@ -87,9 +84,6 @@
 <p>The design decisions in the following code are intentional to help absolute beginners quickly learn the basics without overwhelming them with intermediate concepts.</p>
 </div>
 
-
-
-
 <div class="note">
 <p>This tutorial is open source. If you notice errors, typos, or have questions/suggestions, please <a href="https://github.com/CodeNowOrg/codenoworg.github.io">submit them to the project on Github</a>.</p>
 </div>
@@ -110,7 +104,6 @@
 </pre></td><td class='code'><pre><code><span class='line output'>touch encryptor.rb</span></code></pre></td></tr></table></div></div>
         </div>
 
-
 <p>To open the file inside SublimeText, we can simply type the filename into the command prompt. If it has not already been set as the default text editor for ruby files, make sure you set it.</p>
 
 <div class="window">
@@ -124,12 +117,11 @@
 </pre></td><td class='code'><pre><code><span class='line output'>encryptor.rb</span></code></pre></td></tr></table></div></div>
         </div>
 
-
 <h2>Part I: Creating the base encryptor</h2>
 
 <h3>Step 1 &ndash; Understanding the task</h3>
 
-<p>Tell the students they will be building an encryption engine where they will be able to pass a string of plain text into their program and the output will be an encrypted string.  After successfully encrypting, students will be able to decrypt the masked word and reveal its original value.</p>
+<p>Tell the students they will be building an encryption engine where they will be able to pass a string of plain text into their program and the output will be an encrypted string. After successfully encrypting, students will be able to decrypt the masked word and reveal its original value.</p>
 
 <p>As always, we will be starting with the simplest thing that could work and then begin to refactor.  Keep in mind that a major goal of this exercise is to show the need / usefulness of methods.</p>
 
@@ -169,7 +161,6 @@
 </span><span class='line'><span class="c1">#join the secret_word array into one word and print to screen</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
 <p>Explain that the word algorithm is nothing to be intimidated by &ndash; it&rsquo;s just a list of steps a program takes to achieve a task.  Writing a how-to for making PB&amp;J is an algorithm.</p>
 
 <h3>Step 3 &ndash; Introduction to hashes</h3>
@@ -189,7 +180,7 @@ Below is an example that could be used</p>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">phone_contacts</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span> <span class="c1">#=&gt; pretty unintuitive</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>There is a better way! Show them how hashes will make their lives better. See <a href="">here</a> for points to cover</p>
+<p>There is a better way! Show them how hashes will make their lives better. See <a href="/projects/building_blocks/hash.html">here</a> for points to cover.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -201,7 +192,7 @@ Below is an example that could be used</p>
 
 <h3>Step 4 &ndash; Creating a basic encryption</h3>
 
-<p>For our encryption algorithm, we will using a ROT design. Where we simply rotate each letter in the alphabet by a set number of times.</p>
+<p>For our encryption algorithm, we will be using a ROT design. Where we simply rotate each letter in the alphabet by a set number of times.</p>
 
 <p>ROT-2</p>
 
@@ -239,7 +230,7 @@ Below is an example that could be used</p>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">encryption</span><span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="s2">&quot;c&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>But, a word is made up of many letters.  We need a way to break a word into its individual letters so that we can encrypt each one.  Show the students split method in irb.</p>
+<p>But, a word is made up of many letters.  We need a way to break a word into its individual letters so that we can encrypt each one.  Show the students the split method in irb.</p>
 
 <div class="window">
           <nav class="control-window">
@@ -257,7 +248,7 @@ Below is an example that could be used</p>
 </pre></td><td class='code'><pre><code><span class='line output'>"dog".split("")</span><span class='line output'>#=> ["d", "o", "g"]</span><span class='line output'>"d-o-g".split("-")</span><span class='line output'>#=> ["d", "o", "g"]</span><span class='line output'>"d$o$g".split("$")</span><span class='line output'>#=> ["d", "o", "g"]</span></code></pre></td></tr></table></div></div>
         </div>
 
-<p>Now, that students have an array of letters, they need an introduction to iteration.  Be brief here.  Just enough to get them by.  We don&rsquo;t want to overwhelm them.  A good example is show a countdown.</p>
+<p>Now, that students have an array of letters, they need an introduction to iteration.  Be brief here.  Just enough to get them by.  We don&rsquo;t want to overwhelm them.  A good example is to show a countdown.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -293,7 +284,7 @@ Below is an example that could be used</p>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>Now, apply same concept to iterating through the letters array.</p>
+<p>Now, apply the same concept to iterating through the letters array.</p>
 
 <h3>Step 7 &ndash; Saving the encrypted value and outputting it</h3>
 
@@ -321,7 +312,7 @@ Below is an example that could be used</p>
 
 <p>Let the students work on their own to create an array of encrypted letters.</p>
 
-<p>After 10 minutes is given to solve, show them the joins method and note how it is opposite of split.</p>
+<p>After 10 minutes, show them the join method and note how it is opposite of split.</p>
 
 <div class="window">
           <nav class="control-window">
@@ -339,7 +330,7 @@ Below is an example that could be used</p>
 </pre></td><td class='code'><pre><code><span class='line output'>["d", "o", "g"].join("")</span><span class='line output'>#=> "dog"</span><span class='line output'>["d", "o", "g"].join("-")</span><span class='line output'>#=> "d-o-g"</span><span class='line output'>["d", "o", "g"].join("$")</span><span class='line output'>#=> "d$o$g"</span></code></pre></td></tr></table></div></div>
         </div>
 
-<p>Student&rsquo;s file should look similar to below&hellip;</p>
+<p>Student&rsquo;s file should look similar to this&hellip;</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -403,7 +394,7 @@ Below is an example that could be used</p>
 
 <p>Now that we have successfully encrypted, we need to solve the other half of the problem &ndash; decryption.  Let the student&rsquo;s know that a lot of the logic to solve decryption can be copied from what they have already done with encrypting.</p>
 
-<p>The biggest hurdle is flip flopping the keys and values of the encryption hash.  Have the students realize that if you do any ROT other than 13, decryption will fail because the new letter value doesn&rsquo;t map back to its original value.  Luckily, much time doesn&rsquo;t need to be spent solving it as we will be using ruby&rsquo;s invert method.</p>
+<p>The biggest hurdle is flip flopping the keys and values of the encryption hash.  Have the students realize that if you do any ROT other than 13, decryption will fail because the new letter value doesn&rsquo;t map back to its original value.  Luckily, much time doesn&rsquo;t need to be spent solving this as we will be using ruby&rsquo;s invert method.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -575,7 +566,7 @@ Below is an example that could be used</p>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<h2>Step III: Making the encryption dynamic</h2>
+<h2>Part III: Making the encryption dynamic</h2>
 
 <h3>Step 1: Understanding the problem</h3>
 
@@ -597,7 +588,7 @@ Below is an example that could be used</p>
 
 <h3>Step 2: Introduction to rotate method</h3>
 
-<p>Ruby has method called rotate which can be called on an array.  It takes a number as an argument, which tells the array how many positions to rotate each element. Hop in irb to demo.</p>
+<p>Ruby has a method called rotate which can be called on an array.  It takes a number as an argument, which tells the array how many positions to rotate each element. Hop in irb to demo.</p>
 
 <div class="window">
           <nav class="control-window">
@@ -644,7 +635,7 @@ Below is an example that could be used</p>
 
 <h3>Step 4: Zipping it all up</h3>
 
-<p>The zip method on a array is a pretty complex method. You may have to do some hand waving here.  The goal is not for them to fully understand the zip method, but rather have a dynamically created encryption hash.</p>
+<p>The zip method on an array is a pretty complex method. You may have to do some hand waving here.  The goal is not for them to fully understand the zip method, but rather have a dynamically created encryption hash.</p>
 
 <p>Explain the zip method does exactly like its name implies.  It takes two values and merges them together just like a zipper on a jacket.</p>
 
@@ -679,7 +670,7 @@ Below is an example that could be used</p>
 </pre></td><td class='code'><pre><code><span class='line output'>zipped_values = [["tim", "443"], ["kim", "813"], ["jim", "975"]]</span><span class='line output'></span><span class='line output'>Hash[zipped_values]</span><span class='line output'>#=> {"tim"=>"443", "kim"=>"813", "jim"=>"975"}</span></code></pre></td></tr></table></div></div>
         </div>
 
-<p>The students should now be able to complete the pseudocode.  Give them until the end of the pomodoro.  Final code should look similar&hellip;</p>
+<p>The students should now be able to complete the pseudocode.  Give them until the end of the pomodoro.  Final code should look similar to this&hellip;</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -755,22 +746,24 @@ Below is an example that could be used</p>
 <h3>Step 1: Understanding the problem</h3>
 
 <p>Goal here is to illuminate why using methods to organize our code is a win. Let the students know that
-as it stands now, our code works but is not very flexible.  What would happen if we needed to encrypt an entire a file of words?  Or, if our program grew longer and we needed to doing encryption later in our program &ndash; we would have to repeat our same steps.  Our programs would grow huge and be hard to follow.  We need a better way to organize our code so that we can give names to the logic that we are writing as well be able to reuse it. </p>
+as it stands now, our code works but is not very flexible.  What would happen if we needed to encrypt an entire  file of words?  Or, if our program grew longer and we needed to do encryption later in our program &ndash; we would have to repeat the same steps.  Our programs would grow huge and be hard to follow.  We need a better way to organize our code so that we can give names to the logic that we are writing as well as be able to reuse it. </p>
 
 <h3>Step 2: Introduction to methods</h3>
 
 <p>Methods are a tough concept to learn.  The biggest blockers we have seen are the passing in of arguments and understanding return values.  As always, the goal here is to teach them enough to get by.
-For some talking points to cover see <a href="">here.</a></p>
+For some talking points to cover see <a href="/projects/building_blocks/methods.html">here.</a></p>
 
+<!--
 <ol>
 <li>breakdown the syntax (def, name, args, body, end)</li>
 <li>show the concept of return values by explicitly using the ruby keyword &lsquo;return&rsquo;</li>
 <li>show how args get passed and are like local variables</li>
 </ol>
+-->
 
-<p>I find the below example to be helpful, use your own if you would like. The drawback is it uses <code>puts</code> which confuses the issue of using explicit <code>return</code>.</p>
+<p>I find the example below to be helpful, or use your own if you would like. The drawback is that it uses <code>puts</code> which confuses the issue of using explicit <code>return</code>.</p>
 
-<p>Ask the kids to give you the steps for making pie</p>
+<p>Ask the students to give you the steps for making pie:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -786,7 +779,7 @@ For some talking points to cover see <a href="">here.</a></p>
 </span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;fourth: let cool, then enjoy&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>Now if we wanted to make our pie logic dynamic so that we could make any type of fruit pie would use variables.  Our new variables would be fruit, oven_temp, and cook_time</p>
+<p>Now if we wanted to make our pie logic dynamic so that we could make any type of fruit pie, we would use variables.Our new variables would be fruit, oven_temp, and cook_time.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -810,7 +803,7 @@ For some talking points to cover see <a href="">here.</a></p>
 </span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;fourth: let cool, then enjoy&quot;</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>Now, to wrap our pie making into a method</p>
+<p>Now, to wrap our pie making into a method:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -856,9 +849,9 @@ For some talking points to cover see <a href="">here.</a></p>
 </span><span class='line'><span class="n">make_into_letters</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span> <span class="c1">#=&gt; [&quot;d&quot;, &quot;o&quot;, &quot;g&quot;]</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<h3>Step 3: Wrap the encryptor logic up into methods</h3>
+<h3>Step 3: Wrap the encryptor logic in methods</h3>
 
-<p>Our current logic for the encryption hash</p>
+<p>Our current logic for the encryption hash:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -900,7 +893,7 @@ For some talking points to cover see <a href="">here.</a></p>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>Copy and paste into irb to demo</p>
+<p>Copy and paste into irb to demo.</p>
 
 <div class="window">
           <nav class="control-window">
@@ -917,7 +910,7 @@ For some talking points to cover see <a href="">here.</a></p>
 </pre></td><td class='code'><pre><code><span class='line output'>encryption(3)</span><span class='line output'>#=> {"a"=>"d", "b"=>"e", "c"=>"f", "d"=>"g", "e"=>"h", "f"=>"i",</span><span class='line output'>"g"=>"j", "h"=>"k", "i"=>"l", "j"=>"m", "k"=>"n", "l"=>"o", "m"=>"p",</span><span class='line output'>"n"=>"q", "o"=>"r", "p"=>"s", "q"=>"t", "r"=>"u", "s"=>"v", "t"=>"w",</span><span class='line output'>"u"=>"x", "v"=>"y", "w"=>"z", "x"=>"a", "y"=>"b", "z"=>"c"}</span></code></pre></td></tr></table></div></div>
         </div>
 
-<p>Work through the encrypt and decrypt logic with the kids. Outline the goals with pseudocode</p>
+<p>Work through the encrypt and decrypt logic with the students. Outline the goals with pseudocode.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -939,7 +932,7 @@ For some talking points to cover see <a href="">here.</a></p>
 </span><span class='line'><span class="c1">#wrap the comparison logic for a decryption being successful in a method called decryption_successful? that takes the original word and decrypted word as arguments</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>Allow the kids until the end of the pomodoro to work through these steps.  Their code should look similar to the following&hellip;</p>
+<p>Allow the students until the end of the pomodoro to work through these steps.  Their code should look similar to the following&hellip;</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -1047,7 +1040,7 @@ For some talking points to cover see <a href="">here.</a></p>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>Now to run the program now&hellip;</p>
+<p>Now to run the program&hellip;</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -1108,7 +1101,7 @@ For some talking points to cover see <a href="">here.</a></p>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#save the value of the sting given to you as secret_word</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#save the value of the string given to you as secret_word</span>
 </span><span class='line'>
 </span><span class='line'><span class="c1">#create a range of numbers from 0 to 22 and store as an array</span>
 </span><span class='line'>
@@ -1153,7 +1146,7 @@ For some talking points to cover see <a href="">here.</a></p>
 
 <h3>Step 3: Refactor to use the decryption_engine method</h3>
 
-<p>Now, have them wrap up this decryptin logic into a new method</p>
+<p>Now, have them wrap up this decryption logic into a new method:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
