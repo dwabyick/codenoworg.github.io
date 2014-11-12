@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
+
+<head>
+
+<meta charset="utf-8">
+
+<title>Arrays - CodeNow Curriculum</title>
+
+<meta name="author" content="CodeNowOrg">
+<meta name="description" content="learn about arrays">
+
+<!-- http://t.co/dKP3o1e -->
+
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="canonical" href="http://CodeNowOrg.github.io/projects/building_blocks/arrays.html">
+
+<link href="/favicon.png" rel="icon">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="/atom.xml" rel="alternate" title="CodeNow Curriculum" type="application/atom+xml">
+
+<script src="/javascripts/modernizr-2.0.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+<script src="/javascripts/octopress.js" type="text/javascript"></script>
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<header role="banner">
+<hgroup>
+<h1><a href="/">CodeNow Curriculum</a></h1>
+<h2>A guide to teaching a CodeNow class.</h2>
+</hgroup>
+</header>
+
+<nav role="navigation">
+
+<ul class="subscription" data-subscription="rss">
+<li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+</ul>
+
+<form action="http://google.com/search" method="get">
+
+<fieldset role="search">
+<input type="hidden" name="q" value="site:CodeNowOrg.github.io" />
+<input class="search" type="text" name="q" results="0" placeholder="Search"/>
+</fieldset>
+
+</form>
+
+<ul class="main-navigation">
+<li><a href="/">Curriculum Index</a></li>
+</ul>
+
+</nav>
+
+<div id="main">
+
+<div id="content">
+
+<div>
+
+<article role="article">
+
+<header>
+
+<h1 class="entry-title">Arrays</h1>
+
+</header>
+
+<p>An array holds a collection of items. You can think of it as a list. In Ruby, the types of items in the array is not important. For example, a 3 item array can hold an integer, a string, and another array. The order of items may or may not be important.
+
+<p>Arrays are zero-indexed. Its elements can be accessed by using the bracket operators [n], where n is the index or position of the element we are trying to access. Since this is an introductory workshop, do not worry about this too much. Often convenience methods, such as “first”, “last”, and “sample” are used to access the elements of an array.</p>
+
+<p>In addition, arrays have other methods we can use to find out different things such as "length", "size", "include?", and "empty?".</p>
+
+<p>Finally, iterating through an array is something that is commonly done. Iterating through an array is, basically, accesing each element in the array and doing something with it, such as printing it to the screen. To do this, we use the "each" iterator.</p>
+
+<p>Here is an example: names_array.each do |name| puts name end. We can read this stament as "for each name in names_array print the name to the screen".</p>
+
+<p>In essence, the "each" iterator is a special kind of method that behaves like a loop.</p>
+
+<!--
+<p>Try the following in irb:</p> 
+<ul>
+<li><code>my_numbers_array = [1,2,3,4]</code></li>
+<li><code>my_numbers_array.lenght</code></li>
+<li><code>my_numbers_array[0]</code></li>
+<li><code>my_numbers_array.first</code></li>
+<li><code>my_numbers_array.sample</code> Try this last command several times</li>
+</ul>
+<ul>
+<li><code>my_words_array = ["codenow","Ruby","programming","fun","friends"]</code></li>
+<li><code>my_words_array.lenght</code></li>
+<li><code>my_words_array[4]</code></li>
+<li><code>my_words_array.last</code></li>
+<li><code>my_words_array.sample</code> Try this last command several times</li>
+</ul>
+<ul>
+<li><code>my_anything_array = [1,2,3,4,"codenow","Ruby","programming","fun","friends", [5,6,7,8,9,10]]</code></li>
+<li><code>my_anything_array.lenght</code></li>
+<li><code>my_anything_array[0]</code></li>
+<li><code>my_anything_array.first</code></li>
+<li><code>my_anything_array[9]</code></li>
+<li><code>my_anything_array.last</code></li>
+<li><code>my_anything_array[9][0]</code></li>
+<li><code>my_anything_array.sample</code> Try this last command several times</li>
+</ul>
+-->
+<footer>
+
+<div class="sharing">
+</div>
+
+</footer>
+  
+</article>
+
+</div>
+
+<span class="toggle-sidebar"></span>
+
+<aside class="sidebar">
+ <div> </div>
+</aside>
+
+<script src="/javascripts/sidebar.js" type="text/javascript"> </script>
+
+</div>
+</div>
+
+<footer role="contentinfo">
+
+<p>
+ Copyright &copy; 2014 - CodeNowOrg -
+ <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+
+<script>
+ //Super secure password protection version 42.93438
+ //Ryan wanted a password protection so that students can't just go on the
+ //curriculum page and read the answers. Unfortunately we're hosting things
+ //on github right now, so we can't do any form of real password protection :(
+ //But basic Javascript is enough for now.
+ //
+ //If you are a student and you figure this out...rock on!
+ function getCookie(needleCookie){
+   var cookies = document.cookie.split(';');
+   for (var i = 0; i < cookies.length; i++){
+     var cookie = cookies[i];
+     var cookieName = cookie.split('=')[0];
+     var cookieValue = cookie.split('=')[1];
+     if (cookieName == needleCookie){
+       return cookieValue;
+     }
+   }
+   return null;
+ }
+ //constants
+ var SECONDS = 1 * 1000;
+ var MINUTES = 60 * SECONDS;
+ var HOURS = 60 * MINUTES;
+ var DAYS = 24 * HOURS;
+ var AUTH_COOKIE = 'authed-v1'
+ //configuration
+ var cooloff_time = 1 * HOURS;
+ //
+ var d = new Date();
+ d.setTime(d.getTime() + cooloff_time);
+ cookie_expiry = "expires=" + d.toGMTString()
+ if ( getCookie(AUTH_COOKIE) != 'true' ){
+    window.document.body.style.display = 'none';
+    var password = prompt("Password?");
+   if ( btoa(password) == 'YzBkZW4wdyExMjQ=' ){
+      window.document.body.style.display = 'block';
+      document.cookie = AUTH_COOKIE + '=true; ' + cookie_expiry;
+   } else {
+     alert('Wrong password.');
+   }
+ }
+</script>
+
+
+</footer>
+
+</body>
+</html>
