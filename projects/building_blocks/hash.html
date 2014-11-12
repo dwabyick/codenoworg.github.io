@@ -9,7 +9,7 @@
 
 <meta charset="utf-8">
 
-<title>Arrays - CodeNow Curriculum</title>
+<title>Hashes - CodeNow Curriculum</title>
 
 <meta name="author" content="CodeNowOrg">
 <meta name="description" content="learn about arrays">
@@ -79,21 +79,22 @@
 
 <header>
 
-<h1 class="entry-title">Arrays</h1>
+<h1 class="entry-title">Hashes</h1>
 
 </header>
 
-<p>An array holds a collection of items. You can think of it as a list. In Ruby, the types of items in the array is not important. For example, a 3 item array can hold an integer, a string, and another array. The order of items may or may not be important.
+explain key / value store
+get/set values from a hash
+stick with only showing strings as keys
+show that it’s possible to store an array or another hash as a value
 
-<p>Arrays are zero-indexed. Its elements can be accessed by using the bracket operators [n], where n is the index or position of the element we are trying to access. Since this is an introductory workshop, do not worry about this too much. Often convenience methods, such as “first”, “last”, and “sample” are used to access the elements of an array.</p>
+<p>A hash like an array holds a collection of items. However, unlike an array, each item in a hash is a pair that includes a key and an associated value. For example, we could have an array of names that includes the name "Ana". Using a hash, we could also store Ana's phone number as "Ana, 123-456-7890", where "Ana" is the key and Ana's number, "123-456-7890", is the associated value.</p>
 
-<p>In addition, arrays have other methods we can use to find out different things such as "length", "size", "include?", and "empty?".</p>
+<p>For example, our hash could look like this: address_book = {"Ana" => "123-456-7890", "Tom" => "555-673-9854", "Felix" => "123-555-5777"}</p>
 
-<p>Finally, iterating through an array is something that is commonly done. Iterating through an array is, basically, accesing each element in the array and doing something with it, such as printing it to the screen. To do this, we use the "each" iterator.</p>
+<p>To get Ana's number we would write: number = address_book["Ana"]</p>
 
-<p>Here is an example: names_array.each do |name| puts name end. We can read this stament as "for each name in names_array print the name to the screen".</p>
-
-<p>In essence, the "each" iterator is a special kind of method that behaves like a loop.</p>
+<p>Try it in irb!</p>
 
 <!--
 <p>Try the following in irb:</p> 
