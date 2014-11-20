@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Hangman - CodeNow Curriculum</title>
+  <meta name="author" content="CodeNowOrg">
+
+  
+  <meta name="description" content="Hangman In this project, students will learn how to build a basic hangman game in the terminal. The game starts by asking the player to type a word &hellip;">
+  
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://CodeNowOrg.github.io/projects/hangman.html">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="CodeNow Curriculum" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body>
+
+  <header role="banner">
+    <hgroup>
+      <h1><a href="/">CodeNow Curriculum</a></h1>
+      <h2>A guide to teaching a CodeNow class.</h2>
+    </hgroup>
+  </header>
+
+  <nav role="navigation">
+
+    <ul class="subscription" data-subscription="rss">
+      <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+    </ul>
+  
+    <form action="http://google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:CodeNowOrg.github.io" />
+        <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+  
+    <ul class="main-navigation">
+      <li><a href="/">Curriculum Index</a></li>
+    </ul>
+
+  </nav>
+
+  <div id="main">
+    <div id="content">
+      <div>
+  
+  <article role="article">
+    
+    <header><h1 class="entry-title">Hangman</h1>  </header>
+    
+    <p>In this project, students will learn how to build a basic hangman game in the terminal.</p>
+
+    <p>The game starts by asking a first player to type a word to guess. A second player plays the game by typing a letter. The computer tells the player whether the letter is in the word or not, and displays 1) the right letters guessed so far and 2) the wrong letters guessed so far. The game ends after the second player runs out of tries or guesses the complete word.</p>
+
+    <p>Learning Goals:</p>
+
+    <ul>
+      <li>Practice the use of conditionals</li>
+      <li>Practice the use of arrays</li>
+      <li>Practice the use of iteration</li>
+      <li>Review a couple string methods</li>
+      <li>A small dip into defining our own methods</li>
+    </ul>
+
+    <p><img class="center" src="/images/projects/hangman/hangman.png"></p>
+
+  <h2>Step 1: Up & running</h2>
+
+    <p>Let&rsquo;s create a <code>hangman.rb</code> file in the CodeNow directory.</p>
+
+    <p>Work together with the group to first write pseudocode for the game. See <a href="/projects/building_blocks/pseudocode.html">here</a> for key concepts you want to touch on.</p>
+
+    <ol>
+      <li>As a group discuss what actions need to happen during the game and when should they take place.</li> 
+      <li>Explain that the computer runs code sequentially, starting from the first line of the program and ending at the last line.</li>
+      <li>As a group, come up with the first two to three lines of pseudocode.</li>
+      <li>Ask the students to continue the discussion with their partners and complete their pseudocode</li>
+    </ol>
+
+    <p>Have the students run the program to prove that the computer does not execute comments.</p>
+
+    <p>This is roughly what the pseudocode should look like:</p>
+
+    <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers">
+    <span class='line-number'>1</span>
+    <span class='line-number'>2</span>
+    <span class='line-number'>3</span>
+    <span class='line-number'>4</span>
+    <span class='line-number'>5</span>
+    <span class='line-number'>6</span>
+    <span class='line-number'>7</span>
+    <span class='line-number'>8</span>
+    <span class='line-number'>9</span>
+    <span class='line-number'>10</span>
+    <span class='line-number'>11</span>
+    </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Computer needs to generate a secret number</span>
+    </span><span class='line'>
+    </span><span class='line'><span class="c1"># Tell the user to guess a number between 1 and 10</span>
+    </span><span class='line'>
+    </span><span class='line'><span class="c1"># User guesses a number</span>
+    </span><span class='line'>
+    </span><span class='line'><span class="c1"># If the guess was higher than the secret number print &quot;Too high!&quot;</span>
+    </span><span class='line'>
+    </span><span class='line'><span class="c1"># If the guess was lower than the secret number print &quot;Too low!&quot;</span>
+    </span><span class='line'>
+    </span><span class='line'><span class="c1"># If the guess was equal to the secret number print &quot;Congratulations!&quot;</span>
+    </span></code></pre></td></tr></table></div></figure>
+
+  <h2>Step 2: Variables and data structures</h2>
+
+    <p>Next, let&rsquo;s write the code that will setup the variables used for our game. We&rsquo;ll keep track of the number of tries the player has left as an integer. We&rsquo;ll also keep track of the letters guessed in an array. 
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;===========&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;  HANGMAN  &quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;===========&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#The number of tries the player gets.</span>
+</span><span class='line'><span class="n">num_tries</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#This array will hold the letters</span>
+</span><span class='line'><span class="c1">#already guessed.</span>
+</span><span class='line'><span class="n">letters_guessed</span> <span class="o">=</span> <span class="o">[]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+  <h2>Step 3: What word are we guessing?</h2>
+
+<p>We also want to have a string that will represent the state of the word being guessed. Initially, it will be all underscores (&ldquo;_&rdquo;); it will get progressively filled out as the player unveils the word. For example, as the word &ldquo;code&rdquo; gets guessed:</p>
+
+<div class="window">
+          <nav class="control-window">
+            <a href="#finder" class="close" data-rel="close">close</a>
+            <a href="#" class="minimize">minimize</a>
+            <a href="#" class="deactivate">deactivate</a>
+          </nav>
+          <h1 class="titleInside">Terminal</h1>
+          <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+<span class='line-number'>&nbsp;</span>
+</pre></td><td class='code'><pre><code><span class='line output'>____</span><span class='line output'>c___</span><span class='line output'>c__e</span><span class='line output'>c_de</span><span class='line output'>code</span></code></pre></td></tr></table></div></div>
+        </div>
+
+/span><span class='line'><span class="c1">#first let&#39;s get the word to guess</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;What&#39;s the word to guess?&quot;</span>
+</span><span class='line'><span class="n">word_to_guess</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+
+<p>To do this, we need to do three things:
+&ndash; prompt player 1 for the word to guess and store it as a string.
+&ndash; get the length of the word to guess
+&ndash; create a string with that many underscores (&ldquo;_&rdquo;) in it.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#first let&#39;s get the word to guess</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;What&#39;s the word to guess?&quot;</span>
+</span><span class='line'><span class="n">word_to_guess</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>If they haven&rsquo;t seen it, show the students the .length method:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="s2">&quot;codenow&quot;</span><span class="o">.</span><span class="n">length</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>If they haven&rsquo;t seen it, show the students the * operator on strings:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="s2">&quot;codenow&quot;</span> <span class="o">*</span> <span class="mi">12</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<p>With those two tools in hand, we can now generate the string we want:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#This string will display the progress of the player</span>
+</span><span class='line'><span class="c1">#Hidden letters will be replaced by &quot;_&quot;.</span>
+</span><span class='line'><span class="n">word_progress</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span> <span class="o">*</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">length</span>
+</span></code></pre></td></tr></table></div></figure>
+
+<h2>Step 4: The main loop</h2>
+
+<p>The main loop, will repeat the core game mechanic (asking the player for a letter) until we hit a <em>losing condition</em> or a <em>winning condition</em>. Work with the students to figure out what those are: either running out of tries (lose), or guessing the word (win).</p>
+
+<p>The first one is easy:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">begin</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="n">num_tries</span> <span class="o">&gt;</span> <span class="mi">0</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The second one can be achieved in several ways; use this opportunity to show that there is never just one right answer in programming. Our preferred way is to check whether there are any underscores in <code>word_progress</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">begin</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="n">num_tries</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">word_progress</span><span class="o">.</span><span class="n">include?</span> <span class="s1">&#39;_&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Two things here:</p>
+
+<ul>
+<li>Introduce the students to the fairly straightforward <code>include?</code> method on strings</li>
+<li>Work with the students to make sure they understand why we&rsquo;re using the <code>and</code> operator (and not <code>or</code>, for instance)</li>
+</ul>
+
+
+<p>Now let&rsquo;s put the basic stuff in our game loop:</p>
+
+<ul>
+<li>Showing the player their progress so far</li>
+<li>Telling the player how many tries they have left</li>
+<li>Show the letters guessed so far</li>
+<li>Ask for a letter</li>
+<li>Add the letter guessed to the array of letters guessed.</li>
+</ul>
+
+
+<p>This is all basic stuff that the students should be comfortable with (they might need a little refresher on <code>&lt;&lt;</code> ):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#Our main loop!</span>
+</span><span class='line'><span class="k">begin</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#Let&#39;s show the player their progress and how many</span>
+</span><span class='line'><span class="c1">#tries they have left</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Word progress so far: </span><span class="si">#{</span><span class="n">word_progress</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">num_tries</span><span class="si">}</span><span class="s2"> tries left.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Letters guessed so far: </span><span class="si">#{</span><span class="n">letters_guessed</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#Get their guess</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Enter a letter:&quot;</span>
+</span><span class='line'><span class="n">letter</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#add the letter just guessed to the list of letters guessed.</span>
+</span><span class='line'><span class="n">letters_guessed</span> <span class="o">&lt;&lt;</span> <span class="n">letter</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="n">num_tries</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">word_progress</span><span class="o">.</span><span class="n">include?</span> <span class="s1">&#39;_&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Step 5: Handling player turns</h2>
+
+<p>This is the core of the hangman game: determining whether to remove a try from the player (if he guessed the letter wrong), or updating the word (if he guessed the letter right).</p>
+
+<h3>Step 5a</h3>
+
+<p>First thing first, let&rsquo;s write our full conditional block. <code>include?</code> is our friend once again:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">if</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">include?</span> <span class="n">letter</span>
+</span><span class='line'>    <span class="c1">#congratulate them</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Good guess!&quot;</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>    <span class="c1">#display a sad message</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Bummer! The letter </span><span class="si">#{</span><span class="n">letter</span><span class="si">}</span><span class="s2"> isn&#39;t in the word.&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 5b</h3>
+
+<p>Alright, now we need to fill out the missing code. Let&rsquo;s do the losing condition first, as it is shorter. We just need to remove a try from the player.</p>
+
+<p>This is all stuff the students have seen before:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">if</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">include?</span> <span class="n">letter</span>
+</span><span class='line'>    <span class="c1">#congratulate them</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Good guess!&quot;</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>    <span class="c1">#display a sad message</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Bummer! The letter </span><span class="si">#{</span><span class="n">letter</span><span class="si">}</span><span class="s2"> isn&#39;t in the word.&quot;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#remove a try.</span>
+</span><span class='line'>    <span class="n">num_tries</span> <span class="o">=</span> <span class="n">num_tries</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Step 5c</h3>
+
+<p>Now we need to fill out what happens if the player guesses the right letter. We need to replace each occurence of a &ldquo;_&rdquo; in word_progress with the letter in every place that the letter occurs.</p>
+
+<p>Explain in a high level fashion to the student that the <code>class String</code> around the method is used to tell Ruby that this method should be available for <code>String</code> objects. Our method takes a single argument: a letter.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">String</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">occurences</span><span class="p">(</span><span class="n">search_letter</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">occurences</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>        <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nb">self</span><span class="o">.</span><span class="n">each_char</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>            <span class="k">if</span> <span class="n">search_letter</span> <span class="o">==</span> <span class="n">letter</span>
+</span><span class='line'>                <span class="n">occurences</span> <span class="o">&lt;&lt;</span> <span class="n">idx</span>
+</span><span class='line'>            <span class="k">end</span>
+</span><span class='line'>            <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="n">occurences</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Great, we now have our <code>occurences</code> method! We can now use it to get an array of indexes for all occurences of the correctly guessed letter in the word to guess. We iterate over that array and replace letters the same way we replaced them before our occurences method.</p>
+
+<p>This is what we&rsquo;ll have in our &ldquo;right guess&rdquo; block:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">if</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">include?</span> <span class="n">letter</span>
+</span><span class='line'>    <span class="c1">#congratulate them</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Good guess!&quot;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#update the word progress</span>
+</span><span class='line'>    <span class="n">indexes</span> <span class="o">=</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">occurences</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">indexes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">index</span><span class="o">|</span>
+</span><span class='line'>        <span class="n">word_progress</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">letter</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>    <span class="o">[.</span><span class="n">.</span><span class="o">.]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Step 6: Endgame</h2>
+
+<p>The core of our game is programmed; now we just need to display a message depending on whether the player has won or lost.</p>
+
+<p>First, let&rsquo;s display a message indicating that the game has ended.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;END OF THE GAME!&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then we display a message for the losing condition, and a message for the winning condition. No new material here &ndash; we just have to decide which condition we&rsquo;re going to use. Again, there are several ways we can do this; here is a proposed one:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#At the end of the game, display a sad message if they ran out of tries</span>
+</span><span class='line'><span class="k">if</span> <span class="n">num_tries</span> <span class="o">==</span> <span class="mi">0</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Oh no! You ran out of tries :(&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;The word was </span><span class="si">#{</span><span class="n">word_to_guess</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="c1">#Or display a happy message if they guessed the word.</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Sweet! You guessed the word </span><span class="si">#{</span><span class="n">word_to_guess</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Of course, we could instead test for the presence of &ldquo;_&rdquo; in the guessed word to determine if the player has won or not, for example.</p>
+
+<h2>Improvements</h2>
+
+<p>Here are some extensions the students can work on if they finish early or want to spend more time on their project:</p>
+
+<ol>
+<li>Not allowing the player to play a letter already guessed</li>
+<li>Not allowing the player to type something invalid (for example a number or a full word)</li>
+<li>Displaying a real hangman ASCII drawing depending on how close the player is to being out of tries</li>
+<li>Allowing the player to set the difficulty by choosing how many tries they get.</li>
+<li>Making the difficulty automatic based on the number of letters in the word. (let the students think it through: what should be the proportion between number of tries, and length of the word?)</li>
+<li>Instead of asking the user for a word, load it randomly from an array of predefined words.</li>
+<li>If you have extra time, expound on 6. by showing the students how to read from a file, and load a random word from a dictionary file.</li>
+</ol>
+
+<h2>Finished code</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">String</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">occurences</span><span class="p">(</span><span class="n">search_letter</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">occurences</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>        <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="nb">self</span><span class="o">.</span><span class="n">each_char</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
+</span><span class='line'>            <span class="k">if</span> <span class="n">search_letter</span> <span class="o">==</span> <span class="n">letter</span>
+</span><span class='line'>                <span class="n">occurences</span> <span class="o">&lt;&lt;</span> <span class="n">idx</span>
+</span><span class='line'>            <span class="k">end</span>
+</span><span class='line'>            <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="k">return</span> <span class="n">occurences</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;===========&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;  HANGMAN  &quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;===========&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#first let&#39;s get the word to guess</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;What&#39;s the word to guess?&quot;</span>
+</span><span class='line'><span class="n">word_to_guess</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#The number of tries the player gets.</span>
+</span><span class='line'><span class="n">num_tries</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#This array will hold the letters</span>
+</span><span class='line'><span class="c1">#already guessed.</span>
+</span><span class='line'><span class="n">letters_guessed</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#This string will display the progress of the player</span>
+</span><span class='line'><span class="c1">#Hidden letters will be replaced by &quot;_&quot;.</span>
+</span><span class='line'><span class="n">word_progress</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span> <span class="o">*</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">length</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#Our main loop!</span>
+</span><span class='line'><span class="k">begin</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#Let&#39;s show the player their progress and how many</span>
+</span><span class='line'><span class="c1">#tries they have left</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Word progress so far: </span><span class="si">#{</span><span class="n">word_progress</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">num_tries</span><span class="si">}</span><span class="s2"> tries left.&quot;</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Letters guessed so far: </span><span class="si">#{</span><span class="n">letters_guessed</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#Get their guess</span>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Enter a letter:&quot;</span>
+</span><span class='line'><span class="n">letter</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#add the letter just guessed to the list of letters guessed.</span>
+</span><span class='line'><span class="n">letters_guessed</span> <span class="o">&lt;&lt;</span> <span class="n">letter</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#if the letter is in the word...</span>
+</span><span class='line'><span class="k">if</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">include?</span> <span class="n">letter</span>
+</span><span class='line'>    <span class="c1">#congratulate them</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Good guess!&quot;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">#update the word progress</span>
+</span><span class='line'>    <span class="n">indexes</span> <span class="o">=</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">occurences</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">indexes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">index</span><span class="o">|</span>
+</span><span class='line'>        <span class="n">word_progress</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">letter</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#if the letter isn&#39;t the word...</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>    <span class="c1">#display a sad message</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Bummer! The letter </span><span class="si">#{</span><span class="n">letter</span><span class="si">}</span><span class="s2"> isn&#39;t in the word.&quot;</span>
+</span><span class='line'>    <span class="c1">#remove a try.</span>
+</span><span class='line'>    <span class="n">num_tries</span> <span class="o">=</span> <span class="n">num_tries</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#keep going until there are no tries left or the word isn&#39;t fully guessed</span>
+</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="n">num_tries</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">word_progress</span><span class="o">.</span><span class="n">include?</span> <span class="s1">&#39;_&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;END OF THE GAME!&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#At the end of the game, display a sad message if they ran out of tries</span>
+</span><span class='line'><span class="k">if</span> <span class="n">num_tries</span> <span class="o">==</span> <span class="mi">0</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Oh no! You ran out of tries :(&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;The word was </span><span class="si">#{</span><span class="n">word_to_guess</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="c1">#Or display a happy message if they guessed the word.</span>
+</span><span class='line'><span class="k">else</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Sweet! You guessed the word </span><span class="si">#{</span><span class="n">word_to_guess</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+    
+      <footer>
+        
+        
+          <div class="sharing">
+  
+  
+  
+</div>
+
+        
+      </footer>
+    
+  </article>
+
+
+</div>
+
+
+  <span class="toggle-sidebar"></span>
+
+<aside class="sidebar">
+  <div> </div>
+</aside>
+
+<script src="/javascripts/sidebar.js" type="text/javascript"> </script>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - CodeNowOrg -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+<script>
+  //Super secure password protection version 42.93438
+  //Ryan wanted a password protection so that students can't just go on the
+  //curriculum page and read the answers. Unfortunately we're hosting things
+  //on github right now, so we can't do any form of real password protection :(
+  //But basic Javascript is enough for now.
+  //
+  //If you are a student and you figure this out...rock on!
+  if (! document.cookie){
+     window.document.body.style.display = 'none';
+     var password = prompt("Password?");
+  }
+  if ( btoa(password) == 'Y29kZW5vdzMyMQ==' ){
+     window.document.body.style.display = 'block';
+     document.cookie = 'authed=true; expires=31 Dec 2020 00:00:00 GMT';
+  }
+</script>
+
+</footer>
+  
+
+</body>
+</html>
