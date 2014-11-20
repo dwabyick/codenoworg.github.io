@@ -28,8 +28,6 @@
   <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
-  
-
 </head>
 
 <body>
@@ -70,7 +68,7 @@
     
     <p>In this project, students will learn how to build a basic hangman game in the terminal.</p>
 
-    <p>The game starts by asking a first player to type a word to guess. A second player plays the game by typing a letter. The computer tells the player whether the letter is in the word or not, and displays 1) the right letters guessed so far and 2) the wrong letters guessed so far. The game ends after the second player runs out of tries or guesses the complete word.</p>
+    <p>The game starts by asking a first player to type a word to guess. A second player plays the game by typing a letter. The computer tells player 2 whether the letter is in the word or not, and displays 1) the right letters guessed so far and 2) the wrong letters guessed so far. The game ends after the second player runs out of tries or guesses the complete word.</p>
 
     <p>Learning Goals:</p>
 
@@ -88,7 +86,7 @@
 
     <p>Let&rsquo;s create a <code>hangman.rb</code> file in the CodeNow directory.</p>
 
-    <p>Work together with the group to first write pseudocode for the game. See <a href="/projects/building_blocks/pseudocode.html">here</a> for key concepts you want to touch on.</p>
+    <p>Next, work together with the group to first write pseudocode for the game. See <a href="/projects/building_blocks/pseudocode.html">here</a> for key concepts you want to touch on.</p>
 
     <ol>
       <li>As a group discuss what actions need to happen during the game and when should they take place.</li> 
@@ -97,6 +95,7 @@
       <li>Ask the students to continue the discussion with their partners and complete their pseudocode</li>
     </ol>
 
+<!--
     <p>Have the students run the program to prove that the computer does not execute comments.</p>
 
     <p>This is roughly what the pseudocode should look like:</p>
@@ -125,7 +124,7 @@
     </span><span class='line'>
     </span><span class='line'><span class="c1"># If the guess was equal to the secret number print &quot;Congratulations!&quot;</span>
     </span></code></pre></td></tr></table></div></figure>
-
+-->
   <h2>Step 2: Variables and data structures</h2>
 
     <p>Next, let&rsquo;s write the code that will setup the variables used for our game. We&rsquo;ll keep track of the number of tries the player has left as an integer. We&rsquo;ll also keep track of the letters guessed in an array. 
@@ -170,11 +169,6 @@
 <span class='line-number'>&nbsp;</span>
 </pre></td><td class='code'><pre><code><span class='line output'>____</span><span class='line output'>c___</span><span class='line output'>c__e</span><span class='line output'>c_de</span><span class='line output'>code</span></code></pre></td></tr></table></div></div>
         </div>
-
-/span><span class='line'><span class="c1">#first let&#39;s get the word to guess</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;What&#39;s the word to guess?&quot;</span>
-</span><span class='line'><span class="n">word_to_guess</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
-</span><span class='line'>
 
 <p>To do this, we need to do three things:
 &ndash; prompt player 1 for the word to guess and store it as a string.
