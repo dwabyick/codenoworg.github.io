@@ -230,7 +230,7 @@
 
 <h2>Step 4: The main loop</h2>
 
-<p>The main loop, will repeat the core game mechanic (asking the player for a letter) until we hit a <em>losing condition</em> or a <em>winning condition</em>. Work with the students to figure out what those are: either running out of tries (lose), or guessing the word (win).</p>
+<p>The main loop, will repeat the core game mechanics (asking the player for a letter) until we hit a <em>losing condition</em> or a <em>winning condition</em>. Work with the students to figure out what those are: either running out of tries (lose), or guessing the word (win).</p>
 
 <p>The first one is easy:</p>
 
@@ -271,9 +271,6 @@
 <li>Ask for a letter</li>
 <li>Add the letter guessed to the array of letters guessed.</li>
 </ul>
-
-
-<p>This is all basic stuff that the students should be comfortable with (they might need a little refresher on <code>&lt;&lt;</code> ):</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -336,12 +333,9 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
 <h3>Step 5b</h3>
 
 <p>Alright, now we need to fill out the missing code. Let&rsquo;s do the losing condition first, as it is shorter. We just need to remove a try from the player.</p>
-
-<p>This is all stuff the students have seen before:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -370,7 +364,7 @@
 
 <p>Now we need to fill out what happens if the player guesses the right letter. We need to replace each occurence of a &ldquo;_&rdquo; in word_progress with the letter in every place that the letter occurs.</p>
 
-<p>Explain in a high level fashion to the student that the <code>class String</code> around the method is used to tell Ruby that this method should be available for <code>String</code> objects. Our method takes a single argument: a letter.</p>
+<p>To do this we are going to define an <code>occurences</code> method. Since this is an introductory workshop, students will not actually be defining this method on their own. Rather, they should just write the following code at the top of their file.
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -404,8 +398,13 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
+<p>After students are doing typing this code, talk in a high level fashion to the students about methods and the use for defining our own methods. 
 
-<p>Great, we now have our <code>occurences</code> method! We can now use it to get an array of indexes for all occurences of the correctly guessed letter in the word to guess. We iterate over that array and replace letters the same way we replaced them before our occurences method.</p>
+Explain also, again at a high level fashion, what this methodd does:
+The <code>class String</code> around the method is used to tell Ruby that this method should be available for <code>String</code> objects.
+The method takes a single argument: a letter.</p>
+The method returns an array of indexes for all occurences of the correctly guessed letter in the word to guess. 
+We can now use this array of indexes to iterate over the array that represents the state of the word being guessed and replace underscores with letters.</p>
 
 <p>This is what we&rsquo;ll have in our &ldquo;right guess&rdquo; block:</p>
 
@@ -436,7 +435,6 @@
 </span><span class='line'>    <span class="o">[.</span><span class="n">.</span><span class="o">.]</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
-
 
 <h2>Step 6: Endgame</h2>
 
