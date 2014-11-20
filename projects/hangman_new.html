@@ -68,7 +68,7 @@
     
     <p>In this project, students will learn how to build a basic hangman game in the terminal.</p>
 
-    <p>The game starts by asking a first player to type a word to guess. A second player plays the game by typing a letter. The computer tells player 2 whether the letter is in the word or not, and displays 1) the right letters guessed so far and 2) the wrong letters guessed so far. The game ends after the second player runs out of tries or guesses the complete word.</p>
+    <p>The game starts by asking a player 1 to type a word to guess. A second player plays the game by typing a letter. The computer tells player 2 whether the letter is in the word or not, and displays 1) the right letters guessed so far and 2) the wrong letters guessed so far. The game ends after player 2 runs out of tries or guesses the complete word.</p>
 
     <p>Learning Goals:</p>
 
@@ -77,7 +77,7 @@
       <li>Practice the use of arrays</li>
       <li>Practice the use of iteration</li>
       <li>Review a couple string methods</li>
-      <li>A small dip into defining our own methods</li>
+      <li>A small dip into defining methods</li>
     </ul>
 
     <p><img class="center" src="/images/projects/hangman/hangman.png"></p>
@@ -398,14 +398,15 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>After students are doing typing this code, talk in a high level fashion to the students about methods and the use for defining our own methods. 
+<p>After students are done typing this code, talk in a high level fashion to the students about methods and the use for defining our own methods. 
 
 Explain also, again at a high level fashion, what this methodd does:
-The <code>class String</code> around the method is used to tell Ruby that this method should be available for <code>String</code> objects.
-The method takes a single argument: a letter.</p>
-The method returns an array of indexes for all occurences of the correctly guessed letter in the word to guess. 
-We can now use this array of indexes to iterate over the array that represents the state of the word being guessed and replace underscores with letters.</p>
-
+<ul>
+<li>The <code>class String</code> around the method is used to tell Ruby that this method should be available for <code>String</code> objects.</li>
+<li>The method takes a single argument: a letter.</p></li>
+<li>The method returns an array of indexes for all occurences of the correctly guessed letter in the word to guess.</li>
+<li>We can now use this array of indexes to iterate over the array that represents the state of the word being guessed and replace &ldquo;_&rdquo; with the correct letter.</p></li>
+</ul>
 <p>This is what we&rsquo;ll have in our &ldquo;right guess&rdquo; block:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
