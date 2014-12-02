@@ -473,193 +473,21 @@ Explain also, again at a high level fashion, what this method does:
 
 <p>See the finished code <a href="/projects/hangman_finished_code.html">here</a></p>
 
-<h2>Improvements</h2>
+<h2>Add-on's</h2>
 
 <p>Here are some extensions the students can work on if they finish early or want to spend more time on their project:</p>
 
 <ol>
 <li>Not allowing the player to play a letter already guessed</li>
 <li>Not allowing the player to type something invalid (for example a number or a full word)</li>
-<li>Displaying a real hangman ASCII drawing depending on how close the player is to being out of tries</li>
 <li>Allowing the player to set the difficulty by choosing how many tries they get.</li>
 <li>Making the difficulty automatic based on the number of letters in the word. (let the students think it through: what should be the proportion between number of tries, and length of the word?)</li>
 <li>Instead of asking the user for a word, load it randomly from an array of predefined words.</li>
-<li>If you have extra time, expound on 6. by showing the students how to read from a file, and load a random word from a dictionary file.</li>
+<li>Displaying a real hangman ASCII drawing depending on how close the player is to being out of tries</li>
+<li>Go back to their hi-lo and rock, paper, scissors games and add loops.</li>
 </ol>
 
-<!--
-<h2>Finished code</h2>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">String</span>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">occurences</span><span class="p">(</span><span class="n">search_letter</span><span class="p">)</span>
-</span><span class='line'>        <span class="n">occurences</span> <span class="o">=</span> <span class="o">[]</span>
-</span><span class='line'>        <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="nb">self</span><span class="o">.</span><span class="n">each_char</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
-</span><span class='line'>            <span class="k">if</span> <span class="n">search_letter</span> <span class="o">==</span> <span class="n">letter</span>
-</span><span class='line'>                <span class="n">occurences</span> <span class="o">&lt;&lt;</span> <span class="n">idx</span>
-</span><span class='line'>            <span class="k">end</span>
-</span><span class='line'>            <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span class='line'>        <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="n">occurences</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;===========&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;  HANGMAN  &quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;===========&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#first let&#39;s get the word to guess</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;What&#39;s the word to guess?&quot;</span>
-</span><span class='line'><span class="n">word_to_guess</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#The number of tries the player gets.</span>
-</span><span class='line'><span class="n">num_tries</span> <span class="o">=</span> <span class="mi">10</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#This array will hold the letters</span>
-</span><span class='line'><span class="c1">#already guessed.</span>
-</span><span class='line'><span class="n">letters_guessed</span> <span class="o">=</span> <span class="o">[]</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#This string will display the progress of the player</span>
-</span><span class='line'><span class="c1">#Hidden letters will be replaced by &quot;_&quot;.</span>
-</span><span class='line'><span class="n">word_progress</span> <span class="o">=</span> <span class="s2">&quot;_&quot;</span> <span class="o">*</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">length</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#Our main loop!</span>
-</span><span class='line'><span class="k">begin</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#Let&#39;s show the player their progress and how many</span>
-</span><span class='line'><span class="c1">#tries they have left</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Word progress so far: </span><span class="si">#{</span><span class="n">word_progress</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">num_tries</span><span class="si">}</span><span class="s2"> tries left.&quot;</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Letters guessed so far: </span><span class="si">#{</span><span class="n">letters_guessed</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#Get their guess</span>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Enter a letter:&quot;</span>
-</span><span class='line'><span class="n">letter</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#add the letter just guessed to the list of letters guessed.</span>
-</span><span class='line'><span class="n">letters_guessed</span> <span class="o">&lt;&lt;</span> <span class="n">letter</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#if the letter is in the word...</span>
-</span><span class='line'><span class="k">if</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">include?</span> <span class="n">letter</span>
-</span><span class='line'>    <span class="c1">#congratulate them</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Good guess!&quot;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">#update the word progress</span>
-</span><span class='line'>    <span class="n">indexes</span> <span class="o">=</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">occurences</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">indexes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">index</span><span class="o">|</span>
-</span><span class='line'>        <span class="n">word_progress</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">letter</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#if the letter isn&#39;t the word...</span>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'>    <span class="c1">#display a sad message</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Bummer! The letter </span><span class="si">#{</span><span class="n">letter</span><span class="si">}</span><span class="s2"> isn&#39;t in the word.&quot;</span>
-</span><span class='line'>    <span class="c1">#remove a try.</span>
-</span><span class='line'>    <span class="n">num_tries</span> <span class="o">=</span> <span class="n">num_tries</span> <span class="o">-</span> <span class="mi">1</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#keep going until there are no tries left or the word isn&#39;t fully guessed</span>
-</span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="n">num_tries</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">word_progress</span><span class="o">.</span><span class="n">include?</span> <span class="s1">&#39;_&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nb">puts</span> <span class="s2">&quot;END OF THE GAME!&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">#At the end of the game, display a sad message if they ran out of tries</span>
-</span><span class='line'><span class="k">if</span> <span class="n">num_tries</span> <span class="o">==</span> <span class="mi">0</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Oh no! You ran out of tries :(&quot;</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;The word was </span><span class="si">#{</span><span class="n">word_to_guess</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class='line'><span class="c1">#Or display a happy message if they guessed the word.</span>
-</span><span class='line'><span class="k">else</span>
-</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Sweet! You guessed the word </span><span class="si">#{</span><span class="n">word_to_guess</span><span class="si">}</span><span class="s2">!&quot;</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
--->
 
     
       <footer>
