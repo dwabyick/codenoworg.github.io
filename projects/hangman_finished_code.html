@@ -153,18 +153,18 @@
 <span class='line-number'>83</span>
 <span class='line-number'>84</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">String</span>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">occurences</span><span class="p">(</span><span class="n">search_letter</span><span class="p">)</span>
-</span><span class='line'>        <span class="n">occurences</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">occurrences</span><span class="p">(</span><span class="n">search_letter</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">occurrences</span> <span class="o">=</span> <span class="o">[]</span>
 </span><span class='line'>        <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
 </span><span class='line'>
 </span><span class='line'>        <span class="nb">self</span><span class="o">.</span><span class="n">each_char</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
 </span><span class='line'>            <span class="k">if</span> <span class="n">search_letter</span> <span class="o">==</span> <span class="n">letter</span>
-</span><span class='line'>                <span class="n">occurences</span> <span class="o">&lt;&lt;</span> <span class="n">idx</span>
+</span><span class='line'>                <span class="n">occurrences</span> <span class="o">&lt;&lt;</span> <span class="n">idx</span>
 </span><span class='line'>            <span class="k">end</span>
 </span><span class='line'>            <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="n">occurences</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">occurrences</span>
 </span><span class='line'>    <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
@@ -209,7 +209,7 @@
 </span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Good guess!&quot;</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="c1">#update the word progress</span>
-</span><span class='line'>    <span class="n">indexes</span> <span class="o">=</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">occurences</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">indexes</span> <span class="o">=</span> <span class="n">word_to_guess</span><span class="o">.</span><span class="n">occurrences</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="n">indexes</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">index</span><span class="o">|</span>
 </span><span class='line'>        <span class="n">word_progress</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">letter</span>
