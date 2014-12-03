@@ -95,39 +95,12 @@
       <li>Ask the students to continue the discussion with their partners and complete their pseudocode</li>
     </ol>
 
-<!--
-    <p>Have the students run the program to prove that the computer does not execute comments.</p>
 
-    <p>This is roughly what the pseudocode should look like:</p>
-
-    <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers">
-    <span class='line-number'>1</span>
-    <span class='line-number'>2</span>
-    <span class='line-number'>3</span>
-    <span class='line-number'>4</span>
-    <span class='line-number'>5</span>
-    <span class='line-number'>6</span>
-    <span class='line-number'>7</span>
-    <span class='line-number'>8</span>
-    <span class='line-number'>9</span>
-    <span class='line-number'>10</span>
-    <span class='line-number'>11</span>
-    </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Computer needs to generate a secret number</span>
-    </span><span class='line'>
-    </span><span class='line'><span class="c1"># Tell the user to guess a number between 1 and 10</span>
-    </span><span class='line'>
-    </span><span class='line'><span class="c1"># User guesses a number</span>
-    </span><span class='line'>
-    </span><span class='line'><span class="c1"># If the guess was higher than the secret number print &quot;Too high!&quot;</span>
-    </span><span class='line'>
-    </span><span class='line'><span class="c1"># If the guess was lower than the secret number print &quot;Too low!&quot;</span>
-    </span><span class='line'>
-    </span><span class='line'><span class="c1"># If the guess was equal to the secret number print &quot;Congratulations!&quot;</span>
-    </span></code></pre></td></tr></table></div></figure>
--->
   <h2>Step 2: Variables and data structures</h2>
 
-    <p>Next, let&rsquo;s write the code that will setup the variables used for our game. We&rsquo;ll keep track of the number of tries the player has left as an integer. We&rsquo;ll also keep track of the letters guessed in an array. 
+    <p>Next, let&rsquo;s write the code that will setup the variables used for our game. We&rsquo;ll keep track of the number of tries the player has left as an integer. We&rsquo;ll also keep track of the letters guessed in an array.</p>
+
+<p>Review with students the concept of variables and arrays. See <a href="/projects/building_blocks/variables.html">here</a> and <a href="/projects/building_blocks/arrays.html">here</a> for key concepts you want to touch on.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -233,7 +206,7 @@
 
 <h2>Step 4: The main loop</h2>
 
-<p>The main loop, will repeat the core game mechanics (asking the player for a letter) until we hit a <em>losing condition</em> or a <em>winning condition</em>. Work with the students to figure out what those are: either running out of tries (lose), or guessing the word (win).</p>
+<p>The main loop, will repeat the core game mechanics (asking the player for a letter) until we hit a <em>losing condition</em> or a <em>winning condition</em>. Introduce students to loops (begin/end/while). See <a href="/projects/building_blocks/loops.html">here</a> for key concepts you want to touch on. Next, work with the students to figure out the losing and winning conditions are: either running out of tries (lose), or guessing the word (win).</p>
 
 <p>The first one is easy:</p>
 
@@ -320,7 +293,9 @@
 
 <h3>Step 5a</h3>
 
-<p>First thing first, let&rsquo;s write our full conditional block. <code>include?</code> is our friend once again:</p>
+<p>First thing first, let&rsquo;s write our full conditional block. <p>Review the concept of conditionals with students. See <a href="/projects/building_blocks/conditionals.html">here</a> for key concepts you want to touch on.</p>
+
+<p><code>include?</code> is our friend once again:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
