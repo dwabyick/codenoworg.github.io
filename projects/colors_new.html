@@ -74,8 +74,6 @@
 
 <p>What&rsquo;s great about this is that once the students know how to use this gem, they can use it in all of their past and future ruby programs (rock paper scissors, twitterbot, etc.) to make the output colored and less boring.</p>
 
-<p>This project is intended for beginners; however, it shouldn&rsquo;t be their first project, as it requires understanding a few programming tricks that would be hard to understand if one weren&rsquo;t comfortable with basics such as variables.</p>
-
 <p>Learning goals:</p>
 
 <ul>
@@ -87,33 +85,9 @@
 
 <h2>Step 0: Up & running</h2>
 
-<p>Let&rsquo;s create a colorize.rb file.</p>
+<p>Let&rsquo;s create a colorize.rb file in the codenow directory.</p>
 
-<div class="window">
-         <nav class="control-window">
-           <a href="#finder" class="close" data-rel="close">close</a>
-           <a href="#" class="minimize">minimize</a>
-           <a href="#" class="deactivate">deactivate</a>
-         </nav>
-         <h1 class="titleInside">Terminal</h1>
-         <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
-</pre></td><td class='code'><pre><code><span class='line output'>touch colorize.rb</span></code></pre></td></tr></table></div></div>
-       </div>
-
-<p>To open the file inside SublimeText, we can simply type the filename into the command prompt. If it has not already been set as the default text editor for ruby files, make sure you set it.</p>
-
-<div class="window">
-        <nav class="control-window">
-          <a href="#finder" class="close" data-rel="close">close</a>
-          <a href="#" class="minimize">minimize</a>
-          <a href="#" class="deactivate">deactivate</a>
-        </nav>
-        <h1 class="titleInside">Terminal</h1>
-        <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>&nbsp;</span>
-</pre></td><td class='code'><pre><code><span class='line output'>colorize.rb</span></code></pre></td></tr></table></div></div>
-      </div>
-
-<p>There are a few more things we need to do. First, we need to install the <code>colorize</code> and the <code>win32console</code> gems:</p>
+<p>Next, we need to install the <code>colorize</code> gem:</p>
 
 <div class="window">
           <nav class="control-window">
@@ -123,21 +97,18 @@
           </nav>
           <h1 class="titleInside">Terminal</h1>
           <div class="container"><div class="terminal"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>$</span>
-</pre></td><td class='code'><pre><code><span class='line command'>gem install win32console colorize</span></code></pre></td></tr></table></div></div>
+</pre></td><td class='code'><pre><code><span class='line command'>gem install colorize</span></code></pre></td></tr></table></div></div>
         </div>
 
 <p>Explain to the students what gems are: a way for programmers to share the code they&rsquo;ve written in a way that allows other programmers to reuse them. There are gems for everything: doing complicated math operations, writing games, writing websites, etc. The great thing about gems is that they&rsquo;re free to use and anyone can make them (yes &ndash; even them when they&rsquo;re a bit more advanced with Ruby!)</p>
 
-<p>Afterwards we want to <code>require</code> the gems in our colorize.rb file. It tells Ruby we want to use those gems:</p>
+<p>Afterwards we want to <code>require</code> the gem in our colorize.rb file. It tells Ruby we want to use this gem:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;colorize&#39;</span>
-</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;win32console&#39;</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p>Let&rsquo;s run the program! Of course, nothing happens. All we have done so far is tell Ruby we want the possibility to use those gems, but we haven&rsquo;t actually used them. We still want to run the program though &ndash; if the gems aren&rsquo;t installed, we&rsquo;ll get an error.</p>
+<p>Let&rsquo;s run the program! Of course, nothing happens. All we have done so far is tell Ruby we want the possibility to use the gem, but we haven&rsquo;t actually used it. We still want to run the program though &ndash; if the gem isn&rsquo;t installed, we&rsquo;ll get an error.</p>
 
 <h2>Step 1: Gems, Symbols, and Strings</h2>
 
@@ -260,108 +231,6 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<!--
-<h3>Step 2</h3>
-
-<p>Now for something a bit different: again, we&rsquo;re going to ask the user for some text, and print that text colored. This time however, we are going to alternate the colors for each letter.</p>
-
-<p><img class="center" src="/images/projects/colors/step2b.png"></p>
-
-<p>The beginning of this program is the same: we want to initialize an array of colors, and ask the user for text to print.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;What do you want to print?&quot;</span>
-</span><span class='line'><span class="n">word</span> <span class="o">=</span> <span class="nb">gets</span><span class="o">.</span><span class="n">chomp</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">colors</span> <span class="o">=</span> <span class="o">[</span><span class="ss">:green</span><span class="p">,</span> <span class="ss">:yellow</span><span class="p">,</span> <span class="ss">:blue</span><span class="p">,</span> <span class="ss">:red</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Since we want to print each character in a different color, we are going to iterate over the characters and print them one by one. Note that we use <code>print</code>, rather of <code>puts</code>; print doesn&rsquo;t insert a newline, whereas <code>puts</code> does (have the students use both to see the difference for themselves).</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">word</span><span class="o">.</span><span class="n">each_char</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
-</span><span class='line'>   <span class="nb">print</span> <span class="n">letter</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Running this prints our text on the screen, albeit in boring white- we need to add color! How can we do this?</p>
-
-<p>Walk with the students over what we want to do.</p>
-
-<ul>
-<li>What should be the color of the 0th letter? (remind them that in programming, we always start at 0)</li>
-<li>What should be the color of the 1st letter? 2nd letter?</li>
-<li>What is <code>colors[0]</code> ? <code>colors[1]</code>?</li>
-</ul>
-
-
-<p>We&rsquo;re going to do this by adding a counter, so we can keep track of how many letters we have printed and apply the appropriate color to the current letter.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">letters_printed</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">word</span><span class="o">.</span><span class="n">each_char</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
-</span><span class='line'>   <span class="nb">print</span> <span class="n">letter</span>
-</span><span class='line'>
-</span><span class='line'>   <span class="n">letters_printed</span> <span class="o">=</span> <span class="n">letters_printed</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We&rsquo;re almost there! The only remaining problem is that we can&rsquo;t just do this:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">letters_printed</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">word</span><span class="o">.</span><span class="n">each_char</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
-</span><span class='line'>   <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="o">[</span><span class="n">letters_printed</span><span class="o">]</span>
-</span><span class='line'>   <span class="nb">print</span> <span class="n">letter</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
-</span><span class='line'>   <span class="n">letters_printed</span> <span class="o">=</span> <span class="n">letters_printed</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Because if we only have 4 colors in the array, <code>colors[4]</code> won&rsquo;t work. How do we solve this problem?</p>
-
-<p>Enter the modulo! (<code>%</code>)
-If the students haven&rsquo;t done a project that uses modulo yet, introduce them to it. The modulo operation is often used in programming, when we want to &ldquo;wrap&rdquo; a value . For example, games often use the modulo for angles &ndash; turning by 500 degrees is like turning by 140 degrees because <code>500 % 360 = 140</code>. So when working with angles, we &ldquo;wrap&rdquo; them to 360 degrees because that&rsquo;s how many degrees there are in a full circle.</p>
-
-<p>Here, we want to &ldquo;wrap&rdquo; our color by how many colors there are in our <code>colors</code> array; in other words, <code>colors.length</code>.</p>
-
-<p>We can now finish our program by changing</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="o">[</span><span class="n">letters_printed</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>to</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="o">[</span> <span class="n">letters_printed</span> <span class="o">%</span> <span class="n">colors</span><span class="o">.</span><span class="n">length</span> <span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
--->
-
 <h2>Step 4: Color Reading Game: Array of colors</h2>
 
 <p>We&rsquo;re going to write a fun Ruby program to illustrate the <a href="http://en.wikipedia.org/wiki/Stroop_effect">&ldquo;Stroop Effect&rdquo;</a>. It&rsquo;s the effect that makes it hard to quickly say which color a word is if the word is of a different color. For example:</p>
@@ -376,7 +245,7 @@ If the students haven&rsquo;t done a project that uses modulo yet, introduce the
 <li>clear the screen and repeat.</li>
 </ol>
 
-<p>The first step is to setup an array with all of the colors we&rsquo;ll pick from:</p>
+<p>The first step is to <code>require</code> the colorize gem. Next, setup an array with all of the colors we&rsquo;ll pick from:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">colors</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;yellow&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="o">]</span>
@@ -450,7 +319,7 @@ Let&rsquo;s make our program wait for 1 second between each color, using <code>s
 </code></pre></td></tr></table></div></figure>
 
 
-<p>Almost there! The last thing we want is to clear the screen between each color. On Windows, we do this with <code>system("cls")</code> (on OSX/Linux, we&rsquo;d use <code>system("clear")</code>).</p>
+<p>Almost there! The last thing we want is to clear the screen between each color. Use <code>system("clear")</code>) to achieve this.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -464,7 +333,7 @@ Let&rsquo;s make our program wait for 1 second between each color, using <code>s
 <span class='line'> <span class="n">word_color </span><span class="o">= </span><span class="n">colors</span><span class="o">.</span><span class="n">sample</span></span>
 <span class='line'> <span class="nb">puts</span> <span class="n">word</span><span class="o">.</span><span class="n">colorize</span><span class="p">(</span> <span class="n">word_color</span><span class="o">.</span><span class="n">to_sym</span> <span class="p">)</span></span>
 <span class='line'> <span class="nb">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'> <span class="nb">system</span><span class="p">(</span><span class="s2">&quot;cls&quot;</span><span class="p">)</span>
+</span><span class='line'> <span class="nb">system</span><span class="p">(</span><span class="s2">&quot;clear&quot;</span><span class="p">)</span>
 </span><span class='line'><span class="k">end</span> <span class="k">while</span> <span class="mi">1</span><span class="o">==</span><span class="mi">1</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -472,18 +341,7 @@ Let&rsquo;s make our program wait for 1 second between each color, using <code>s
 
 <p><img class="center" src="/images/projects/colors/stroop.gif"></p>
 
-<h2>Step 6 &ndash; Let's review</h2>
-
-<p>Now that you have completed the base project, do a quick review of the concepts with your students.</p>
-
-<ul>
-<li>Ask students to tell you, without looking at their notes, what are the concepts they learned about in this project. Students should mention the building blocks introduced and/or reviewed in the project:
-<ul><li>program control flow, capturing and using user input (puts/gets), using variables, strings, symbols, gems, loops (begin/end/while)</li></ul></li>
-<li>If students do not mention some of the building blocks, ask them about them specifically. See <a href="/projects/building_blocks/sample_review_questions_colors.html">here</a> for sample questions.
-<li>Finally, ask students if they would like you to review any of the concepts or if they have any additional questions.</li>
-</ul>
-
-<h2>Setp 7: Add-on's</h2>
+<h2>Add-on's</h2>
 
 <p>A few ideas:</p>
 
@@ -493,7 +351,6 @@ Let&rsquo;s make our program wait for 1 second between each color, using <code>s
 <li>On top of the previous, make the word flash faster the higher the player&rsquo;s score is!</li>
 <li>Tell students to go back to their previous projects and add color!</li>
 </ol>
-
 
 <h2>Annex: available colors</h2>
 
