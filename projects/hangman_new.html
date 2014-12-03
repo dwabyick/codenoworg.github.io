@@ -246,7 +246,8 @@
 <li>Telling the player how many tries they have left</li>
 <li>Show the letters guessed so far</li>
 <li>Ask for a letter</li>
-<li>Add the letter guessed to the array of letters guessed.</li>
+<li>Add the letter guessed to the array of letters guessed. Explain to students how to the <code><<</code> method for arrays works.</li>
+<li></li>
 </ul>
 
 <p>At this time, introduce students to string interpolation</p>
@@ -379,14 +380,14 @@
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
-<p>After students are done typing this code, talk in a high level fashion to the students about methods and the use for defining our own methods. 
+<p>After students are done typing this code, talk in a high level fashion, to the students about methods and the use for defining our own methods. 
 
 Explain also, again at a high level fashion, what this method does:
 <ul>
 <li>The <code>class String</code> around the method is used to tell Ruby that this method should be available for <code>String</code> objects.</li>
 <li>The method takes a single argument: a letter.</li>
 <li>The method returns an array of indexes for all occurrences of the correctly guessed letter in the word to guess.</li>
-<li>We can now use this array of indexes to iterate over the array that represents the state of the word being guessed and replace &ldquo;_&rdquo; with the correct letter.</p></li>
+<li>We can now use this array of indexes to iterate over the array that represents the state of the word being guessed and replace &ldquo;_&rdquo; with the correct letter. Review with students the concept of iteration and the <code>.each</code> method for arrays.</p></li>
 </ul>
 <p>This is what we&rsquo;ll have in our &ldquo;right guess&rdquo; block:</p>
 
