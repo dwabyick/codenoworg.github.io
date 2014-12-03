@@ -171,9 +171,12 @@
         </div>
 
 <p>To do this, we need to do three things:
-&ndash; prompt player 1 for the word to guess and store it as a string.
-&ndash; get the length of the word to guess
-&ndash; create a string with that many underscores (&ldquo;_&rdquo;) in it.</p>
+<ol>
+  <li>prompt player 1 for the word to guess and store it as a string.</li>
+  <li>get the length of the word to guess</li>
+  <li>create a string with that many underscores (&ldquo;_&rdquo;) in it.</li>
+</ol>
+</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -272,6 +275,8 @@
 <li>Add the letter guessed to the array of letters guessed.</li>
 </ul>
 
+<p>At this time, introduce students to string interpolation</p>
+
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -362,9 +367,9 @@
 
 <h3>Step 5c</h3>
 
-<p>Now we need to fill out what happens if the player guesses the right letter. We need to replace each occurence of a &ldquo;_&rdquo; in word_progress with the letter in every place that the letter occurs.</p>
+<p>Now we need to fill out what happens if the player guesses the right letter. We need to replace each occurrence of a &ldquo;_&rdquo; in word_progress with the letter in every place that the letter occurs.</p>
 
-<p>To do this we are going to define an <code>occurences</code> method. Since this is an introductory workshop, students will not actually be defining this method on their own. Rather, they should just write the following code at the top of their file.
+<p>To do this we are going to define an <code>occurrences</code> method. Since this is an introductory workshop, students will not actually be defining this method on their own. Rather, they should just write the following code at the top of their file.
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -382,18 +387,18 @@
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">String</span>
-</span><span class='line'>    <span class="k">def</span> <span class="nf">occurences</span><span class="p">(</span><span class="n">search_letter</span><span class="p">)</span>
-</span><span class='line'>        <span class="n">occurences</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">occurrences</span><span class="p">(</span><span class="n">search_letter</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">occurrences</span> <span class="o">=</span> <span class="o">[]</span>
 </span><span class='line'>        <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
 </span><span class='line'>
 </span><span class='line'>        <span class="nb">self</span><span class="o">.</span><span class="n">each_char</span> <span class="k">do</span> <span class="o">|</span><span class="n">letter</span><span class="o">|</span>
 </span><span class='line'>            <span class="k">if</span> <span class="n">search_letter</span> <span class="o">==</span> <span class="n">letter</span>
-</span><span class='line'>                <span class="n">occurences</span> <span class="o">&lt;&lt;</span> <span class="n">idx</span>
+</span><span class='line'>                <span class="n">occurrences</span> <span class="o">&lt;&lt;</span> <span class="n">idx</span>
 </span><span class='line'>            <span class="k">end</span>
 </span><span class='line'>            <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="n">occurences</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">occurrences</span>
 </span><span class='line'>    <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -469,7 +474,7 @@ Explain also, again at a high level fashion, what this method does:
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Of course, we could instead test for the presence of &ldquo;_&rdquo; in the guessed word to determine if the player has won or not, for example.</p>
+<p>Of course, we could instead test for the presence of &ldquo;_&rdquo; in the guessed word to determine if the player has won or not.</p>
 
 <p>See the finished code <a href="/projects/hangman_finished_code.html">here</a></p>
 
@@ -483,7 +488,7 @@ Explain also, again at a high level fashion, what this method does:
 <li>Allowing the player to set the difficulty by choosing how many tries they get.</li>
 <li>Making the difficulty automatic based on the number of letters in the word. (let the students think it through: what should be the proportion between number of tries, and length of the word?)</li>
 <li>Instead of asking the user for a word, load it randomly from an array of predefined words.</li>
-<li>Displaying a real hangman ASCII drawing depending on how close the player is to being out of tries</li>
+<li>Adding another loop so the game can be played multiple times.</li>
 <li>Go back to their hi-lo and rock, paper, scissors games and add loops.</li>
 </ol>
 
